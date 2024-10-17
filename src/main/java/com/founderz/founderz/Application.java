@@ -1,13 +1,13 @@
-package com.example.founderz2024backendend;
+package com.founderz.founderz;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Founderz2024BackendEndApplication {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(Founderz2024BackendEndApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
 }
