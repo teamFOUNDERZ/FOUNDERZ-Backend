@@ -1,4 +1,9 @@
 rootProject.name = 'FOUNDERZ'
 include 'founderz-boot'
 include 'founderz-common'
+include 'founderz-security'
+
+include 'founderz-application'
+include 'founderz-domain'
+include 'founderz-presentation'
 
