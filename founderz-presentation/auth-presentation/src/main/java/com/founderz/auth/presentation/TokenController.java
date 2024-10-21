@@ -1,4 +1,4 @@
-package com.founderz.auth;
+package com.founderz.auth.presentation;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

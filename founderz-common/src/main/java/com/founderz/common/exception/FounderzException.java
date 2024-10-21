@@ -1,6 +1,6 @@
-package com.founderz.exception;
+package com.founderz.common.exception;
 
-class FounderzException extends RuntimeException {
+public class FounderzException extends RuntimeException {
     private final int statusCode;
 
     public int getStatusCode() {

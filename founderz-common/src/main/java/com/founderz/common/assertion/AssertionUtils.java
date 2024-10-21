@@ -1,6 +1,6 @@
-package com.founderz.assertion;
+package com.founderz.common.assertion;
 
-import com.founderz.exception.BadRequestException;
+import com.founderz.common.exception.BadRequestException;
 
 import java.util.regex.Pattern;
 

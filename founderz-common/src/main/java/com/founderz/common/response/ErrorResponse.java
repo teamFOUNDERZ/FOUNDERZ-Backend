@@ -1,4 +1,4 @@
-package com.founderz.response;
+package com.founderz.common.response;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
