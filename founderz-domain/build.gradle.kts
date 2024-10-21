@@ -3,7 +3,7 @@ subprojects {
 
     afterEvaluate {
         dependencies {
-            implementation(project(":board-common"))
+            implementation(project(":founderz-common"))
 
             if (useMySQL) {
                 implementation("org.springframework.boot:spring-boot-starter-data-jpa")
