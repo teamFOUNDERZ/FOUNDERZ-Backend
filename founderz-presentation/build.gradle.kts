@@ -3,7 +3,7 @@ dependencies {
     api (project(":founderz-presentation:user-presentation"))
 }
 
-subprojects {
+allprojects {
     dependencies {
         implementation(project(":founderz-common"))
     }
