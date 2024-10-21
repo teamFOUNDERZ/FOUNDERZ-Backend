@@ -11,5 +11,4 @@ class RegisterController {
     Object register() {
         return null;
     }
-
 }
