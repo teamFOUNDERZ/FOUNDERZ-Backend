@@ -1,6 +1,6 @@
 package com.founderz.exception;
 
-class DuplicateException extends FounderzException {
+public class DuplicateException extends FounderzException {
     private static final int STATUS_CODE = 400;
 
     public DuplicateException() {

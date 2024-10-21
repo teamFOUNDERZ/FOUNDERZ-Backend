@@ -1,6 +1,6 @@
 package com.founderz.exception;
 
-class ServerException extends FounderzException {
+public class ServerException extends FounderzException {
     private static final int STATUS_CODE = 500;
 
     public ServerException() {

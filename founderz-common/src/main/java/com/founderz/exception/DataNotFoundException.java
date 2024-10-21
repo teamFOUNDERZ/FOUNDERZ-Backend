@@ -1,6 +1,6 @@
 package com.founderz.exception;
 
-class DataNotFoundException extends FounderzException {
+public class DataNotFoundException extends FounderzException {
     private static final int STATUS_CODE = 404;
 
     protected DataNotFoundException() {
