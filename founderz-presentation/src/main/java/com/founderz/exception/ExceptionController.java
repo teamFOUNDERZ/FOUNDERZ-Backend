@@ -14,7 +14,7 @@ import org.springframework.web.servlet.function.EntityResponse;
 
 import java.util.HashMap;
 
-@Slf4j
+@Slf4j(topic = "#-Exception-Handler")
 @RestControllerAdvice
 class ExceptionController {
     @ExceptionHandler(FounderzException.class)
