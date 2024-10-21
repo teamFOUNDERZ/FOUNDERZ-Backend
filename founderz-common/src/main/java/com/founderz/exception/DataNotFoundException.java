@@ -1,19 +1,21 @@
 package com.founderz.exception;
 
-class DataNotFoundException extends RuntimeException {
-    public DataNotFoundException() {
-        super();
+class DataNotFoundException extends FounderzException {
+    private static final int STATUS_CODE = 404;
+
+    protected DataNotFoundException() {
+        super(STATUS_CODE);
     }
 
-    public DataNotFoundException(final String message) {
-        super(message);
+    protected DataNotFoundException(final String message) {
+        super(message, STATUS_CODE);
     }
 
-    public DataNotFoundException(final Throwable throwable) {
-        super(throwable);
+    protected DataNotFoundException(final Throwable throwable) {
+        super(throwable, STATUS_CODE);
     }
 
-    public DataNotFoundException(final String message, final Throwable throwable) {
-        super(message, throwable);
+    protected DataNotFoundException(final String message, final Throwable throwable) {
+        super(message, throwable, STATUS_CODE);
     }
 }

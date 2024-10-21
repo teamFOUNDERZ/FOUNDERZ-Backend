@@ -1,19 +1,21 @@
 package com.founderz.exception;
 
-class DuplicateException extends RuntimeException {
+class DuplicateException extends FounderzException {
+    private static final int STATUS_CODE = 400;
+
     public DuplicateException() {
-        super();
+        super(STATUS_CODE);
     }
 
     public DuplicateException(final String message) {
-        super(message);
+        super(message, STATUS_CODE);
     }
 
     public DuplicateException(final Throwable throwable) {
-        super(throwable);
+        super(throwable, STATUS_CODE);
     }
 
     public DuplicateException(final String message, final Throwable throwable) {
-        super(message, throwable);
+        super(message, throwable, STATUS_CODE);
     }
 }

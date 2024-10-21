@@ -1,19 +1,21 @@
 package com.founderz.exception;
 
-class ServerException extends RuntimeException {
+class ServerException extends FounderzException {
+    private static final int STATUS_CODE = 500;
+
     public ServerException() {
-        super();
+        super(STATUS_CODE);
     }
 
     public ServerException(final String message) {
-        super(message);
+        super(message, STATUS_CODE);
     }
 
     public ServerException(final Throwable throwable) {
-        super(throwable);
+        super(throwable, STATUS_CODE);
     }
 
     public ServerException(final String message, final Throwable throwable) {
-        super(message, throwable);
+        super(message, throwable, STATUS_CODE);
     }
 }
