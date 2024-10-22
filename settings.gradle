@@ -4,6 +4,7 @@ include 'founderz-common'
 include 'founderz-security'
 
 include 'founderz-application'
+include 'founderz-application:user-application'
 
 include 'founderz-domain'
 include 'founderz-domain:user-domain'
