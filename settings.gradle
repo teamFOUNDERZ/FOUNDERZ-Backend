@@ -4,12 +4,10 @@ include 'founderz-common'
 include 'founderz-security'
 
 include 'founderz-application'
+
 include 'founderz-domain'
+include 'founderz-domain:user-domain'
+
 include 'founderz-presentation'
 include 'founderz-presentation:user-presentation'
-findProject(':founderz-presentation:user-presentation')?.name = 'user-presentation'
 include 'founderz-presentation:auth-presentation'
-findProject(':founderz-presentation:auth-presentation')?.name = 'auth-presentation'
-include 'founderz-domain:user-domain'
-findProject(':founderz-domain:user-domain')?.name = 'user-domain'
-
