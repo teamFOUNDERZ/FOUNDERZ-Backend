@@ -1,1 +1,12 @@
-spring.application.name=FOUNDERZ-2024-backend-end
+spring:
+  application:
+    name: FOUNDERZ
+
+  threads:
+    virtual:
+      enabled: true
+  main:
+    keep-alive: true
+
+server:
+  port: 8080
