@@ -8,5 +8,16 @@ spring:
   main:
     keep-alive: true
 
+  datasource:
+    driver-class-name: ${MYSQL_DRIVER}
+    url: ${MYSQL_URL}
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+
 server:
   port: 8080
