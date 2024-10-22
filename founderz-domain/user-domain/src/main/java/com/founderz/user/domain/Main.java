@@ -1,4 +1,4 @@
-package com.founderz;
+package com.founderz.user.domain;
 
 public class Main {
     public static void main(String[] args) {
