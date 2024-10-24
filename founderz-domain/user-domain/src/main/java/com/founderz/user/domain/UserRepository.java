@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @RequiredArgsConstructor
-class UserRepository implements UserReader, UserWriter {
+class UserRepository implements UserDomainReader, UserDomainWriter {
     private final UserJpaRepository jpaRepository;
     private final UserDomainMapper mapper;
 

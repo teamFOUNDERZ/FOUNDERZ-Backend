@@ -1,4 +1,4 @@
 package com.founderz.user.domain;
 
-public interface UserReader {
+public interface UserDomainReader {
 }

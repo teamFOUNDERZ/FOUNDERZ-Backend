@@ -1,5 +1,5 @@
 package com.founderz.user.domain;
 
-public interface UserWriter {
+public interface UserDomainWriter {
     void save(UserDomainDto dto);
 }
