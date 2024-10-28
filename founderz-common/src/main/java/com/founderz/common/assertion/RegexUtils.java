@@ -9,12 +9,17 @@ public enum RegexUtils {
      * 전화번호 형식 검증을 위한 정규표현식
      * <p>형식: 010-0000-0000</p>
      * <ul>
-     *   <li>시작은 반드시 010, 011로 시작</li>
+     *   <li>시작은 반드시 010로 시작</li>
      *   <li>중간 자리는 4자리의 숫자</li>
      *   <li>마지막 자리는 4자리의 숫자</li>
      * </ul>
      */
-    TEL("^01(?:0|1)-(\\d{4})-(\\d{4})$"),
+    TEL_WITH_HYPHEN("^010-(\\d{4})-(\\d{4})$"),
+    /**
+     * 전화번호 형식 검증을 위한 정규표현식
+     * <p>형식: 01012341234</p>
+     */
+    TEL("^010\\d{8}$"),
 
     /**
      * 비밀번호 유효성 검증을 위한 정규표현식
@@ -95,7 +100,7 @@ public enum RegexUtils {
         return regex + "{" + minLength + "," + maxLength + "}" + "$";
     }
 
-    private RegexUtils(final String regex) {
+    RegexUtils(final String regex) {
         this.regex = regex;
     }
 }

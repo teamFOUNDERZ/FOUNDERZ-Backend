@@ -9,9 +9,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Setter
 @Getter
 @Entity
+@NoArgsConstructor
 @Table(name = "founderz_user_v1")
 class UserEntity {
     @Id
@@ -28,7 +32,7 @@ class UserEntity {
     @Enumerated(EnumType.STRING)
     private Type type;
 
-    @Column(nullable = false, unique = true, columnDefinition = "CHAR(13)")
+    @Column(nullable = false, unique = true, columnDefinition = "CHAR(11)")
     private String tel;
 
     private String password;

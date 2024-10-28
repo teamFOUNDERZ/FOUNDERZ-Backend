@@ -12,3 +12,6 @@ include 'founderz-domain:user-domain'
 include 'founderz-presentation'
 include 'founderz-presentation:user-presentation'
 include 'founderz-presentation:auth-presentation'
+include 'founderz-application:auth-application'
+findProject(':founderz-application:auth-application')?.name = 'auth-application'
+

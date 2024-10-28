@@ -1,4 +1,4 @@
-package com.founderz.user.domain;
+package com.founderz.user.application;
 
 import com.founderz.common.vo.AccountId;
 import com.founderz.common.vo.AccountName;
@@ -7,7 +7,7 @@ import com.founderz.common.vo.HashedPassword;
 import com.founderz.common.vo.TelNumber;
 import com.founderz.common.vo.UserId;
 
-public record UserDomainDto(
+public record UserApplicationDto(
         UserId id,
         AccountId accountId,
         AccountName name,

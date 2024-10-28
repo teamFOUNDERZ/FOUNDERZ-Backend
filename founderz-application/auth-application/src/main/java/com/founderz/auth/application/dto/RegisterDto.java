@@ -1,18 +1,16 @@
-package com.founderz.user.domain;
+package com.founderz.auth.application.dto;
 
+import com.founderz.common.vo.Password;
 import com.founderz.common.vo.AccountId;
 import com.founderz.common.vo.AccountName;
 import com.founderz.common.vo.AccountType;
-import com.founderz.common.vo.HashedPassword;
 import com.founderz.common.vo.TelNumber;
-import com.founderz.common.vo.UserId;
 
-public record UserDomainDto(
-        UserId id,
+public record RegisterDto(
         AccountId accountId,
         AccountName name,
         AccountType type,
         TelNumber tel,
-        HashedPassword hashedPassword
+        Password password
 ) {
 }

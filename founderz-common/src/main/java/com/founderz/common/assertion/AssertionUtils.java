@@ -11,8 +11,8 @@ public class AssertionUtils {
         }
     }
 
-    public static void assertRegularExpression(final String aString, final String regex, final String aMessage) {
-        if (!Pattern.matches(regex, aString)) {
+    public static void assertRegularExpression(final String aString, final Pattern regex, final String aMessage) {
+        if (!regex.matcher(aString).matches()) {
             throw new BadRequestException(aMessage);
         }
     }
