@@ -5,6 +5,7 @@ include 'founderz-security'
 
 include 'founderz-application'
 include 'founderz-application:user-application'
+include 'founderz-application:auth-application'
 
 include 'founderz-domain'
 include 'founderz-domain:user-domain'
@@ -12,6 +13,3 @@ include 'founderz-domain:user-domain'
 include 'founderz-presentation'
 include 'founderz-presentation:user-presentation'
 include 'founderz-presentation:auth-presentation'
-include 'founderz-application:auth-application'
-findProject(':founderz-application:auth-application')?.name = 'auth-application'
-
