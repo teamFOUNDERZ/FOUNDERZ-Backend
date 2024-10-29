@@ -20,6 +20,6 @@ abstract class LoginFormMapper {
     }
 
     @Mapping(target = "identifier", source = "identifier")
-    @Mapping(target = "hashedPassword", source = "hashedPassword")
+    @Mapping(target = "password", source = "password")
     protected abstract LoginDto mapToApplicationDto(LoginForm form);
 }

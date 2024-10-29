@@ -25,6 +25,6 @@ abstract class RegisterFormMapper {
     @Mapping(target = "name", source = "name")
     @Mapping(target = "type", source = "type")
     @Mapping(target = "tel", source = "tel")
-    @Mapping(target = "hashedPassword", source = "hashedPassword")
+    @Mapping(target = "password", source = "password")
     protected abstract RegisterDto mapToApplicationDto(RegisterForm form);
 }
