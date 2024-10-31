@@ -1,6 +1,7 @@
 package com.founderz.auth.presentation;
 
 import com.founderz.auth.application.AuthWriteService;
+import com.founderz.auth.document.AuthWriteDocumentation;
 import com.founderz.common.vo.PasetoToken;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,13 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/auth")
-class AuthWriteController {
+class AuthWriteController implements AuthWriteDocumentation {
     private final AuthWriteService writeService;
     private final RegisterFormMapper registerFormMapper;
     private final LoginFormMapper loginFormMapper;
 
     @PostMapping("/register")
-    void register(
+    public void register(
             @RequestBody RegisterForm form
     ) {
         final var applicationDto = registerFormMapper.toApplicationDto(form);
@@ -25,7 +26,7 @@ class AuthWriteController {
     }
 
     @PostMapping("/login")
-    PasetoToken login(
+    public PasetoToken login(
             @RequestBody LoginForm form
     ) {
         final var applicationDto = loginFormMapper.toApplicationDto(form);

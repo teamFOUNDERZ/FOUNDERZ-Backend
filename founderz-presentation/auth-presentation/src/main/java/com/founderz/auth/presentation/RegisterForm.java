@@ -6,7 +6,7 @@ import com.founderz.common.vo.AccountName;
 import com.founderz.common.vo.AccountType;
 import com.founderz.common.vo.TelNumber;
 
-record RegisterForm(
+public record RegisterForm(
         AccountId accountId,
         AccountName name,
         AccountType type,

@@ -1,6 +1,7 @@
 package com.founderz.auth.presentation;
 
 import com.founderz.auth.application.AuthReadService;
+import com.founderz.auth.document.AuthReadDocumentation;
 import com.founderz.common.vo.AccountId;
 import com.founderz.common.vo.TelNumber;
 import lombok.RequiredArgsConstructor;
@@ -14,17 +15,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/auth")
-class AuthReadController {
+class AuthReadController implements AuthReadDocumentation {
     private final AuthReadService readService;
 
     @GetMapping("/check-tel")
-    ResponseEntity<Void> checkTelNumber(@RequestParam String tel) {
+    public ResponseEntity<Void> checkTelNumber(@RequestParam String tel) {
         final var result = readService.existsByTel(new TelNumber(tel));
         return getResponse(result);
     }
 
     @GetMapping("/check-accountid")
-    ResponseEntity<Void> checkAccountId(
+    public ResponseEntity<Void> checkAccountId(
             @RequestParam(name = "accountid") String accountId
     ) {
         final var result = readService.existsByAccountId(new AccountId(accountId));
