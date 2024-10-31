@@ -4,6 +4,8 @@ import com.founderz.auth.application.AuthReadService;
 import com.founderz.common.vo.AccountId;
 import com.founderz.common.vo.TelNumber;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,21 +18,25 @@ class AuthReadController {
     private final AuthReadService readService;
 
     @GetMapping("/check-tel")
-    BooleanResponse checkTelNumber(@RequestParam String tel) {
+    ResponseEntity<Void> checkTelNumber(@RequestParam String tel) {
         final var result = readService.existsByTel(new TelNumber(tel));
-        return new BooleanResponse(result);
+        return getResponse(result);
     }
 
     @GetMapping("/check-accountid")
-    BooleanResponse checkAccountId(
+    ResponseEntity<Void> checkAccountId(
             @RequestParam(name = "accountid") String accountId
     ) {
         final var result = readService.existsByAccountId(new AccountId(accountId));
-        return new BooleanResponse(result);
+        return getResponse(result);
     }
 
-    private record BooleanResponse(
-            boolean result
-    ) {
+    private static ResponseEntity<Void> getResponse(final boolean result) {
+        final var httpStatus = result
+                ? HttpStatus.ACCEPTED
+                : HttpStatus.NOT_ACCEPTABLE;
+
+        return ResponseEntity.status(httpStatus)
+                .build();
     }
 }
