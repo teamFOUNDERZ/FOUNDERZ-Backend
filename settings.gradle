@@ -9,7 +9,9 @@ include 'founderz-application:auth-application'
 
 include 'founderz-domain'
 include 'founderz-domain:user-domain'
+include 'founderz-domain:tag-domain'
 
 include 'founderz-presentation'
 include 'founderz-presentation:user-presentation'
 include 'founderz-presentation:auth-presentation'
+include 'founderz-presentation:tag-presentation'
