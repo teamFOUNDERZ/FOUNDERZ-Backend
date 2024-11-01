@@ -13,16 +13,16 @@ class StringToValueObjectConverterFactory implements ConverterFactory<String, Va
     }
 
     private record StringToValueObjectConverter<T extends ValueObject>(
-            Class<T> targetType) implements Converter<String, T> {
-
+            Class<T> targetType
+    ) implements Converter<String, T> {
         @Override
-            public T convert(@NonNull final String source) {
-                try {
-                    return targetType.getConstructor(String.class).newInstance(source);
-                } catch (Exception e) {
-                    throw new IllegalArgumentException("변환 실패. " + targetType.getSimpleName(), e);
-                }
+        public T convert(@NonNull final String source) {
+            try {
+                return targetType.getConstructor(String.class).newInstance(source);
+            } catch (Exception e) {
+                throw new IllegalArgumentException("변환 실패. " + targetType.getSimpleName(), e);
             }
         }
+    }
 
 }
