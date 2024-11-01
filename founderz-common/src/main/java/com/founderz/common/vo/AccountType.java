@@ -10,7 +10,7 @@ import static com.founderz.common.assertion.AssertionUtils.assertArgumentNotEmpt
 public record AccountType(
         @JsonValue
         String type
-) {
+) implements ValueObject {
     public AccountType {
         assertArgumentNotEmpty(type, "계정의 유형이 입력되지 않았습니다.");
 

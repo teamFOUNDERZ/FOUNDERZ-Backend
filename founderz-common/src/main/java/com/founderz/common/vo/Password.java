@@ -11,7 +11,7 @@ import static com.founderz.common.assertion.RegexUtils.PASSWORD;
 public record Password(
         @JsonValue
         String password
-) {
+) implements ValueObject {
     private static final Pattern PASSWORD_REGEX = Pattern.compile(PASSWORD.getRegex(8, 20));
 
     public Password {

@@ -5,5 +5,5 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public record UserId(
         @JsonValue
         Long id
-) {
+) implements ValueObject {
 }

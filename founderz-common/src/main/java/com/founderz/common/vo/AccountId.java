@@ -11,7 +11,7 @@ import static com.founderz.common.assertion.RegexUtils.ALLOWED_ONLY_ENG_N_NUM;
 public record AccountId(
         @JsonValue
         String accountId
-) {
+) implements ValueObject {
     private static final Pattern ACCOUNT_ID_REGEX = Pattern.compile(ALLOWED_ONLY_ENG_N_NUM.getRegex(4, 20));
 
     public AccountId {

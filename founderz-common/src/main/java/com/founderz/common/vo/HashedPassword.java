@@ -8,7 +8,7 @@ import static com.founderz.common.assertion.AssertionUtils.assertArgumentNotEmpt
 public record HashedPassword(
         @JsonIgnore
         String password
-) {
+) implements ValueObject {
     public HashedPassword {
         assertArgumentNotEmpty(password, "비밀번호가 입력되지 않았습니다.");
     }

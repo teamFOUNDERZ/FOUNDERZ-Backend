@@ -11,7 +11,7 @@ import static com.founderz.common.assertion.RegexUtils.ALLOWED_ONLY_KOR;
 public record AccountName(
         @JsonValue
         String name
-) {
+) implements ValueObject {
     private static final Pattern ACCOUNT_NAME_REGEX = Pattern.compile(ALLOWED_ONLY_KOR.getRegex(2, 6));
 
     public AccountName {

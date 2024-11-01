@@ -7,7 +7,7 @@ import static com.founderz.common.assertion.AssertionUtils.assertArgumentNotEmpt
 public record AccountIdentifier(
         @JsonValue
         String identifier
-) {
+) implements ValueObject {
     public AccountIdentifier {
         assertArgumentNotEmpty(identifier, "계정의 아이디 또는 전화번호를 입력해주세요.");
     }
