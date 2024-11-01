@@ -5,7 +5,7 @@ import javax.crypto.spec.SecretKeySpec;
 import java.util.Base64;
 import java.util.UUID;
 
-public class HashUtils {
+public class CryptoUtils {
     private static final String ALGORITHM = "AES";
 
     private static final String SECRET_KEY = UUID.randomUUID().toString().substring(0, 16);

@@ -1,6 +1,6 @@
 package com.founderz.security.password;
 
-import com.founderz.common.vo.HashedPassword;
+import com.founderz.common.vo.SecuredPassword;
 import com.founderz.common.vo.Password;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,7 +17,7 @@ class PasswordEncoderImpl implements com.founderz.common.crypto.PasswordEncoder 
     }
 
     @Override
-    public Boolean matches(Password rawPassword, HashedPassword hashedPassword) {
+    public Boolean matches(Password rawPassword, SecuredPassword hashedPassword) {
         return passwordEncoder.matches(rawPassword.password(), hashedPassword.password());
     }
 }
