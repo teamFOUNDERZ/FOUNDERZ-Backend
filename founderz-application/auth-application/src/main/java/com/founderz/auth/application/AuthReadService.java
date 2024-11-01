@@ -1,28 +1,36 @@
 package com.founderz.auth.application;
 
 import com.founderz.common.vo.AccountId;
-import com.founderz.common.vo.TelNumber;
-import com.founderz.user.domain.UserDomainReader;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import com.founderz.common.vo.PhoneNumber;
 
+/**
+ * <p>바운디드 컨텍스트: Auth(인증)</p>
+ * <p>책임: 인증 읽기 작업</p>
+ * <p>계층: application</p>
+ * <br/>
+ *
+ * <h2>제공 기능</h2>
+ * <ul>
+ *   <li>계정 ID로 회원가입 여부 확인</li>
+ *   <li>전화번호로 회원가입 여부 확인</li>
+ * </ul>
+ */
 public interface AuthReadService {
-    boolean existsByAccountId(AccountId accountId);
-    boolean existsByTel(TelNumber tel);
+
+    /**
+     * 입력된 계정 ID의 회원가입 여부 확인 메서드
+     *
+     * @param accountId 확인할 계정 ID
+     * @return 회원가입 여부 (가입 된 경우 true)
+     */
+    boolean isRegisteredAccount(AccountId accountId);
+
+    /**
+     * 입력된 전화번호의 회원가입 여부 확인 메서드
+     *
+     * @param tel 확인할 전화번호
+     * @return 회원가입 여부 (가입된 경우 true)
+     */
+    boolean isRegisteredPhoneNumber(PhoneNumber tel);
 }
 
-@Service
-@RequiredArgsConstructor
-class AuthReadServiceImpl implements AuthReadService {
-    private final UserDomainReader reader;
-
-    @Override
-    public boolean existsByAccountId(final AccountId accountId) {
-        return reader.existsByAccountId(accountId);
-    }
-
-    @Override
-    public boolean existsByTel(final TelNumber tel) {
-        return reader.existsByTel(tel);
-    }
-}
