@@ -8,15 +8,15 @@ import static com.founderz.common.assertion.AssertionUtils.assertArgumentNotEmpt
 import static com.founderz.common.assertion.AssertionUtils.assertRegularExpression;
 import static com.founderz.common.assertion.RegexUtils.TEL;
 
-public record TelNumber(
+public record PhoneNumber(
         @JsonValue
-        String tel
-) {
+        String phoneNumber
+) implements ValueObject {
     private static final Pattern TEL_NUMBER_REGEX = Pattern.compile(TEL.getRegex());
 
-    public TelNumber {
-        assertArgumentNotEmpty(tel, "전화번호가 입력되지 않았습니다.");
-        assertRegularExpression(tel, TEL_NUMBER_REGEX, "전화번호 형식이 유효하지 않습니다. (예: 01012345678)");
+    public PhoneNumber {
+        assertArgumentNotEmpty(phoneNumber, "전화번호가 입력되지 않았습니다.");
+        assertRegularExpression(phoneNumber, TEL_NUMBER_REGEX, "전화번호 형식이 유효하지 않습니다. (예: 01012345678)");
     }
 
     public static boolean isTelNumber(final AccountIdentifier identifier) {

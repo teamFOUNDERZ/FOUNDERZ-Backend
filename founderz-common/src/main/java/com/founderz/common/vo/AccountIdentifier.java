@@ -16,7 +16,7 @@ public record AccountIdentifier(
         return new AccountId(identifier);
     }
 
-    public TelNumber toTelNumber() {
-        return new TelNumber(identifier);
+    public PhoneNumber toTelNumber() {
+        return new PhoneNumber(identifier);
     }
 }

@@ -3,7 +3,7 @@ package com.founderz.auth.presentation;
 import com.founderz.auth.application.AuthReadService;
 import com.founderz.auth.document.AuthReadDocumentation;
 import com.founderz.common.vo.AccountId;
-import com.founderz.common.vo.TelNumber;
+import com.founderz.common.vo.PhoneNumber;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,26 +18,25 @@ import org.springframework.web.bind.annotation.RestController;
 class AuthReadController implements AuthReadDocumentation {
     private final AuthReadService readService;
 
-    @GetMapping("/check-tel")
-    public ResponseEntity<Void> checkTelNumber(@RequestParam String tel) {
-        final var result = readService.existsByTel(new TelNumber(tel));
-        return getResponse(result);
-    }
-
-    @GetMapping("/check-accountid")
-    public ResponseEntity<Void> checkAccountId(
-            @RequestParam(name = "accountid") String accountId
+    @GetMapping("/phone-number/validation")
+    public ResponseEntity<Void> validateTelNumber(
+            @RequestParam(name = "phone-number") PhoneNumber phoneNumber
     ) {
-        final var result = readService.existsByAccountId(new AccountId(accountId));
+        final var result = readService.isRegisteredPhoneNumber(phoneNumber);
         return getResponse(result);
     }
 
-    private static ResponseEntity<Void> getResponse(final boolean result) {
-        final var httpStatus = result
-                ? HttpStatus.ACCEPTED
-                : HttpStatus.NOT_ACCEPTABLE;
+    @GetMapping("/account-id/validation")
+    public ResponseEntity<Void> validateAccountId(
+            @RequestParam(name = "account-id") AccountId accountId
+    ) {
+        final var result = readService.isRegisteredAccount(accountId);
+        return getResponse(result);
+    }
 
-        return ResponseEntity.status(httpStatus)
-                .build();
+    private static ResponseEntity<Void> getResponse(final boolean exists) {
+        return exists
+                ? ResponseEntity.ok().build()
+                : ResponseEntity.status(HttpStatus.CONFLICT).build();
     }
 }

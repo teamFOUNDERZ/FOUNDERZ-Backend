@@ -1,4 +1,4 @@
-package com.founderz.user.domain;
+package com.founderz.user.domain.persistence;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -33,7 +33,7 @@ class UserEntity {
     private Type type;
 
     @Column(nullable = false, unique = true, columnDefinition = "CHAR(11)")
-    private String tel;
+    private String phoneNumber;
 
     private String password;
 

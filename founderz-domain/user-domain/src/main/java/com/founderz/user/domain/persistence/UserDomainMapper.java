@@ -1,5 +1,6 @@
-package com.founderz.user.domain;
+package com.founderz.user.domain.persistence;
 
+import com.founderz.user.domain.dto.UserDomainDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -8,16 +9,13 @@ import java.util.Optional;
 import static org.mapstruct.ReportingPolicy.ERROR;
 import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
 
-@Mapper(
-        componentModel = SPRING,
-        unmappedTargetPolicy = ERROR
-)
+@Mapper(componentModel = SPRING, unmappedTargetPolicy = ERROR)
 interface UserDomainMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "accountId", expression = "java(dto.accountId().accountId())")
     @Mapping(target = "name", expression = "java(dto.name().name())")
     @Mapping(target = "type", expression = "java(UserEntity.Type.valueOf(dto.type().type()))")
-    @Mapping(target = "tel", expression = "java(dto.tel().tel())")
+    @Mapping(target = "phoneNumber", expression = "java(dto.phoneNumber().phoneNumber())")
     @Mapping(target = "password", expression = "java(dto.hashedPassword().password())")
     UserEntity toEntity(UserDomainDto dto);
 
@@ -25,7 +23,7 @@ interface UserDomainMapper {
     @Mapping(target = "accountId", expression = "java(new AccountId(entity.getAccountId()))")
     @Mapping(target = "name", expression = "java(new AccountName(entity.getName()))")
     @Mapping(target = "type", expression = "java(new AccountType(entity.getType().name()))")
-    @Mapping(target = "tel", expression = "java(new TelNumber(entity.getTel()))")
+    @Mapping(target = "phoneNumber", expression = "java(new PhoneNumber(entity.getPhoneNumber()))")
     @Mapping(target = "hashedPassword", expression = "java(new HashedPassword(entity.getPassword()))")
     UserDomainDto toDto(UserEntity entity);
 
