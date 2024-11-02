@@ -11,5 +11,6 @@ include 'founderz-domain'
 include 'founderz-domain:user-domain'
 
 include 'founderz-presentation'
+include 'founderz-presentation:common-presentation'
 include 'founderz-presentation:user-presentation'
 include 'founderz-presentation:auth-presentation'
