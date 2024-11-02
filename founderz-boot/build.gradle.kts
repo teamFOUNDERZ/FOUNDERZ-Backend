@@ -4,4 +4,5 @@ dependencies {
     implementation(project(":founderz-security"))
     implementation(project(":founderz-application"))
     implementation(project(":founderz-presentation"))
+    implementation(project(":founderz-common"))
 }
