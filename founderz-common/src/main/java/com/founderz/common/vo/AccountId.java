@@ -18,4 +18,8 @@ public record AccountId(
         assertArgumentNotEmpty(accountId, "계정의 아이디가 입력되지 않았습니다.");
         assertRegularExpression(accountId, ACCOUNT_ID_REGEX, "계정 아이디는 4~20자의 영문자와 숫자로만 구성되어야 합니다.");
     }
+
+    public static AccountId create(final String accountId) {
+        return new AccountId(accountId);
+    }
 }

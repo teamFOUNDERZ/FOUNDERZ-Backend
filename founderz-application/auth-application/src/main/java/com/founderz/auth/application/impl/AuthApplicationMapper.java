@@ -25,7 +25,7 @@ abstract class AuthApplicationMapper {
     @Mapping(target = "name", source = "name")
     @Mapping(target = "type", source = "type")
     @Mapping(target = "phoneNumber", source = "phoneNumber")
-    @Mapping(target = "securedPassword", expression = "java(new SecuredPassword(passwordEncoder.encode(dto.password())))")
+    @Mapping(target = "securedPassword", expression = "java(SecuredPassword.create(passwordEncoder.encode(dto.password())))")
     protected abstract UserDomainDto mapToDomainDto(RegisterDto dto);
 
     @Mapping(target = "accountId", source = "accountId")
