@@ -1,4 +1,4 @@
-package com.founderz.presentation;
+package com.founderz.presentation.converter;
 
 import com.founderz.common.vo.ValueObject;
 import org.springframework.core.convert.converter.Converter;

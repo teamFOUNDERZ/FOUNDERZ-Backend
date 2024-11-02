@@ -1,4 +1,4 @@
-package com.founderz;
+package com.founderz.presentation;
 
 import com.founderz.common.vo.SecuredUserId;
 import com.founderz.common.vo.UserId;

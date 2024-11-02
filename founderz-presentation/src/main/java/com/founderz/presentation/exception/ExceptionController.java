@@ -1,4 +1,4 @@
-package com.founderz.exception;
+package com.founderz.presentation.exception;
 
 import com.founderz.common.exception.FounderzException;
 import com.founderz.common.response.ErrorResponse;
