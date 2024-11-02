@@ -5,4 +5,5 @@ dependencies {
     implementation("dev.paseto:jpaseto-its:$pasetoVersion")
     implementation(project(":founderz-common"))
     implementation(project(":founderz-domain:user-domain"))
+    implementation("org.springframework.boot:spring-boot-starter-aop")
 }
