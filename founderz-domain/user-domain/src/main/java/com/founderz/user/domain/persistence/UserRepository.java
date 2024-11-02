@@ -1,7 +1,10 @@
-package com.founderz.user.domain;
+package com.founderz.user.domain.persistence;
 
 import com.founderz.common.vo.AccountId;
-import com.founderz.common.vo.TelNumber;
+import com.founderz.common.vo.PhoneNumber;
+import com.founderz.user.domain.dto.UserDomainDto;
+import com.founderz.user.domain.UserDomainReader;
+import com.founderz.user.domain.UserDomainWriter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -25,8 +28,8 @@ class UserRepository implements UserDomainReader, UserDomainWriter {
     }
 
     @Override
-    public boolean existsByTel(final TelNumber tel) {
-        return jpaRepository.existsByTel(tel.tel());
+    public boolean existsByTel(final PhoneNumber tel) {
+        return jpaRepository.existsByPhoneNumber(tel.phoneNumber());
     }
 
     @Override
@@ -36,8 +39,8 @@ class UserRepository implements UserDomainReader, UserDomainWriter {
     }
 
     @Override
-    public Optional<UserDomainDto> findByTel(final TelNumber tel) {
-        final var entityOptional = jpaRepository.findByTel(tel.tel());
+    public Optional<UserDomainDto> findByTel(final PhoneNumber tel) {
+        final var entityOptional = jpaRepository.findByPhoneNumber(tel.phoneNumber());
         return mapper.toOptionalDto(entityOptional);
     }
 }

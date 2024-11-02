@@ -4,13 +4,13 @@ import com.founderz.common.vo.Password;
 import com.founderz.common.vo.AccountId;
 import com.founderz.common.vo.AccountName;
 import com.founderz.common.vo.AccountType;
-import com.founderz.common.vo.TelNumber;
+import com.founderz.common.vo.PhoneNumber;
 
-record RegisterForm(
+public record RegisterForm(
         AccountId accountId,
         AccountName name,
         AccountType type,
-        TelNumber tel,
+        PhoneNumber phoneNumber,
         Password password
 ) {
 }
