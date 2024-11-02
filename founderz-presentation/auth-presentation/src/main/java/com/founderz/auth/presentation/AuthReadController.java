@@ -2,19 +2,17 @@ package com.founderz.auth.presentation;
 
 import com.founderz.auth.application.AuthReadService;
 import com.founderz.auth.document.AuthReadDocumentation;
+import com.founderz.common.presentation.annotation.WebRestAdapter;
 import com.founderz.common.vo.AccountId;
 import com.founderz.common.vo.PhoneNumber;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/auth")
+@WebRestAdapter("/api/auth")
 class AuthReadController implements AuthReadDocumentation {
     private final AuthReadService readService;
 
