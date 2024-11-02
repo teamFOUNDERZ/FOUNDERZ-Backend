@@ -16,7 +16,7 @@ interface UserDomainMapper {
     @Mapping(target = "name", expression = "java(dto.name().name())")
     @Mapping(target = "type", expression = "java(UserEntity.Type.valueOf(dto.type().type()))")
     @Mapping(target = "phoneNumber", expression = "java(dto.phoneNumber().phoneNumber())")
-    @Mapping(target = "password", expression = "java(dto.hashedPassword().password())")
+    @Mapping(target = "password", expression = "java(dto.securedPassword().password())")
     UserEntity toEntity(UserDomainDto dto);
 
     @Mapping(target = "id", expression = "java(new UserId(entity.getId()))")
@@ -24,7 +24,7 @@ interface UserDomainMapper {
     @Mapping(target = "name", expression = "java(new AccountName(entity.getName()))")
     @Mapping(target = "type", expression = "java(new AccountType(entity.getType().name()))")
     @Mapping(target = "phoneNumber", expression = "java(new PhoneNumber(entity.getPhoneNumber()))")
-    @Mapping(target = "hashedPassword", expression = "java(new HashedPassword(entity.getPassword()))")
+    @Mapping(target = "securedPassword", expression = "java(new SecuredPassword(entity.getPassword()))")
     UserDomainDto toDto(UserEntity entity);
 
     default Optional<UserDomainDto> toOptionalDto(Optional<UserEntity> entity) {

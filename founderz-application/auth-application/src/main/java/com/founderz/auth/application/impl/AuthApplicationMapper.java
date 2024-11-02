@@ -25,14 +25,14 @@ abstract class AuthApplicationMapper {
     @Mapping(target = "name", source = "name")
     @Mapping(target = "type", source = "type")
     @Mapping(target = "phoneNumber", source = "phoneNumber")
-    @Mapping(target = "hashedPassword", expression = "java(new HashedPassword(passwordEncoder.encode(dto.password())))")
+    @Mapping(target = "securedPassword", expression = "java(new SecuredPassword(passwordEncoder.encode(dto.password())))")
     protected abstract UserDomainDto mapToDomainDto(RegisterDto dto);
 
     @Mapping(target = "accountId", source = "accountId")
     @Mapping(target = "name", source = "name")
     @Mapping(target = "type", source = "type")
     @Mapping(target = "phoneNumber", source = "phoneNumber")
-    @Mapping(target = "hashedPassword", source = "hashedPassword")
+    @Mapping(target = "securedPassword", source = "securedPassword")
     protected abstract UserApplicationDto mapToApplicationDto(UserDomainDto dto);
 
     public UserDomainDto toDomainDto(RegisterDto dto) {

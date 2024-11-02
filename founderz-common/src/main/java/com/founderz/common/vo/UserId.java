@@ -5,9 +5,9 @@ import com.founderz.common.crypto.CryptoUtils;
 
 public record UserId(
         @JsonValue
-        Long id
-) implements ValueObject {
+        Long userId
+) implements ValueObject.LongValueObject {
     public SecuredUserId toSecureUserId() {
-        return new SecuredUserId(CryptoUtils.encrypt(id));
+        return new SecuredUserId(CryptoUtils.encrypt(userId));
     }
 }

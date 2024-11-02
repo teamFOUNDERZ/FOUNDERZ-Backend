@@ -6,7 +6,7 @@ import com.founderz.common.crypto.CryptoUtils;
 public record SecuredUserId(
         @JsonValue
         String userId
-) implements ValueObject {
+) implements ValueObject.StringValueObject {
     public UserId toUserId() {
         return new UserId(CryptoUtils.decrypt(userId));
     }

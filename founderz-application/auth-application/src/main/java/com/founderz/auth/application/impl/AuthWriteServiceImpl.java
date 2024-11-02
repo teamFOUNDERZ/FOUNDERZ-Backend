@@ -49,7 +49,7 @@ class AuthWriteServiceImpl implements AuthWriteService {
     }
 
     private void validatePassword(final UserApplicationDto applicationDto, final LoginDto request) {
-        if (!passwordEncoder.matches(request.password(), applicationDto.hashedPassword())) {
+        if (!passwordEncoder.matches(request.password(), applicationDto.securedPassword())) {
             throw new BadRequestException("비밀번호가 일치하지 않습니다.");
         }
     }

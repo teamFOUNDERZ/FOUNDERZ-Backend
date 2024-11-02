@@ -13,6 +13,6 @@ public record UserDomainDto(
         AccountName name,
         AccountType type,
         PhoneNumber phoneNumber,
-        SecuredPassword hashedPassword
+        SecuredPassword securedPassword
 ) {
 }

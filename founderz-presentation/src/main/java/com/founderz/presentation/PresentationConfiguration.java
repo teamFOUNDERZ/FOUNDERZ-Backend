@@ -8,6 +8,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 class PresentationConfiguration implements WebMvcConfigurer {
     @Override
     public void addFormatters(FormatterRegistry registry) {
-        registry.addConverterFactory(new StringToValueObjectConverterFactory());
+        registry.addConverterFactory(new ToValueObjectConverterFactory());
     }
 }

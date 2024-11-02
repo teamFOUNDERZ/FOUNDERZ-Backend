@@ -11,7 +11,7 @@ import static com.founderz.common.assertion.RegexUtils.TEL;
 public record PhoneNumber(
         @JsonValue
         String phoneNumber
-) implements ValueObject {
+) implements ValueObject.StringValueObject {
     private static final Pattern TEL_NUMBER_REGEX = Pattern.compile(TEL.getRegex());
 
     public PhoneNumber {
