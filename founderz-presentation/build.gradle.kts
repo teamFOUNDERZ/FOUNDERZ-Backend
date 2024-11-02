@@ -7,6 +7,8 @@ allprojects {
     dependencies {
         implementation(project(":founderz-common"))
         implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2")
-        implementation(project(":founderz-presentation:common-presentation"))
+        if (project.name != ("common-presentation")) {
+            implementation(project(":founderz-presentation:common-presentation"))
+        }
     }
 }
