@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @RequiredArgsConstructor
-@WebRestAdapter("/api/auth")
+@WebRestAdapter(path = "/api/auth")
 class AuthReadController implements AuthReadDocumentation {
     private final AuthReadService readService;
 

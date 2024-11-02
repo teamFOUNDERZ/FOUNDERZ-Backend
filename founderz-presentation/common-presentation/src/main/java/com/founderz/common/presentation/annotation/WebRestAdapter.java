@@ -17,5 +17,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface WebRestAdapter {
     @AliasFor(annotation = RequestMapping.class, attribute = "path")
-    String value() default "";
+    String path() default "";
 }
