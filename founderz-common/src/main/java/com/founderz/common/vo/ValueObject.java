@@ -13,11 +13,13 @@ public sealed interface ValueObject permits
             Password,
             PhoneNumber,
             SecuredPassword,
-            SecuredUserId
+            SecuredUserId,
+            SecuredTagId
     {}
 
     sealed interface LongValueObject extends ValueObject permits
-            UserId
+            UserId,
+            TagId
     {}
 }
 
