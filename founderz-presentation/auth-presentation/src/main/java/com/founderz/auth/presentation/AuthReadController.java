@@ -18,7 +18,7 @@ class AuthReadController implements AuthReadDocumentation {
 
     @GetMapping("/phone-number/validation")
     public ResponseEntity<Void> validateTelNumber(
-            @RequestParam(name = "phone-number") PhoneNumber phoneNumber
+            @RequestParam("phone-number") PhoneNumber phoneNumber
     ) {
         final var result = readService.isRegisteredPhoneNumber(phoneNumber);
         return getResponse(result);
@@ -26,7 +26,7 @@ class AuthReadController implements AuthReadDocumentation {
 
     @GetMapping("/account-id/validation")
     public ResponseEntity<Void> validateAccountId(
-            @RequestParam(name = "account-id") AccountId accountId
+            @RequestParam("account-id") AccountId accountId
     ) {
         final var result = readService.isRegisteredAccount(accountId);
         return getResponse(result);
