@@ -38,6 +38,8 @@ class UserEntity {
     private String password;
 
     enum Type {
-        PERSONAL, COMPANY
+        PERSONAL,
+        COMPANY,
+        ADMIN
     }
 }

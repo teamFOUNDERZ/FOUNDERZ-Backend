@@ -12,6 +12,7 @@ include 'founderz-domain:user-domain'
 include 'founderz-domain:tag-domain'
 
 include 'founderz-presentation'
+include 'founderz-presentation:common-presentation'
 include 'founderz-presentation:user-presentation'
 include 'founderz-presentation:auth-presentation'
 include 'founderz-presentation:tag-presentation'

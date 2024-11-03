@@ -11,4 +11,8 @@ public record SecuredPassword(
     public SecuredPassword {
         assertArgumentNotEmpty(password, "비밀번호가 입력되지 않았습니다.");
     }
+
+    public static SecuredPassword create(final String password) {
+        return new SecuredPassword(password);
+    }
 }

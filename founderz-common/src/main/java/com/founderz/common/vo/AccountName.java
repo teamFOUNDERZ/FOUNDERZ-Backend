@@ -18,4 +18,8 @@ public record AccountName(
         assertArgumentNotEmpty(name, "이름이 입력되지 않았습니다.");
         assertRegularExpression(name, ACCOUNT_NAME_REGEX, "이름은 2~6자의 한글로 입력되어야 합니다.");
     }
+
+    public static AccountName create(final String name) {
+        return new AccountName(name);
+    }
 }

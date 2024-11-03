@@ -2,16 +2,14 @@ package com.founderz.auth.presentation;
 
 import com.founderz.auth.application.AuthWriteService;
 import com.founderz.auth.document.AuthWriteDocumentation;
+import com.founderz.common.presentation.annotation.WebRestAdapter;
 import com.founderz.common.vo.PasetoToken;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/auth")
+@WebRestAdapter("/api/auth")
 class AuthWriteController implements AuthWriteDocumentation {
     private final AuthWriteService writeService;
     private final RegisterFormMapper registerFormMapper;

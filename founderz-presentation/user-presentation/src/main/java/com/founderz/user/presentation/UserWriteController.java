@@ -1,9 +1,7 @@
 package com.founderz.user.presentation;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.founderz.common.presentation.annotation.WebRestAdapter;
 
-@RestController
-@RequestMapping("/api/users")
+@WebRestAdapter("/api/users")
 class UserWriteController {
 }

@@ -19,6 +19,10 @@ public record PhoneNumber(
         assertRegularExpression(phoneNumber, TEL_NUMBER_REGEX, "전화번호 형식이 유효하지 않습니다. (예: 01012345678)");
     }
 
+    public static PhoneNumber create(final String phoneNumber) {
+        return new PhoneNumber(phoneNumber);
+    }
+
     public static boolean isTelNumber(final AccountIdentifier identifier) {
         return TEL_NUMBER_REGEX.matcher(identifier.identifier()).matches();
     }
