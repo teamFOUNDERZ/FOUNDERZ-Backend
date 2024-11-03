@@ -1,4 +1,4 @@
-package com.founderz.tag.presentation;
+package com.founderz.tag.application;
 
 public class Main {
     public static void main(String[] args) {
