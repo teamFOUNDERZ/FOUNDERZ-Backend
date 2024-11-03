@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @RequiredArgsConstructor
 @WebRestAdapter("/api/auth")
-class AuthReadController implements AuthReadDocumentation {
+class AuthReadAdapter implements AuthReadDocumentation {
     private final AuthReadService readService;
 
     @GetMapping("/phone-number/validation")
