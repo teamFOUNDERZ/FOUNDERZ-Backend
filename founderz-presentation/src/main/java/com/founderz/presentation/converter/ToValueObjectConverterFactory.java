@@ -34,14 +34,17 @@ class ToValueObjectConverterFactory implements ConverterFactory<String, ValueObj
                     handleMismatchTypeException(e);
                 }
             }
+            
             throw new BadRequestException("변환 실패. " + targetType.getSimpleName() + ";" + source.getClass().getSimpleName());
         }
 
         private static void handleMismatchTypeException(final Exception e) {
             final var cause = e.getCause();
+
             if (cause instanceof BadRequestException exception) {
                 throw exception;
             }
+
             throw new IllegalArgumentException("입력값 변환 중 오류가 발생했습니다: " + e.getMessage());
         }
     }
