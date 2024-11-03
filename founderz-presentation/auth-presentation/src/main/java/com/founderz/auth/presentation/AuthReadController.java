@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @RequiredArgsConstructor
-@WebRestAdapter(path = "/api/auth")
+@WebRestAdapter("/api/auth")
 class AuthReadController implements AuthReadDocumentation {
     private final AuthReadService readService;
 
@@ -34,7 +34,7 @@ class AuthReadController implements AuthReadDocumentation {
 
     private static ResponseEntity<Void> getResponse(final boolean exists) {
         return exists
-                ? ResponseEntity.ok().build()
-                : ResponseEntity.status(HttpStatus.CONFLICT).build();
+                ? ResponseEntity.status(HttpStatus.CONFLICT).build()
+                : ResponseEntity.ok().build();
     }
 }

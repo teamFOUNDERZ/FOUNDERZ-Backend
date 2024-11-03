@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RequiredArgsConstructor
-@WebRestAdapter(path = "/api/auth")
+@WebRestAdapter("/api/auth")
 class AuthWriteController implements AuthWriteDocumentation {
     private final AuthWriteService writeService;
     private final RegisterFormMapper registerFormMapper;
