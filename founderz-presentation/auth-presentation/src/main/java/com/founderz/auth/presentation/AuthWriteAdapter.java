@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RequiredArgsConstructor
 @WebRestAdapter("/api/auth")
-class AuthWriteController implements AuthWriteDocumentation {
+class AuthWriteAdapter implements AuthWriteDocumentation {
     private final AuthWriteService writeService;
     private final RegisterFormMapper registerFormMapper;
     private final LoginFormMapper loginFormMapper;
