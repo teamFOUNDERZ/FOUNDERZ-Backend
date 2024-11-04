@@ -1,6 +1,7 @@
 dependencies {
     api (project(":founderz-presentation:auth-presentation"))
     api (project(":founderz-presentation:user-presentation"))
+    api (project(":founderz-presentation:tag-presentation"))
 }
 
 allprojects {
