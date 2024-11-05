@@ -1,9 +1,9 @@
 package com.founderz.auth.application.impl;
 
+import com.founderz.auth.application.dto.AuthApplicationDto;
 import com.founderz.auth.application.dto.RegisterDto;
 import com.founderz.common.crypto.PasswordEncoder;
 import com.founderz.common.exception.ServerException;
-import com.founderz.user.application.UserApplicationDto;
 import com.founderz.user.domain.dto.UserDomainDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -29,11 +29,8 @@ abstract class AuthApplicationMapper {
     protected abstract UserDomainDto mapToDomainDto(RegisterDto dto);
 
     @Mapping(target = "accountId", source = "accountId")
-    @Mapping(target = "name", source = "name")
-    @Mapping(target = "type", source = "type")
-    @Mapping(target = "phoneNumber", source = "phoneNumber")
     @Mapping(target = "securedPassword", source = "securedPassword")
-    protected abstract UserApplicationDto mapToApplicationDto(UserDomainDto dto);
+    protected abstract AuthApplicationDto mapToApplicationDto(UserDomainDto dto);
 
     public UserDomainDto toDomainDto(RegisterDto dto) {
         try {
@@ -43,7 +40,7 @@ abstract class AuthApplicationMapper {
         }
     }
 
-    public UserApplicationDto toApplicationDto(UserDomainDto dto) {
+    public AuthApplicationDto toApplicationDto(UserDomainDto dto) {
         try {
             return mapToApplicationDto(dto);
         } catch(Exception e) {

@@ -3,7 +3,7 @@ package com.founderz.auth.presentation;
 import com.founderz.auth.application.AuthWriteService;
 import com.founderz.auth.document.AuthWriteDocumentation;
 import com.founderz.common.presentation.annotation.WebRestAdapter;
-import com.founderz.common.vo.PasetoToken;
+import com.founderz.common.vo.auth.PasetoToken;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

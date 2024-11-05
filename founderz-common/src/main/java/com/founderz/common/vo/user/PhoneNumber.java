@@ -1,6 +1,8 @@
-package com.founderz.common.vo;
+package com.founderz.common.vo.user;
 
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.founderz.common.vo.ValueObject;
+import com.founderz.common.vo.auth.AccountIdentifier;
 
 import java.util.regex.Pattern;
 

@@ -1,8 +1,9 @@
-package com.founderz.common.vo;
+package com.founderz.common.vo.user;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.founderz.common.exception.BadRequestException;
 import com.founderz.common.security.UserRole;
+import com.founderz.common.vo.ValueObject;
 
 import static com.founderz.common.assertion.AssertionUtils.assertArgumentNotEmpty;
 

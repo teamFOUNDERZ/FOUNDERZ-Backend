@@ -1,6 +1,8 @@
-package com.founderz.common.vo;
+package com.founderz.common.vo.auth;
 
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.founderz.common.vo.user.AccountType;
+
 import java.util.regex.Pattern;
 
 import static com.founderz.common.assertion.AssertionUtils.assertArgumentNotEmpty;

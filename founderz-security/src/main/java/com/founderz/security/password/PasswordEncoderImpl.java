@@ -1,7 +1,7 @@
 package com.founderz.security.password;
 
-import com.founderz.common.vo.SecuredPassword;
-import com.founderz.common.vo.Password;
+import com.founderz.common.vo.auth.SecuredPassword;
+import com.founderz.common.vo.auth.Password;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;

@@ -1,2 +1,3 @@
-token:
-  issuer: ${TOKEN_ISSUER}
+security:
+  token:
+    issuer: ${TOKEN_ISSUER}

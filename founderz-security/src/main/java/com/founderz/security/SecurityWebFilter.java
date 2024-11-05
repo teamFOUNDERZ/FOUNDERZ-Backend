@@ -1,7 +1,7 @@
 package com.founderz.security;
 
 import com.founderz.common.exception.BadRequestException;
-import com.founderz.common.vo.AccountId;
+import com.founderz.common.vo.user.AccountId;
 import com.founderz.user.domain.UserDomainReader;
 import io.micrometer.common.util.StringUtils;
 import jakarta.servlet.FilterChain;

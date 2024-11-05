@@ -1,7 +1,7 @@
 package com.founderz.auth.application;
 
-import com.founderz.common.vo.AccountId;
-import com.founderz.common.vo.PhoneNumber;
+import com.founderz.common.vo.user.AccountId;
+import com.founderz.common.vo.user.PhoneNumber;
 
 /**
  * <p>바운디드 컨텍스트: Auth(인증)</p>

@@ -1,7 +1,7 @@
 package com.founderz.auth.document;
 
-import com.founderz.common.vo.AccountId;
-import com.founderz.common.vo.PhoneNumber;
+import com.founderz.common.vo.user.AccountId;
+import com.founderz.common.vo.user.PhoneNumber;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

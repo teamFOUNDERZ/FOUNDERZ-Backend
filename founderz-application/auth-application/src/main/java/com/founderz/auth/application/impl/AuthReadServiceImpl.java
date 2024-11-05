@@ -1,8 +1,8 @@
 package com.founderz.auth.application.impl;
 
 import com.founderz.auth.application.AuthReadService;
-import com.founderz.common.vo.AccountId;
-import com.founderz.common.vo.PhoneNumber;
+import com.founderz.common.vo.user.AccountId;
+import com.founderz.common.vo.user.PhoneNumber;
 import com.founderz.user.domain.UserDomainReader;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

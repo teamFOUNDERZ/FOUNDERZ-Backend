@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 class RoleSecurityAspect {
 
     @Around("@annotation(com.founderz.presentation.annotation.RequiredRoles)")
-    public Object checkRoles(ProceedingJoinPoint joinPoint) throws Throwable {
+    public Object checkRoles(final ProceedingJoinPoint joinPoint) throws Throwable {
         final var signature = (MethodSignature) joinPoint.getSignature();
         final var method = signature.getMethod();
 

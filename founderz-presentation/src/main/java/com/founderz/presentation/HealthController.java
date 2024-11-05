@@ -1,7 +1,7 @@
 package com.founderz.presentation;
 
-import com.founderz.common.vo.SecuredUserId;
-import com.founderz.common.vo.UserId;
+import com.founderz.common.vo.user.SecuredUserId;
+import com.founderz.common.vo.user.UserId;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,6 +1,6 @@
 package com.founderz.security;
 
-import com.founderz.common.vo.PasetoToken;
+import com.founderz.common.vo.auth.PasetoToken;
 import dev.paseto.jpaseto.Claims;
 import dev.paseto.jpaseto.Paseto;
 import dev.paseto.jpaseto.PasetoException;
