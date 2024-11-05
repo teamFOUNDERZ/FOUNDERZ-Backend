@@ -1,6 +1,7 @@
 package com.founderz.auth.application.impl;
 
 import com.founderz.auth.application.AuthWriteService;
+import com.founderz.auth.application.dto.AuthApplicationDto;
 import com.founderz.auth.application.dto.LoginDto;
 import com.founderz.auth.application.dto.RegisterDto;
 import com.founderz.common.crypto.PasswordEncoder;
@@ -9,7 +10,6 @@ import com.founderz.common.vo.user.AccountId;
 import com.founderz.common.vo.auth.PasetoToken;
 import com.founderz.common.vo.user.PhoneNumber;
 import com.founderz.security.Tokenizer;
-import com.founderz.user.application.UserApplicationDto;
 import com.founderz.user.domain.UserDomainReader;
 import com.founderz.user.domain.UserDomainWriter;
 import lombok.RequiredArgsConstructor;
@@ -35,7 +35,7 @@ class AuthWriteServiceImpl implements AuthWriteService {
     @Override
     public PasetoToken login(final LoginDto dto) {
         final var identifier = dto.identifier();
-        UserApplicationDto user;
+        AuthApplicationDto user;
 
         if (PhoneNumber.isTelNumber(identifier)) {
             user = getUserByTelNumber(identifier.toTelNumber());
@@ -48,20 +48,20 @@ class AuthWriteServiceImpl implements AuthWriteService {
         return tokenizer.generate(user.accountId().accountId());
     }
 
-    private void validatePassword(final UserApplicationDto applicationDto, final LoginDto request) {
+    private void validatePassword(final AuthApplicationDto applicationDto, final LoginDto request) {
         if (!passwordEncoder.matches(request.password(), applicationDto.securedPassword())) {
             throw new BadRequestException("비밀번호가 일치하지 않습니다.");
         }
     }
 
-    private UserApplicationDto getUserByAccountId(final AccountId accountId) {
+    private AuthApplicationDto getUserByAccountId(final AccountId accountId) {
         final var domainDto = reader.findByAccountId(accountId)
                 .orElseThrow();
 
         return mapper.toApplicationDto(domainDto);
     }
 
-    private UserApplicationDto getUserByTelNumber(final PhoneNumber phoneNumber) {
+    private AuthApplicationDto getUserByTelNumber(final PhoneNumber phoneNumber) {
         final var domainDto = reader.findByTel(phoneNumber)
                 .orElseThrow();
 
