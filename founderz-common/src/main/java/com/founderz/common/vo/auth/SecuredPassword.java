@@ -1,6 +1,7 @@
-package com.founderz.common.vo;
+package com.founderz.common.vo.auth;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.founderz.common.vo.ValueObject;
 
 import static com.founderz.common.assertion.AssertionUtils.assertArgumentNotEmpty;
 

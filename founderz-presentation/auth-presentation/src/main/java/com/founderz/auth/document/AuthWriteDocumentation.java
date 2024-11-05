@@ -2,7 +2,7 @@ package com.founderz.auth.document;
 
 import com.founderz.auth.presentation.LoginForm;
 import com.founderz.auth.presentation.RegisterForm;
-import com.founderz.common.vo.PasetoToken;
+import com.founderz.common.vo.auth.PasetoToken;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;

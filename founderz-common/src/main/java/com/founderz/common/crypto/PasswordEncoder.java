@@ -1,7 +1,7 @@
 package com.founderz.common.crypto;
 
-import com.founderz.common.vo.SecuredPassword;
-import com.founderz.common.vo.Password;
+import com.founderz.common.vo.auth.SecuredPassword;
+import com.founderz.common.vo.auth.Password;
 
 public interface PasswordEncoder {
     String encode(Password rawPassword);

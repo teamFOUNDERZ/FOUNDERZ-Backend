@@ -1,7 +1,7 @@
 package com.founderz.user.domain.persistence;
 
-import com.founderz.common.vo.AccountId;
-import com.founderz.common.vo.PhoneNumber;
+import com.founderz.common.vo.user.AccountId;
+import com.founderz.common.vo.user.PhoneNumber;
 import com.founderz.user.domain.dto.UserDomainDto;
 import com.founderz.user.domain.UserDomainReader;
 import com.founderz.user.domain.UserDomainWriter;

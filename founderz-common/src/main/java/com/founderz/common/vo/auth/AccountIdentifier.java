@@ -1,6 +1,9 @@
-package com.founderz.common.vo;
+package com.founderz.common.vo.auth;
 
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.founderz.common.vo.user.AccountId;
+import com.founderz.common.vo.user.PhoneNumber;
+import com.founderz.common.vo.ValueObject;
 
 import static com.founderz.common.assertion.AssertionUtils.assertArgumentNotEmpty;
 

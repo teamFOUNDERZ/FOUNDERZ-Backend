@@ -1,7 +1,8 @@
-package com.founderz.common.vo;
+package com.founderz.common.vo.user;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.founderz.common.crypto.CryptoUtils;
+import com.founderz.common.vo.ValueObject;
 
 public record UserId(
         @JsonValue
