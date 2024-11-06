@@ -19,6 +19,6 @@ public record SecuredBusinessId(
     }
 
     public BusinessId toBusinessId() {
-        return new BusinessId(CryptoUtils.decrypt(businessId));
+        return BusinessId.create(CryptoUtils.decrypt(businessId));
     }
 }

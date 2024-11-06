@@ -19,6 +19,6 @@ public record SecuredInvestmentAmount(
     }
 
     public InvestmentAmount toInvestmentAmount() {
-        return new InvestmentAmount(CryptoUtils.decrypt(investmentAmount));
+        return InvestmentAmount.create(CryptoUtils.decrypt(investmentAmount));
     }
 }
