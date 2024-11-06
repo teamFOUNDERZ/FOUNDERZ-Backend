@@ -16,4 +16,10 @@ public class AssertionUtils {
             throw new BadRequestException(aMessage);
         }
     }
+
+    public static void assertArgumentLength(final String aString, final String aMessage) {
+        if (aString.length() < 50 || aString.length() > 1000) {
+            throw new BadRequestException(aMessage);
+        }
+    }
 }
