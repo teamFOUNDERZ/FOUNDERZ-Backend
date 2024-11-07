@@ -14,8 +14,8 @@ interface TagDomainMapper {
     @Mapping(target = "id", expression = "java(TagEntityId.create(dto.id(),dto.name()))")
     TagEntity toEntity(TagDomainDto dto);
 
-    @Mapping(target = "id", expression = "java(TagId.create(entity.id().id()))")
-    @Mapping(target = "name", expression = "java(TagName.create(entity.id().name()))")
+    @Mapping(target = "id", expression = "java(TagId.create(entity.getId().id()))")
+    @Mapping(target = "name", expression = "java(TagName.create(entity.getId().name()))")
     TagDomainDto toDto(TagEntity entity);
 
     default Optional<TagDomainDto> toOptionalDto(Optional<TagEntity> entity) {
