@@ -1,4 +1,6 @@
 package com.founderz.business.domain.persistence;
 
-public interface BusinessJpaRepository extends JpaRepository<BusinessEntity, Long> {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+interface BusinessJpaRepository extends JpaRepository<BusinessEntity, Long> {
 }
