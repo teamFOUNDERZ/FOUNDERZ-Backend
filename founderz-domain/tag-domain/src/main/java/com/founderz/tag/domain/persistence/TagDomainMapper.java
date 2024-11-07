@@ -11,7 +11,7 @@ import static org.mapstruct.ReportingPolicy.ERROR;
 
 @Mapper(componentModel = SPRING, unmappedTargetPolicy = ERROR)
 interface TagDomainMapper {
-    @Mapping(target = "id", expression = "java(TagEntityId.create(dto.id(),dto.name()))")
+    @Mapping(target = "id", expression = "java(TagEntityId.create(dto.id().tagId(),dto.name().tagName()))")
     TagEntity toEntity(TagDomainDto dto);
 
     @Mapping(target = "id", expression = "java(TagId.create(entity.getId().id()))")
