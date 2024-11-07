@@ -13,7 +13,7 @@ import static org.mapstruct.ReportingPolicy.ERROR;
 interface BusinessDomainMapper {
     @Mapping(target = "id", expression = "java(dto.id().businessId())", ignore = true)
     @Mapping(target = "businessName", expression = "java(dto.businessName().name())")
-    @Mapping(target = "oneLineIntroduction", expression = "java(dto.oneLinerIntroduction().oneLinerIntroduction())")
+    @Mapping(target = "oneLineIntroduction", expression = "java(dto.oneLineIntroduction().oneLineIntroduction())")
     @Mapping(target = "businessIntroduction", expression = "java(dto.businessIntroduction().businessIntroduction())")
     @Mapping(target = "vision", expression = "java(dto.vision().vision())")
     @Mapping(target = "writePurpose", expression = "java(dto.writePurpose().writePurpose())")
