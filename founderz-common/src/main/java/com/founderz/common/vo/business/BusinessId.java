@@ -13,6 +13,6 @@ public record BusinessId(
     }
 
     public SecuredBusinessId toSecureBusinessId() {
-        return new SecuredBusinessId(CryptoUtils.encrypt(businessId));
+        return SecuredBusinessId.create(CryptoUtils.encrypt(businessId));
     }
 }
