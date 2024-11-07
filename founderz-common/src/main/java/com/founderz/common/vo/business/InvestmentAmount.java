@@ -1,7 +1,6 @@
 package com.founderz.common.vo.business;
 
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.founderz.common.crypto.CryptoUtils;
 import com.founderz.common.vo.ValueObject;
 
 public record InvestmentAmount(
