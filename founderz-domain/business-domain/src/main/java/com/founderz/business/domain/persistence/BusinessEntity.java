@@ -31,7 +31,7 @@ class BusinessEntity {
     private String vision;
 
     @Column(nullable = false, length = 100)
-    private String writingPurpose;
+    private String writePurpose;
 
     @Column(nullable = false)
     private Long InvestmentAmount;
