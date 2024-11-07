@@ -18,7 +18,7 @@ public class AssertionUtils {
     }
 
     public static void assertArgumentLength(final String aString, final int minLength, final int maxLength, final String aMessage) {
-        if (aString.length() < minLength || aString.length() > maxLength) {
+        if (aString.length() <= minLength || aString.length() >= maxLength) {
             throw new BadRequestException(aMessage);
         }
     }
