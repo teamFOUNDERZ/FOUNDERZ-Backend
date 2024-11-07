@@ -11,8 +11,4 @@ public record InvestmentAmount(
     public static InvestmentAmount create(final Long investmentAmount) {
         return new InvestmentAmount(investmentAmount);
     }
-
-    public SecuredInvestmentAmount toSecureInvestmentAmount() {
-        return new SecuredInvestmentAmount(CryptoUtils.encrypt(investmentAmount));
-    }
 }
