@@ -34,7 +34,7 @@ class BusinessEntity {
     private String writePurpose;
 
     @Column(nullable = false)
-    private Long InvestmentAmount;
+    private Long investmentAmount;
 
     @Column(nullable = false, length = 20)
     private String writerAccountId;
