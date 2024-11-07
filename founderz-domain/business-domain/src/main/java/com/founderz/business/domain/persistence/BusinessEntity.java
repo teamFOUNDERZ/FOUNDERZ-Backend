@@ -36,6 +36,6 @@ class BusinessEntity {
     @Column(nullable = false)
     private Long InvestmentAmount;
 
-    @Column(nullable = false, unique = true, length = 20)
+    @Column(nullable = false, length = 20)
     private String writerAccountId;
 }
