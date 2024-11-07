@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @RequiredArgsConstructor
-public class BusinessRepository implements BusinessDomainReader, BusinessDomainWriter {
+class BusinessRepository implements BusinessDomainReader, BusinessDomainWriter {
     private final BusinessRepository jpaRepository;
     private final BusinessDomainMapper mapper;
 }
