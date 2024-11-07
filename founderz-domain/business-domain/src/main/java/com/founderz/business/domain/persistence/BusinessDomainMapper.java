@@ -28,7 +28,7 @@ interface BusinessDomainMapper {
     @Mapping(target = "vision", expression = "java(Vision.create(entity.getVision()))")
     @Mapping(target = "writePurpose", expression = "java(WritePurpose.create(entity.getWritePurpose()))")
     @Mapping(target = "investmentAmount", expression = "java(InvestmentAmount.create(entity.getInvestmentAmount()))")
-    @Mapping(target = "writerAccountId", expression = "java(WriterAccountId.create(entity.getWriterAccountId()))")
+    @Mapping(target = "writerAccountId", expression = "java(AccountId.create(entity.getWriterAccountId()))")
     BusinessDomainDto toDto(BusinessEntity entity);
 
     default Optional<BusinessDomainDto> toOptionalDto(Optional<BusinessEntity> entity) {
