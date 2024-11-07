@@ -11,7 +11,7 @@ public record BusinessIntroduction(
 ) implements ValueObject.StringValueObject {
     public BusinessIntroduction {
         assertArgumentNotEmpty(introduction, "소개가 입력되지 않았습니다.");
-        assertArgumentLength(introduction, "소개는 50~1000자로 입력되어야 합니다.");
+        assertArgumentLength(introduction, 50, 1000, "소개는 50~1000자로 입력되어야 합니다.");
     }
 
     public static BusinessIntroduction create(final String introduction) {
