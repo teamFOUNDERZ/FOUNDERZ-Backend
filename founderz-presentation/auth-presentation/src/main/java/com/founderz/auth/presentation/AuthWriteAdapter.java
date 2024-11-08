@@ -21,8 +21,8 @@ class AuthWriteAdapter implements AuthWriteDocumentation {
     public void register(
             @RequestBody RegisterForm form
     ) {
-        final var applicationDto = registerFormMapper.toApplicationDto(form);
-        writeService.register(applicationDto);
+        final var internalDto = registerFormMapper.toDto(form);
+        writeService.register(internalDto);
     }
 
     @PostMapping("/login")

@@ -1,8 +1,8 @@
 package com.founderz.auth.application;
 
 import com.founderz.auth.application.dto.LoginDto;
-import com.founderz.auth.application.dto.RegisterDto;
 import com.founderz.common.vo.auth.PasetoToken;
+import com.founderz.internal.dto.user.UserDto;
 
 /**
  * <p>바운디드 컨텍스트: Auth(인증)</p>
@@ -23,7 +23,7 @@ public interface AuthWriteService {
      *
      * @param dto 회원가입를 위한 유저 정보
      */
-    void register(RegisterDto dto);
+    void register(UserDto dto);
 
     /**
      * 식별자(계정 ID, 전화번호), 비밀번호를 통해 로그인을 진행하는 메서드

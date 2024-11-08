@@ -1,9 +1,9 @@
-package com.founderz.tag.domain.dto;
+package com.founderz.internal.dto.tag;
 
 import com.founderz.common.vo.TagId;
 import com.founderz.common.vo.TagName;
 
-public record TagDomainDto(
+public record TagDto(
         TagId id,
         TagName name
 ) {

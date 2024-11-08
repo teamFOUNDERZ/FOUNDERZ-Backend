@@ -1,7 +1,7 @@
 package com.founderz.tag.domain;
 
 import com.founderz.common.vo.TagId;
-import com.founderz.tag.domain.dto.TagDomainDto;
+import com.founderz.internal.dto.tag.TagDto;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,7 +24,7 @@ public interface TagDomainReader {
      *
      * @return 전체 태그 정보
      */
-    List<TagDomainDto> findAll();
+    List<TagDto> findAll();
 
     /**
      * Id로 태그를 조회할 때 사용하는 메서드
@@ -32,5 +32,5 @@ public interface TagDomainReader {
      * @param tagId 태그 고유 아이디
      * @return 태그 정보 (Optional)
      */
-    Optional<TagDomainDto> findById(TagId tagId);
+    Optional<TagDto> findById(TagId tagId);
 }

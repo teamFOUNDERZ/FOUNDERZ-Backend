@@ -1,4 +1,4 @@
-package com.founderz.business.domain.dto;
+package com.founderz.internal.dto.business;
 
 import com.founderz.common.vo.business.BusinessId;
 import com.founderz.common.vo.business.BusinessIntroduction;
@@ -9,7 +9,7 @@ import com.founderz.common.vo.business.Vision;
 import com.founderz.common.vo.business.WritePurpose;
 import com.founderz.common.vo.user.AccountId;
 
-public record BusinessDomainDto(
+public record BusinessDto(
         BusinessId id,
         BusinessName businessName,
         OneLineIntroduction oneLineIntroduction,

@@ -3,7 +3,7 @@ package com.founderz.tag.domain.persistence;
 import com.founderz.common.vo.TagId;
 import com.founderz.tag.domain.TagDomainReader;
 import com.founderz.tag.domain.TagDomainWriter;
-import com.founderz.tag.domain.dto.TagDomainDto;
+import com.founderz.internal.dto.tag.TagDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -17,20 +17,20 @@ class TagRepository implements TagDomainWriter, TagDomainReader {
     private final TagDomainMapper mapper;
 
     @Override
-    public List<TagDomainDto> findAll() {
+    public List<TagDto> findAll() {
         return repository.findAll().stream()
                 .map(mapper::toDto)
                 .toList();
     }
 
     @Override
-    public Optional<TagDomainDto> findById(final TagId tagId) {
+    public Optional<TagDto> findById(final TagId tagId) {
         final var entity = repository.findById_Id(tagId.tagId());
         return mapper.toOptionalDto(entity);
     }
 
     @Override
-    public TagDomainDto save(final TagDomainDto dto) {
+    public TagDto save(final TagDto dto) {
         final var entity = mapper.toEntity(dto);
         final var savedEntity = repository.save(entity);
 

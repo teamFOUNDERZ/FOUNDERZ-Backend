@@ -1,6 +1,6 @@
 package com.founderz.tag.domain;
 
-import com.founderz.tag.domain.dto.TagDomainDto;
+import com.founderz.internal.dto.tag.TagDto;
 
 /**
  * <p>바운디드 컨텍스트: Tag(태그)</p>
@@ -19,5 +19,5 @@ public interface TagDomainWriter {
      *
      * @param dto 태그 도메인 정보
      */
-    TagDomainDto save(TagDomainDto dto);
+    TagDto save(TagDto dto);
 }

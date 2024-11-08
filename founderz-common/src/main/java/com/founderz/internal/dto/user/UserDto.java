@@ -1,4 +1,4 @@
-package com.founderz.user.domain.dto;
+package com.founderz.internal.dto.user;
 
 import com.founderz.common.vo.user.AccountId;
 import com.founderz.common.vo.user.AccountName;
@@ -7,7 +7,7 @@ import com.founderz.common.vo.auth.SecuredPassword;
 import com.founderz.common.vo.user.PhoneNumber;
 import com.founderz.common.vo.user.UserId;
 
-public record UserDomainDto(
+public record UserDto(
         UserId id,
         AccountId accountId,
         AccountName name,

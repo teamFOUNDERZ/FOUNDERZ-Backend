@@ -1,6 +1,6 @@
 package com.founderz.user.domain;
 
-import com.founderz.user.domain.dto.UserDomainDto;
+import com.founderz.internal.dto.user.UserDto;
 
 /**
  * <p>바운디드 컨텍스트: User(사용자)</p>
@@ -20,5 +20,5 @@ public interface UserDomainWriter {
      *
      * @param dto 유저 도메인 정보
      */
-    void save(UserDomainDto dto);
+    void save(UserDto dto);
 }
