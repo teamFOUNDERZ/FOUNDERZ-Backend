@@ -27,7 +27,7 @@ abstract class RegisterFormMapper {
     @Autowired
     protected PasswordEncoder passwordEncoder;
 
-    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "userId", ignore = true)
     @Mapping(target = "accountId", source = "accountId")
     @Mapping(target = "name", source = "name")
     @Mapping(target = "type", source = "type")
