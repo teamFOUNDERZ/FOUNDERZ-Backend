@@ -2,6 +2,8 @@ package com.founderz.auth.presentation;
 
 import com.founderz.auth.application.dto.LoginDto;
 import com.founderz.auth.application.dto.RegisterDto;
+import com.founderz.auth.presentation.form.LoginForm;
+import com.founderz.auth.presentation.form.RegisterForm;
 import com.founderz.common.exception.BadRequestException;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

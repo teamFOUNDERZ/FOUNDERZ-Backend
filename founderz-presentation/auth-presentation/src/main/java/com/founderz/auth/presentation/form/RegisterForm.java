@@ -1,4 +1,4 @@
-package com.founderz.auth.presentation;
+package com.founderz.auth.presentation.form;
 
 import com.founderz.common.vo.auth.Password;
 import com.founderz.common.vo.user.AccountId;

@@ -1,9 +1,11 @@
 package com.founderz.auth.presentation;
 
 import com.founderz.auth.application.AuthWriteService;
-import com.founderz.auth.document.AuthWriteDocumentation;
+import com.founderz.auth.presentation.document.AuthWriteDocumentation;
+import com.founderz.auth.presentation.form.LoginForm;
+import com.founderz.auth.presentation.form.RegisterForm;
+import com.founderz.auth.presentation.response.LoginResponse;
 import com.founderz.common.presentation.annotation.WebRestAdapter;
-import com.founderz.common.vo.auth.PasetoToken;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,10 +26,12 @@ class AuthWriteAdapter implements AuthWriteDocumentation {
     }
 
     @PostMapping("/login")
-    public PasetoToken login(
+    public LoginResponse login(
             @RequestBody LoginForm form
     ) {
         final var applicationDto = loginFormMapper.toApplicationDto(form);
-        return writeService.login(applicationDto);
+        final var token = writeService.login(applicationDto);
+
+        return LoginResponse.create(token);
     }
 }
