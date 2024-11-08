@@ -1,6 +1,6 @@
 package com.founderz.user.domain;
 
-import com.founderz.internal.dto.user.UserDto;
+import com.founderz.internal.data.user.UserDto;
 
 /**
  * <p>바운디드 컨텍스트: User(사용자)</p>

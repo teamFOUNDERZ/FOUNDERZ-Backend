@@ -2,7 +2,7 @@ package com.founderz.user.domain;
 
 import com.founderz.common.vo.user.AccountId;
 import com.founderz.common.vo.user.PhoneNumber;
-import com.founderz.internal.dto.user.UserDto;
+import com.founderz.internal.data.user.UserDto;
 
 import java.util.Optional;
 

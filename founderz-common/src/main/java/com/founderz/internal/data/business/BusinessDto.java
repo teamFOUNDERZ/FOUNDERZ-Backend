@@ -1,4 +1,4 @@
-package com.founderz.internal.dto.business;
+package com.founderz.internal.data.business;
 
 import com.founderz.common.vo.business.BusinessId;
 import com.founderz.common.vo.business.BusinessIntroduction;

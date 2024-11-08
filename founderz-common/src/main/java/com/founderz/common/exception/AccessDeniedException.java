@@ -7,15 +7,15 @@ public class AccessDeniedException extends FounderzException {
         super(STATUS_CODE);
     }
 
-    protected AccessDeniedException(final String message) {
+    public AccessDeniedException(final String message) {
         super(message, STATUS_CODE);
     }
 
-    protected AccessDeniedException(final Throwable throwable) {
+    public AccessDeniedException(final Throwable throwable) {
         super(throwable, STATUS_CODE);
     }
 
-    protected AccessDeniedException(final String message, final Throwable throwable) {
+    public AccessDeniedException(final String message, final Throwable throwable) {
         super(message, throwable, STATUS_CODE);
     }
 }

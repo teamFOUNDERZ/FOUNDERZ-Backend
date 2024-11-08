@@ -2,7 +2,7 @@ package com.founderz.auth.application;
 
 import com.founderz.auth.application.dto.LoginDto;
 import com.founderz.common.vo.auth.PasetoToken;
-import com.founderz.internal.dto.user.UserDto;
+import com.founderz.internal.data.user.UserDto;
 
 /**
  * <p>바운디드 컨텍스트: Auth(인증)</p>

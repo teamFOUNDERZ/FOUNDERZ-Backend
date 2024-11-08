@@ -1,6 +1,6 @@
 package com.founderz.tag.domain;
 
-import com.founderz.internal.dto.tag.TagDto;
+import com.founderz.internal.data.tag.TagDto;
 
 /**
  * <p>바운디드 컨텍스트: Tag(태그)</p>

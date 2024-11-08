@@ -2,7 +2,7 @@ package com.founderz.user.domain.persistence;
 
 import com.founderz.common.vo.user.AccountId;
 import com.founderz.common.vo.user.PhoneNumber;
-import com.founderz.internal.dto.user.UserDto;
+import com.founderz.internal.data.user.UserDto;
 import com.founderz.user.domain.UserDomainReader;
 import com.founderz.user.domain.UserDomainWriter;
 import lombok.RequiredArgsConstructor;

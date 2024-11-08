@@ -1,4 +1,4 @@
-package com.founderz.common.crypto;
+package com.founderz.internal.function.security;
 
 import com.founderz.common.vo.auth.SecuredPassword;
 import com.founderz.common.vo.auth.Password;

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-class PasswordEncoderImpl implements com.founderz.common.crypto.PasswordEncoder {
+class PasswordEncoderImpl implements com.founderz.internal.function.security.PasswordEncoder {
     private final PasswordEncoder passwordEncoder;
 
     @Override

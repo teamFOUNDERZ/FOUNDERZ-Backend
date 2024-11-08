@@ -1,6 +1,6 @@
 package com.founderz.business.domain.persistence;
 
-import com.founderz.internal.dto.business.BusinessDto;
+import com.founderz.internal.data.business.BusinessDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

@@ -2,19 +2,22 @@ package com.founderz.auth.application.impl;
 
 import com.founderz.auth.application.AuthWriteService;
 import com.founderz.auth.application.dto.LoginDto;
-import com.founderz.common.crypto.PasswordEncoder;
+import com.founderz.common.exception.DataNotFoundException;
+import com.founderz.internal.function.security.PasswordEncoder;
 import com.founderz.common.exception.BadRequestException;
 import com.founderz.common.vo.user.AccountId;
 import com.founderz.common.vo.auth.PasetoToken;
 import com.founderz.common.vo.user.PhoneNumber;
-import com.founderz.internal.dto.user.UserDto;
+import com.founderz.internal.data.user.UserDto;
 import com.founderz.security.Tokenizer;
 import com.founderz.user.domain.UserDomainReader;
 import com.founderz.user.domain.UserDomainWriter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 class AuthWriteServiceImpl implements AuthWriteService {
     private final PasswordEncoder passwordEncoder;
@@ -51,17 +54,13 @@ class AuthWriteServiceImpl implements AuthWriteService {
     }
 
     private UserDto getUserByAccountId(final AccountId accountId) {
-        final var dto = reader.findByAccountId(accountId)
-                .orElseThrow();
-
-        return dto;
+        return reader.findByAccountId(accountId)
+                .orElseThrow(() -> new DataNotFoundException(accountId.accountId() + "의 계정 아이디를 사용하는 사용자를 찾지 못했습니다."));
     }
 
     private UserDto getUserByTelNumber(final PhoneNumber phoneNumber) {
-        final var dto = reader.findByTel(phoneNumber)
-                .orElseThrow();
-
-        return dto;
+        return reader.findByTel(phoneNumber)
+                .orElseThrow(() -> new DataNotFoundException(phoneNumber.phoneNumber() + "의 전화번호를 사용하는 사용자를 찾지 못했습니다."));
     }
 
     private void validateRegisterDto(final UserDto dto) {

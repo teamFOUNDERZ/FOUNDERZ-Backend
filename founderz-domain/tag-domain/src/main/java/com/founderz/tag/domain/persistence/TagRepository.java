@@ -3,7 +3,7 @@ package com.founderz.tag.domain.persistence;
 import com.founderz.common.vo.TagId;
 import com.founderz.tag.domain.TagDomainReader;
 import com.founderz.tag.domain.TagDomainWriter;
-import com.founderz.internal.dto.tag.TagDto;
+import com.founderz.internal.data.tag.TagDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

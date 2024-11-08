@@ -1,6 +1,6 @@
 package com.founderz.tag.domain.persistence;
 
-import com.founderz.internal.dto.tag.TagDto;
+import com.founderz.internal.data.tag.TagDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

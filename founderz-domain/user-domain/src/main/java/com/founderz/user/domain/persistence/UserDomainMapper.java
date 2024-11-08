@@ -1,6 +1,6 @@
 package com.founderz.user.domain.persistence;
 
-import com.founderz.internal.dto.user.UserDto;
+import com.founderz.internal.data.user.UserDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
