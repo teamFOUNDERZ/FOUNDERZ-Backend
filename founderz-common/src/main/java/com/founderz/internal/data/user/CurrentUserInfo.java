@@ -9,7 +9,7 @@ import com.founderz.common.vo.user.UserId;
 public record CurrentUserInfo(
         UserId userId,
         AccountId accountId,
-        AccountName accountName,
+        AccountName name,
         AccountType type,
         PhoneNumber phoneNumber
 ) {

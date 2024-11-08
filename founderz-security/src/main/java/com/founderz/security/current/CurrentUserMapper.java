@@ -12,7 +12,7 @@ import static org.mapstruct.ReportingPolicy.ERROR;
 interface CurrentUserMapper {
     @Mapping(target = "userId", source = "userId")
     @Mapping(target = "accountId", source = "accountId")
-    @Mapping(target = "accountName", source = "accountName")
+    @Mapping(target = "name", source = "name")
     @Mapping(target = "type", source = "type")
     @Mapping(target = "phoneNumber", source = "phoneNumber")
     CurrentUserInfo toCurrentUserInfo(UserDto dto);
