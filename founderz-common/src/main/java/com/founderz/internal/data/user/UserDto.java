@@ -8,7 +8,7 @@ import com.founderz.common.vo.user.PhoneNumber;
 import com.founderz.common.vo.user.UserId;
 
 public record UserDto(
-        UserId id,
+        UserId userId,
         AccountId accountId,
         AccountName name,
         AccountType type,
