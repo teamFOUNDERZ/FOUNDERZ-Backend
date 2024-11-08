@@ -11,7 +11,7 @@ import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
 
 @Mapper(componentModel = SPRING, unmappedTargetPolicy = ERROR)
 interface UserDomainMapper {
-    @Mapping(target = "id", expression = "java(dto.id().userId())", ignore = true)
+    @Mapping(target = "id", expression = "java(dto.userId().userId())", ignore = true)
     @Mapping(target = "accountId", expression = "java(dto.accountId().accountId())")
     @Mapping(target = "name", expression = "java(dto.name().name())")
     @Mapping(target = "type", expression = "java(UserEntity.Type.valueOf(dto.type().type()))")
@@ -19,7 +19,7 @@ interface UserDomainMapper {
     @Mapping(target = "password", expression = "java(dto.securedPassword().password())")
     UserEntity toEntity(UserDto dto);
 
-    @Mapping(target = "id", expression = "java(UserId.create(entity.getId()))")
+    @Mapping(target = "userId", expression = "java(UserId.create(entity.getId()))")
     @Mapping(target = "accountId", expression = "java(AccountId.create(entity.getAccountId()))")
     @Mapping(target = "name", expression = "java(AccountName.create(entity.getName()))")
     @Mapping(target = "type", expression = "java(AccountType.create(entity.getType().name()))")
