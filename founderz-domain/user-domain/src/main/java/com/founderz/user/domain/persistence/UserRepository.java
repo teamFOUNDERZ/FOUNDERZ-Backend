@@ -23,6 +23,11 @@ class UserRepository implements UserDomainReader, UserDomainWriter {
     }
 
     @Override
+    public boolean existsByAccountIdOrPhoneNumber(final AccountId accountId, final PhoneNumber tel) {
+        return jpaRepository.existsByAccountIdOrPhoneNumber(accountId.accountId(), tel.phoneNumber());
+    }
+
+    @Override
     public boolean existsByAccountId(final AccountId accountId) {
         return jpaRepository.existsByAccountId(accountId.accountId());
     }

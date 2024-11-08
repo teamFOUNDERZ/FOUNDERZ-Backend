@@ -69,11 +69,8 @@ class AuthWriteServiceImpl implements AuthWriteService {
     }
 
     private void validateRegisterDto(final RegisterDto dto) {
-        if (reader.existsByAccountId(dto.accountId())) {
-            throw new BadRequestException("입력된 계정의 아이디가 이미 사용 중입니다.");
-        }
-        if (reader.existsByTel(dto.phoneNumber())) {
-            throw new BadRequestException("입력된 계정의 전화번호가 이미 사용 중입니다.");
+        if (reader.existsByAccountIdOrPhoneNumber(dto.accountId(), dto.phoneNumber())) {
+            throw new BadRequestException("입력된 계정의 아이디 또는 전화번호가 이미 사용 중입니다.");
         }
     }
 }

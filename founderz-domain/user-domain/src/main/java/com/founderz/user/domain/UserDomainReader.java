@@ -21,6 +21,13 @@ import java.util.Optional;
  * </ul>
  */
 public interface UserDomainReader {
+    /**
+     * 입력된 계정 ID 또는 전화번호를 사용하는 사용자 존재 여부 확인 메서드
+     *
+     * @param accountId 확인할 계정 ID, tel 확인할 전화번호
+     * @return 사용자 존재 여부 (존재하면 true)
+     */
+    boolean existsByAccountIdOrPhoneNumber(AccountId accountId, PhoneNumber tel);
 
     /**
      * 입력된 계정 ID를 사용하는 사용자 존재 여부 확인 메서드
