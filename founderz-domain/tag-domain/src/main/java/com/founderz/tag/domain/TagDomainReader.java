@@ -1,6 +1,6 @@
 package com.founderz.tag.domain;
 
-import com.founderz.common.vo.TagId;
+import com.founderz.common.vo.tag.TagId;
 import com.founderz.internal.data.tag.TagDto;
 
 import java.util.List;
