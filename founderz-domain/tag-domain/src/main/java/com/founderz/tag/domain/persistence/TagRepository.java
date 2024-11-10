@@ -1,6 +1,7 @@
 package com.founderz.tag.domain.persistence;
 
-import com.founderz.common.vo.tag.TagId;
+import com.founderz.common.vo.TagId;
+import com.founderz.common.vo.TagName;
 import com.founderz.tag.domain.TagDomainReader;
 import com.founderz.tag.domain.TagDomainWriter;
 import com.founderz.internal.data.tag.TagDto;
@@ -26,6 +27,12 @@ class TagRepository implements TagDomainWriter, TagDomainReader {
     @Override
     public Optional<TagDto> findById(final TagId tagId) {
         final var entity = jpaRepository.findById_Id(tagId.tagId());
+        return mapper.toOptionalDto(entity);
+    }
+
+    @Override
+    public Optional<TagDto> findByName(final TagName tagName) {
+        final var entity = jpaRepository.findById_Name(tagName.tagName());
         return mapper.toOptionalDto(entity);
     }
 
