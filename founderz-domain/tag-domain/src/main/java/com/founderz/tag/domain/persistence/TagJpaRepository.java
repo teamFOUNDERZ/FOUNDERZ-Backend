@@ -6,4 +6,5 @@ import java.util.Optional;
 
 interface TagJpaRepository extends JpaRepository<TagEntity, TagEntityId> {
     Optional<TagEntity> findById_Id(Long id);
+    void deleteById_Id(Long id);
 }
