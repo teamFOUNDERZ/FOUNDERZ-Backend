@@ -5,7 +5,7 @@ import com.founderz.internal.data.tag.TagDto;
 import java.util.List;
 
 /**
- * <p>바운디드 컨텍스트: tag(태그)</p>
+ * <p>바운디드 컨텍스트: Tag(태그)</p>
  * <p>책임: 태그 읽기 작업</p>
  * <p>계층: application</p>
  * <br/>
