@@ -32,9 +32,7 @@ class TagRepository implements TagDomainWriter, TagDomainReader {
     @Override
     public void save(final TagDto dto) {
         final var entity = mapper.toEntity(dto);
-        final var savedEntity = jpaRepository.save(entity);
-
-        mapper.toDto(savedEntity);
+        jpaRepository.save(entity);
     }
 
     @Override
