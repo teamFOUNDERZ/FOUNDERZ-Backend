@@ -7,6 +7,7 @@ include 'founderz-application'
 include 'founderz-application:user-application'
 include 'founderz-application:auth-application'
 include 'founderz-application:tag-application'
+include 'founderz-application:userinterest-application'
 
 include 'founderz-domain'
 include 'founderz-domain:user-domain'

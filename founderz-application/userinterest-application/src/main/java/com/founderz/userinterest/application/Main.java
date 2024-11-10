@@ -1,4 +1,4 @@
-package com.founderz.event;
+package com.founderz.userinterest.application;
 
 public class Main {
     public static void main(String[] args) {
