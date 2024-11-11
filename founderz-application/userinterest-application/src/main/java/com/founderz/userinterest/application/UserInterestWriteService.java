@@ -17,8 +17,15 @@ import com.founderz.internal.data.userinterest.UserInterestDto;
 public interface UserInterestWriteService {
     /**
      * 사용자의 관심사를 등록하는 메서드
-     * @param dto
+     *
+     * @param dto 관심사 정보
      */
     void addUserInterest(UserInterestDto dto);
+
+    /**
+     * 사용자의 관심사를 삭제하는 메서드
+     *
+     * @param tagId 삭제할 태그 아이디
+     */
     void removeUserInterest(TagId tagId);
 }
