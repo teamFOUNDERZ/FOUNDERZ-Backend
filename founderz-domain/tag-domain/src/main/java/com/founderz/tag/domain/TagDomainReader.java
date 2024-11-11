@@ -1,8 +1,9 @@
 package com.founderz.tag.domain;
 
-import com.founderz.common.vo.TagId;
-import com.founderz.common.vo.TagName;
+import com.founderz.common.vo.tag.TagId;
+import com.founderz.common.vo.tag.TagName;
 import com.founderz.internal.data.tag.TagDto;
+import com.founderz.internal.function.tag.TagReader;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,7 +21,7 @@ import java.util.Optional;
  *   <li>name으로 태그 조회</li>
  * </ul>
  */
-public interface TagDomainReader {
+public interface TagDomainReader extends TagReader {
     /**
      * 태그 전체를 조회할 때 사용하는 메서드
      *
