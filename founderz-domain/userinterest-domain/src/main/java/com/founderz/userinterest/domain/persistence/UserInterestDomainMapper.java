@@ -23,12 +23,12 @@ interface UserInterestDomainMapper {
     @Mapping(target = "id", expression = "java(dto.userInterestId().userInterestId())", ignore = true)
     @Mapping(target = "userId", expression = "java(dto.userId().userId())")
     @Mapping(target = "tagId", expression = "java(dto.tagId().tagId())")
-    @Mapping(target = "tagName", expression = "java(dto.tagName().tagName())")
+    @Mapping(target = "cacheTagName", expression = "java(dto.tagName().tagName())")
     UserInterestEntity toEntity(UserInterestDto dto);
 
     @Mapping(target = "userInterestId", expression = "java(UserInterestId.create(entity.getId()))")
     @Mapping(target = "userId", expression = "java(UserId.create(entity.getUserId()))")
     @Mapping(target = "tagId", expression = "java(TagId.create(entity.getTagId()))")
-    @Mapping(target = "tagName", expression = "java(TagName.create(entity.getTagName()))")
+    @Mapping(target = "tagName", expression = "java(TagName.create(entity.getCacheTagName()))")
     UserInterestDto toDto(UserInterestEntity entity);
 }
