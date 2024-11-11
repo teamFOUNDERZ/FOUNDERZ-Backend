@@ -20,5 +20,3 @@ include 'founderz-presentation:common-presentation'
 include 'founderz-presentation:user-presentation'
 include 'founderz-presentation:auth-presentation'
 include 'founderz-presentation:tag-presentation'
-
-include 'founderz-event'
