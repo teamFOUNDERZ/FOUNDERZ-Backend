@@ -1,8 +1,10 @@
 package com.founderz.internal.function.tag;
 
+import com.founderz.common.vo.tag.TagId;
 import com.founderz.internal.data.tag.TagDto;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * <p>바운디드 컨텍스트: Tag(태그)</p>
@@ -22,4 +24,5 @@ public interface TagReader {
      * @return 조회된 태그 목록
      */
     List<TagDto> findAllByIds(List<Long> ids);
+    Optional<TagDto> findById(TagId id);
 }
