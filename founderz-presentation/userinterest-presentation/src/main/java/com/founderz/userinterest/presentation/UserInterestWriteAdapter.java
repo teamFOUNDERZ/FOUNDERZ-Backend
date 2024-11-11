@@ -5,6 +5,7 @@ import com.founderz.common.presentation.annotation.WebRestAdapter;
 import com.founderz.common.security.UserRole;
 import com.founderz.common.vo.tag.SecuredTagId;
 import com.founderz.userinterest.application.UserInterestWriteService;
+import com.founderz.userinterest.presentation.document.UserInterestWriteDocumentation;
 import com.founderz.userinterest.presentation.form.UserInterestAddForm;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @RequiredArgsConstructor
 @WebRestAdapter("/api/users/interests")
-class UserInterestWriteAdapter {
+class UserInterestWriteAdapter implements UserInterestWriteDocumentation {
     private final UserInterestWriteService writeService;
     private final UserInterestFormMapper mapper;
 
