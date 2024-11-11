@@ -3,12 +3,21 @@ package com.founderz.internal.data.userinterest;
 import com.founderz.common.vo.tag.TagId;
 import com.founderz.common.vo.tag.TagName;
 import com.founderz.common.vo.user.UserId;
-import com.founderz.common.vo.userinterest.UserInterestId;
 
 public record UserInterestDto(
-        UserInterestId userInterestId,
         UserId userId,
         TagId tagId,
         TagName tagName
 ) {
+    public UserInterestDto setTagNameAndUserId(final UserId userId, final TagName tagName) {
+        return new UserInterestDto(userId, tagId, tagName);
+    }
+
+    public UserInterestDto setUserId(final UserId userId) {
+        return new UserInterestDto(userId, tagId, tagName);
+    }
+
+    public UserInterestDto setTagName(final TagName tagName) {
+        return new UserInterestDto(userId, tagId, tagName);
+    }
 }
