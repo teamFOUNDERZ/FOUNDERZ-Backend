@@ -1,8 +1,8 @@
-package com.founderz.auth.document;
+package com.founderz.auth.presentation.document;
 
-import com.founderz.auth.presentation.LoginForm;
-import com.founderz.auth.presentation.RegisterForm;
-import com.founderz.common.vo.auth.PasetoToken;
+import com.founderz.auth.presentation.form.LoginForm;
+import com.founderz.auth.presentation.response.LoginResponse;
+import com.founderz.auth.presentation.form.RegisterForm;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -21,5 +21,5 @@ public interface AuthWriteDocumentation {
             description = "로그인을 성공하였습니다."
     )
     @Operation(summary = "로그인 API")
-    PasetoToken login(LoginForm form);
+    LoginResponse login(LoginForm form);
 }

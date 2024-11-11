@@ -1,4 +1,4 @@
-package com.founderz.common.vo;
+package com.founderz.common.vo.tag;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 

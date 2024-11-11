@@ -4,9 +4,11 @@ import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 
+@Setter
 @Getter
 @Entity
 @Table(name = "tag_founderz_v1")

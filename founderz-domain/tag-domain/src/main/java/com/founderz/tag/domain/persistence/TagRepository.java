@@ -1,9 +1,10 @@
 package com.founderz.tag.domain.persistence;
 
 import com.founderz.common.vo.TagId;
+import com.founderz.common.vo.TagName;
 import com.founderz.tag.domain.TagDomainReader;
 import com.founderz.tag.domain.TagDomainWriter;
-import com.founderz.tag.domain.dto.TagDomainDto;
+import com.founderz.internal.data.tag.TagDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -13,27 +14,36 @@ import java.util.Optional;
 @Repository
 @RequiredArgsConstructor
 class TagRepository implements TagDomainWriter, TagDomainReader {
-    private final TagJpaRepository repository;
+    private final TagJpaRepository jpaRepository;
     private final TagDomainMapper mapper;
 
     @Override
-    public List<TagDomainDto> findAll() {
-        return repository.findAll().stream()
+    public List<TagDto> findAll() {
+        return jpaRepository.findAll().stream()
                 .map(mapper::toDto)
                 .toList();
     }
 
     @Override
-    public Optional<TagDomainDto> findById(final TagId tagId) {
-        final var entity = repository.findById_Id(tagId.tagId());
+    public Optional<TagDto> findById(final TagId tagId) {
+        final var entity = jpaRepository.findById_Id(tagId.tagId());
         return mapper.toOptionalDto(entity);
     }
 
     @Override
-    public TagDomainDto save(final TagDomainDto dto) {
-        final var entity = mapper.toEntity(dto);
-        final var savedEntity = repository.save(entity);
+    public Optional<TagDto> findByName(final TagName tagName) {
+        final var entity = jpaRepository.findById_Name(tagName.tagName());
+        return mapper.toOptionalDto(entity);
+    }
 
-        return mapper.toDto(savedEntity);
+    @Override
+    public void save(final TagDto dto) {
+        final var entity = mapper.toEntity(dto);
+        jpaRepository.save(entity);
+    }
+
+    @Override
+    public void delete(final TagId tagId) {
+        jpaRepository.deleteById_Id(tagId.tagId());
     }
 }

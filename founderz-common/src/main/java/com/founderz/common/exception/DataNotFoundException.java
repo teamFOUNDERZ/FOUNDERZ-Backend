@@ -3,19 +3,19 @@ package com.founderz.common.exception;
 public class DataNotFoundException extends FounderzException {
     private static final int STATUS_CODE = 404;
 
-    protected DataNotFoundException() {
+    public DataNotFoundException() {
         super(STATUS_CODE);
     }
 
-    protected DataNotFoundException(final String message) {
+    public DataNotFoundException(final String message) {
         super(message, STATUS_CODE);
     }
 
-    protected DataNotFoundException(final Throwable throwable) {
+    public DataNotFoundException(final Throwable throwable) {
         super(throwable, STATUS_CODE);
     }
 
-    protected DataNotFoundException(final String message, final Throwable throwable) {
+    public DataNotFoundException(final String message, final Throwable throwable) {
         super(message, throwable, STATUS_CODE);
     }
 }

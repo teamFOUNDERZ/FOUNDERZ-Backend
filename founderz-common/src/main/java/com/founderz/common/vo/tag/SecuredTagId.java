@@ -1,7 +1,8 @@
-package com.founderz.common.vo;
+package com.founderz.common.vo.tag;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.founderz.common.crypto.CryptoUtils;
+import com.founderz.common.vo.ValueObject;
 
 import static com.founderz.common.assertion.AssertionUtils.assertArgumentNotEmpty;
 
@@ -17,7 +18,7 @@ public record SecuredTagId(
         return new SecuredTagId(tagId);
     }
 
-    public TagId toUserId() {
+    public TagId toTagId() {
         return new TagId(CryptoUtils.decrypt(tagId));
     }
 }

@@ -1,4 +1,4 @@
-package com.founderz.auth.document;
+package com.founderz.auth.presentation.document;
 
 import com.founderz.common.vo.user.AccountId;
 import com.founderz.common.vo.user.PhoneNumber;

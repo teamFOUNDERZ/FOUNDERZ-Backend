@@ -1,7 +1,7 @@
 package com.founderz.auth.presentation;
 
 import com.founderz.auth.application.AuthReadService;
-import com.founderz.auth.document.AuthReadDocumentation;
+import com.founderz.auth.presentation.document.AuthReadDocumentation;
 import com.founderz.common.presentation.annotation.WebRestAdapter;
 import com.founderz.common.vo.user.AccountId;
 import com.founderz.common.vo.user.PhoneNumber;

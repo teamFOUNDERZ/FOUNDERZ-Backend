@@ -1,16 +1,16 @@
-package com.founderz.auth.application.dto;
+package com.founderz.internal.data.user;
 
-import com.founderz.common.vo.auth.Password;
 import com.founderz.common.vo.user.AccountId;
 import com.founderz.common.vo.user.AccountName;
 import com.founderz.common.vo.user.AccountType;
 import com.founderz.common.vo.user.PhoneNumber;
+import com.founderz.common.vo.user.UserId;
 
-public record RegisterDto(
+public record CurrentUserInfo(
+        UserId userId,
         AccountId accountId,
         AccountName name,
         AccountType type,
-        PhoneNumber phoneNumber,
-        Password password
+        PhoneNumber phoneNumber
 ) {
 }
