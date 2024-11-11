@@ -1,25 +1,21 @@
 package com.founderz.security.cors;
 
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Primary;
-import org.springframework.http.HttpHeaders;
-import org.springframework.stereotype.Component;
-import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.List;
 
-@Primary
-@Component
+@Configuration
 @RequiredArgsConstructor
-class CustomCorsConfigurationSource implements CorsConfigurationSource {
+class CorsConfiguration {
     private final CorsProperties corsProperties;
 
-    @Override
-    public CorsConfiguration getCorsConfiguration(final HttpServletRequest request) {
-        final var configuration = new CorsConfiguration();
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        final var configuration = new org.springframework.web.cors.CorsConfiguration();
 
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuration.setAllowedOrigins(List.of(corsProperties.allowHosts().split(",")));
@@ -31,6 +27,6 @@ class CustomCorsConfigurationSource implements CorsConfigurationSource {
         final var source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
 
-        return configuration;
+        return source;
     }
 }
