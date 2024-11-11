@@ -1,5 +1,6 @@
 package com.founderz.userinterest.domain;
 
+import com.founderz.common.vo.tag.TagId;
 import com.founderz.common.vo.user.UserId;
 import com.founderz.internal.data.userinterest.UserInterestDto;
 
@@ -14,6 +15,8 @@ import java.util.List;
  * <h2>제공 기능</h2>
  * <ul>
  *   <li>현재 사용자의 관심사 목록 조회</li>
+ *   <li>id를 사용한 관심사 조회</li>
+ *   <li>를 사용한 관심사 조회</li>
  * </ul>
  */
 public interface UserInterestDomainReader {
@@ -24,4 +27,6 @@ public interface UserInterestDomainReader {
      * @return 현재 사용자의 관심사 목록
      */
     List<UserInterestDto> findAllByUserId(UserId userId);
+
+    boolean existsByUserIdAndTagId(UserId userId, TagId tagId);
 }
