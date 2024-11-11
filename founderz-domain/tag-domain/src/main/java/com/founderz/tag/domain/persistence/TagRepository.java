@@ -1,7 +1,7 @@
 package com.founderz.tag.domain.persistence;
 
-import com.founderz.common.vo.TagId;
-import com.founderz.common.vo.TagName;
+import com.founderz.common.vo.tag.TagName;
+import com.founderz.common.vo.tag.TagId;
 import com.founderz.tag.domain.TagDomainReader;
 import com.founderz.tag.domain.TagDomainWriter;
 import com.founderz.internal.data.tag.TagDto;
@@ -45,5 +45,12 @@ class TagRepository implements TagDomainWriter, TagDomainReader {
     @Override
     public void delete(final TagId tagId) {
         jpaRepository.deleteById_Id(tagId.tagId());
+    }
+
+    @Override
+    public List<TagDto> findAllByIds(final List<Long> ids) {
+        return jpaRepository.findAllByIdIdIn(ids).stream()
+                .map(mapper::toDto)
+                .toList();
     }
 }

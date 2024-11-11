@@ -7,16 +7,16 @@ include 'founderz-application'
 include 'founderz-application:user-application'
 include 'founderz-application:auth-application'
 include 'founderz-application:tag-application'
+include 'founderz-application:userinterest-application'
 
 include 'founderz-domain'
 include 'founderz-domain:user-domain'
 include 'founderz-domain:tag-domain'
 include 'founderz-domain:business-domain'
+include 'founderz-domain:userinterest-domain'
 
 include 'founderz-presentation'
 include 'founderz-presentation:common-presentation'
 include 'founderz-presentation:user-presentation'
 include 'founderz-presentation:auth-presentation'
 include 'founderz-presentation:tag-presentation'
-
-include 'founderz-event'
