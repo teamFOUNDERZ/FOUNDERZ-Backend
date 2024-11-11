@@ -26,13 +26,13 @@ class TagRepository implements TagDomainWriter, TagDomainReader {
 
     @Override
     public Optional<TagDto> findById(final TagId tagId) {
-        final var entity = jpaRepository.findById_Id(tagId.tagId());
+        final var entity = jpaRepository.findById(tagId.tagId());
         return mapper.toOptionalDto(entity);
     }
 
     @Override
     public Optional<TagDto> findByName(final TagName tagName) {
-        final var entity = jpaRepository.findById_Name(tagName.tagName());
+        final var entity = jpaRepository.findByName(tagName.tagName());
         return mapper.toOptionalDto(entity);
     }
 
@@ -44,12 +44,12 @@ class TagRepository implements TagDomainWriter, TagDomainReader {
 
     @Override
     public void delete(final TagId tagId) {
-        jpaRepository.deleteById_Id(tagId.tagId());
+        jpaRepository.deleteById(tagId.tagId());
     }
 
     @Override
     public List<TagDto> findAllByIds(final List<Long> ids) {
-        return jpaRepository.findAllByIdIdIn(ids).stream()
+        return jpaRepository.findAllByIdIn(ids).stream()
                 .map(mapper::toDto)
                 .toList();
     }
