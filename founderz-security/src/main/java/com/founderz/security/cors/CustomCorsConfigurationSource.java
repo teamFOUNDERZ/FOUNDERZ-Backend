@@ -21,8 +21,15 @@ class CustomCorsConfigurationSource implements CorsConfigurationSource {
         configuration.setAllowedHeaders(List.of(
                 HttpHeaders.AUTHORIZATION,
                 HttpHeaders.CONTENT_TYPE,
-                HttpHeaders.ACCEPT));
-        configuration.setExposedHeaders(List.of(HttpHeaders.AUTHORIZATION));
+                HttpHeaders.ACCEPT,
+                HttpHeaders.ORIGIN,
+                HttpHeaders.CACHE_CONTROL,
+                "X-Requested-With"
+        ));
+        configuration.setExposedHeaders(List.of(
+                HttpHeaders.AUTHORIZATION,
+                HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN
+        ));
         configuration.setAllowCredentials(true);
         configuration.setMaxAge(3600L);
 
