@@ -30,14 +30,6 @@ public interface TagDomainReader extends TagReader {
     List<TagDto> findAll();
 
     /**
-     * Id로 태그를 조회할 때 사용하는 메서드
-     *
-     * @param tagId 태그 고유 아이디
-     * @return 태그 정보 (Optional)
-     */
-    Optional<TagDto> findById(TagId tagId);
-
-    /**
      * name으로 태그를 조회할 때 사용하는 메서드
      *
      * @param tagName 태그 이름

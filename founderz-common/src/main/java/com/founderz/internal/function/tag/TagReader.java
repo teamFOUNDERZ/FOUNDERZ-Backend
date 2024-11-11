@@ -24,5 +24,12 @@ public interface TagReader {
      * @return 조회된 태그 목록
      */
     List<TagDto> findAllByIds(List<Long> ids);
-    Optional<TagDto> findById(TagId id);
+
+    /**
+     * Id로 태그를 조회할 때 사용하는 메서드
+     *
+     * @param tagId 태그 고유 아이디
+     * @return 태그 정보 (Optional)
+     */
+    Optional<TagDto> findById(TagId tagId);
 }
