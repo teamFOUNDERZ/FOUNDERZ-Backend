@@ -20,3 +20,8 @@ include 'founderz-presentation:tag-presentation'
 include 'founderz-domain:business-domain'
 
 include 'founderz-event'
+include 'founderz-domain:agreement'
+findProject(':founderz-domain:agreement')?.name = 'agreement'
+include 'founderz-domain:agreement-domain'
+findProject(':founderz-domain:agreement-domain')?.name = 'agreement-domain'
+
