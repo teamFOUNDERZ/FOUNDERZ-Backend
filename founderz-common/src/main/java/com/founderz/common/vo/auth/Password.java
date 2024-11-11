@@ -13,7 +13,7 @@ public record Password(
         @JsonValue
         String password
 ) implements ValueObject.StringValueObject {
-    private static final Pattern PASSWORD_REGEX = Pattern.compile(PASSWORD.getRegex(8, 20));
+    private static final Pattern PASSWORD_REGEX = Pattern.compile(PASSWORD.getRegex());
 
     public Password {
         assertArgumentNotEmpty(password, "비밀번호가 입력되지 않았습니다.");
