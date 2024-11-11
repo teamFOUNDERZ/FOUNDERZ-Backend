@@ -15,5 +15,11 @@ import java.util.List;
  * </ul>
  */
 public interface TagReader {
+    /**
+     * id 목록으로 전체 조회를 하는 메서드
+     *
+     * @param ids 조회할 아이디 목록
+     * @return 조회된 태그 목록
+     */
     List<TagDto> findAllByIds(List<Long> ids);
 }
