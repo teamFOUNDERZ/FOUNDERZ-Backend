@@ -1,5 +1,6 @@
 package com.founderz.tag.presentation.document;
 
+import com.founderz.external.response.ListResponse;
 import com.founderz.tag.presentation.form.TagCreateForm;
 import com.founderz.tag.presentation.response.TagResponse;
 import io.swagger.v3.oas.annotations.Operation;
@@ -15,5 +16,5 @@ public interface TagReadDocumentation {
             description = "태그 전체 조회를 성공했습니다."
     )
     @Operation(summary = "태그 전체 조회 API")
-    List<TagResponse> getAll();
+    ListResponse<TagResponse> getAll();
 }
