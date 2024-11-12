@@ -12,6 +12,7 @@ import com.founderz.internal.data.userinterest.UserInterestDto;
  * <h2>제공 기능</h2>
  * <ul>
  *   <li>사용자 관심사 등록</li>
+ *   <li>사용자 관심사 삭제</li>
  * </ul>
  */
 public interface UserInterestWriteService {
