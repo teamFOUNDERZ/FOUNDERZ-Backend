@@ -11,11 +11,12 @@ import static org.mapstruct.ReportingPolicy.ERROR;
 
 @Mapper(componentModel = SPRING, unmappedTargetPolicy = ERROR)
 interface TagDomainMapper {
-    @Mapping(target = "id", expression = "java(TagEntityId.create(dto.id().tagId(),dto.name().tagName()))")
+    @Mapping(target = "id", expression = "java(dto.id().tagId())")
+    @Mapping(target = "name", expression = "java(dto.name().tagName())")
     TagEntity toEntity(TagDto dto);
 
-    @Mapping(target = "id", expression = "java(TagId.create(entity.getId().id()))")
-    @Mapping(target = "name", expression = "java(TagName.create(entity.getId().name()))")
+    @Mapping(target = "id", expression = "java(TagId.create(entity.getId()))")
+    @Mapping(target = "name", expression = "java(TagName.create(entity.getName()))")
     TagDto toDto(TagEntity entity);
 
     default Optional<TagDto> toOptionalDto(Optional<TagEntity> entity) {

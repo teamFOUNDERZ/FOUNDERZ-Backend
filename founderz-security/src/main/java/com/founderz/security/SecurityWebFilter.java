@@ -57,7 +57,7 @@ class SecurityWebFilter extends OncePerRequestFilter {
             final var details = getUserRole(username);
             final var authentication = new UsernamePasswordAuthenticationToken(
                     details,
-                    null,
+                    "",
                     details.getAuthorities()
             );
             SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -70,7 +70,7 @@ class SecurityWebFilter extends OncePerRequestFilter {
 
         return new User(
                 username,
-                null,
+                "",
                 Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + user.type().type()))
         );
     }
