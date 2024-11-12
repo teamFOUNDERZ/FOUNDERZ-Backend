@@ -4,6 +4,8 @@ import com.founderz.common.vo.tag.TagId;
 import com.founderz.common.vo.user.UserId;
 import com.founderz.internal.data.userinterest.UserInterestDto;
 
+import java.util.List;
+
 /**
  * <p>바운디드 컨텍스트: UserInterest(사용자 관심사)</p>
  * <p>책임: 사용자 관심사 데이터베이스 테이블 쓰기 작업</p>
@@ -23,6 +25,8 @@ public interface UserInterestDomainWriter {
      * @param dto 사용자 관심사 도메인 정보
      */
     void save(UserInterestDto dto);
+
+    void saveAll(List<UserInterestDto> dtoList);
 
     /**
      * 사용자 관심사 삭제를 위한 메서드
