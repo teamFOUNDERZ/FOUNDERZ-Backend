@@ -26,4 +26,8 @@ include 'founderz-presentation:userinterest-presentation'
 include 'founderz-presentation:sector-presentation'
 
 include 'founderz-event'
-include 'founderz-event:userinterest-event'
+include 'founderz-application:business-application'
+findProject(':founderz-application:business-application')?.name = 'business-application'
+include 'founderz-presentation:business-presentation'
+findProject(':founderz-presentation:business-presentation')?.name = 'business-presentation'
+
