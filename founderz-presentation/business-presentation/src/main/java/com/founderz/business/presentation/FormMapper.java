@@ -8,9 +8,10 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
+import static org.mapstruct.ReportingPolicy.ERROR;
 import static org.mapstruct.ReportingPolicy.IGNORE;
 
-@Mapper(componentModel = SPRING, unmappedTargetPolicy = IGNORE)
+@Mapper(componentModel = SPRING, unmappedTargetPolicy = ERROR)
 interface WriteBusinessFormMapper {
     @Mapping(target = "businessId", ignore = true)
     @Mapping(target = "businessName", source = "businessName")
