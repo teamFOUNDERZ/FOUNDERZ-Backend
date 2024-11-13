@@ -9,10 +9,12 @@ import com.founderz.internal.function.security.CurrentUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class BusinessWriteServiceImpl implements BusinessWriteService {
     private final BusinessDomainWriter writer;
