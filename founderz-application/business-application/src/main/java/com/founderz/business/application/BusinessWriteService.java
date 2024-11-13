@@ -1,6 +1,9 @@
 package com.founderz.business.application;
 
+import com.founderz.common.vo.tag.SecuredTagId;
 import com.founderz.internal.data.business.BusinessDto;
+
+import java.util.List;
 
 /**
  * <p>바운디드 컨텍스트: Business(사업 아이템)</p>
@@ -20,5 +23,5 @@ public interface BusinessWriteService {
      *
      * @param dto 사업 아이템 작성을 위한 유저 정보
      */
-    void write(BusinessDto dto);
+    void write(BusinessDto dto, List<SecuredTagId> tagIds);
 }

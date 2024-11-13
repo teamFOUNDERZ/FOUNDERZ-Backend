@@ -21,6 +21,6 @@ public class BusinessWriteAdapter implements BusinessWriteDocumentation {
     public void write(@RequestBody WriteBusinessForm form) {
         final var internalDto = writeBusinessFormMapper.toDto(form);
 
-        writeService.write(internalDto);
+        writeService.write(internalDto, form.tagIds());
     }
 }
