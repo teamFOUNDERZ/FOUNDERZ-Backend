@@ -32,6 +32,7 @@ class TagWriteAdapter implements TagWriteDocumentation {
 
     @DeleteMapping("/{tagId}")
     @RequiredRoles({UserRole.ADMIN})
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable SecuredTagId tagId) {
         writeService.delete(tagId.toTagId());
     }

@@ -9,14 +9,14 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @Tag(name = "태그 쓰기 작업 API", description = "tag")
 public interface TagWriteDocumentation {
     @ApiResponse(
-            responseCode = "204",
+            responseCode = "201",
             description = "태그 생성을 완료했습니다."
     )
     @Operation(summary = "태그 생성 API (어드민)")
     void create(TagCreateForm form);
 
     @ApiResponse(
-            responseCode = "200",
+            responseCode = "204",
             description = "태그 삭제를 완료했습니다."
     )
     @Operation(summary = "태그 삭제 API (어드민)")
