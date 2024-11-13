@@ -19,4 +19,22 @@ public record BusinessDto(
         InvestmentAmount investmentAmount,
         AccountId writerAccountId
 ) {
+    public BusinessDto {
+        if (investmentAmount == null) {
+            investmentAmount = InvestmentAmount.create();
+        }
+    }
+
+    public BusinessDto setWriterAccountId(AccountId writerAccountId) {
+        return new BusinessDto(
+                id,
+                businessName,
+                oneLineIntroduction,
+                businessIntroduction,
+                vision,
+                writePurpose,
+                investmentAmount,
+                writerAccountId
+        );
+    }
 }
