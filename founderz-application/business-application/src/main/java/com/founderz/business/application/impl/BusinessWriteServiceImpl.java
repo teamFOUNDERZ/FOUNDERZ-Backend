@@ -4,7 +4,7 @@ import com.founderz.business.application.BusinessWriteService;
 import com.founderz.business.domain.BusinessDomainWriter;
 import com.founderz.common.vo.tag.SecuredTagId;
 import com.founderz.internal.data.business.BusinessDto;
-import com.founderz.internal.event.BusinessTypeAddEvent;
+import com.founderz.internal.event.BusinessSectorAddEvent;
 import com.founderz.internal.function.security.CurrentUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
@@ -27,6 +27,6 @@ public class BusinessWriteServiceImpl implements BusinessWriteService {
 
         final var saveBusiness = writer.save(newDto);
 
-        eventPublisher.publishEvent(BusinessTypeAddEvent.create(tagIds, saveBusiness.businessId()));
+        eventPublisher.publishEvent(BusinessSectorAddEvent.create(tagIds, saveBusiness.businessId()));
     }
 }

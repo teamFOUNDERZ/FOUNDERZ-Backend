@@ -5,6 +5,7 @@ import com.founderz.common.exception.DataNotFoundException;
 import com.founderz.common.vo.business.BusinessId;
 import com.founderz.common.vo.tag.TagId;
 import com.founderz.internal.data.sector.SectorDto;
+import com.founderz.internal.data.userinterest.UserInterestDto;
 import com.founderz.internal.function.business.BusinessReader;
 import com.founderz.internal.function.security.CurrentUser;
 import com.founderz.internal.function.tag.TagReader;
@@ -12,6 +13,8 @@ import com.founderz.sector.application.SectorWriteService;
 import com.founderz.sector.domain.SectorDomainWriter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -29,6 +32,16 @@ class SectorWriteServiceImpl implements SectorWriteService {
                 .orElseThrow(() -> new DataNotFoundException("태그를 찾지 못했습니다."));
 
         writer.save(SectorDto.create(businessId, tagId, tag.name()));
+    }
+
+    @Override
+    public void addSectors(final BusinessId businessId, final List<TagId> tagIds) {
+        final var tags = tagReader.findAllByIds(tagIds.stream().map(TagId::tagId).toList());
+        final var dtoList = tags.stream()
+                .map(tag -> SectorDto.create(businessId, tag.id(), tag.name()))
+                .toList();
+
+        writer.saveAll(dtoList);
     }
 
     @Override

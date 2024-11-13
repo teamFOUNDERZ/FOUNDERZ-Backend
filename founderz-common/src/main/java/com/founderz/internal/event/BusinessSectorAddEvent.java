@@ -6,12 +6,12 @@ import com.founderz.common.vo.tag.TagId;
 
 import java.util.List;
 
-public record BusinessTypeAddEvent(
+public record BusinessSectorAddEvent(
         List<TagId> tagIds,
         BusinessId businessId
 ) {
-    public static BusinessTypeAddEvent create(List<SecuredTagId> tagIds, BusinessId businessId) {
-        return new BusinessTypeAddEvent(
+    public static BusinessSectorAddEvent create(List<SecuredTagId> tagIds, BusinessId businessId) {
+        return new BusinessSectorAddEvent(
                 tagIds.stream()
                         .map(SecuredTagId::toTagId)
                         .toList(),
