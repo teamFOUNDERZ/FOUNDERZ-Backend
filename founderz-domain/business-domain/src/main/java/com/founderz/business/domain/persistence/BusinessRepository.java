@@ -13,8 +13,10 @@ class BusinessRepository implements BusinessDomainReader, BusinessDomainWriter {
     private final BusinessDomainMapper mapper;
 
     @Override
-    public void save(final BusinessDto dto) {
+    public BusinessDto save(final BusinessDto dto) {
         final var entity = mapper.toEntity(dto);
-        jpaRepository.save(entity);
+        final var saveEntity = jpaRepository.save(entity);
+
+        return mapper.toDto(saveEntity);
     }
 }

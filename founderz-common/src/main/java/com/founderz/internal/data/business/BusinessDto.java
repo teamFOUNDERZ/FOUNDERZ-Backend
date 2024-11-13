@@ -10,7 +10,7 @@ import com.founderz.common.vo.business.WritePurpose;
 import com.founderz.common.vo.user.AccountId;
 
 public record BusinessDto(
-        BusinessId id,
+        BusinessId businessId,
         BusinessName businessName,
         OneLineIntroduction oneLineIntroduction,
         BusinessIntroduction businessIntroduction,
@@ -27,7 +27,7 @@ public record BusinessDto(
 
     public BusinessDto setWriterAccountId(AccountId writerAccountId) {
         return new BusinessDto(
-                id,
+                businessId,
                 businessName,
                 oneLineIntroduction,
                 businessIntroduction,

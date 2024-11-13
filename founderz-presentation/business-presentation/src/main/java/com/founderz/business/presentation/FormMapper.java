@@ -12,7 +12,7 @@ import static org.mapstruct.ReportingPolicy.IGNORE;
 
 @Mapper(componentModel = SPRING, unmappedTargetPolicy = IGNORE)
 interface WriteBusinessFormMapper {
-    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "businessId", ignore = true)
     @Mapping(target = "businessName", source = "businessName")
     @Mapping(target = "oneLineIntroduction", source = "oneLineIntroduction")
     @Mapping(target = "businessIntroduction", source = "businessIntroduction")

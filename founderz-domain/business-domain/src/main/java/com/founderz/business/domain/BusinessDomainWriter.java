@@ -20,5 +20,5 @@ public interface BusinessDomainWriter {
      *
      * @param dto 사업 아이템 도메인 정보
      */
-    void save(BusinessDto dto);
+    BusinessDto save(BusinessDto dto);
 }
