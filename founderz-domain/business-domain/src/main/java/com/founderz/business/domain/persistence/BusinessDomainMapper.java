@@ -21,7 +21,7 @@ interface BusinessDomainMapper {
     @Mapping(target = "writerAccountId", expression = "java(dto.writerAccountId().accountId())")
     BusinessEntity toEntity(BusinessDto dto);
 
-    @Mapping(target = "id", expression = "java(BusinessId.create(entity.getId()))")
+    @Mapping(target = "businessId", expression = "java(BusinessId.create(entity.getId()))")
     @Mapping(target = "businessName", expression = "java(BusinessName.create(entity.getBusinessName()))")
     @Mapping(target = "oneLineIntroduction", expression = "java(OneLineIntroduction.create(entity.getOneLineIntroduction()))")
     @Mapping(target = "businessIntroduction", expression = "java(BusinessIntroduction.create(entity.getBusinessIntroduction()))")

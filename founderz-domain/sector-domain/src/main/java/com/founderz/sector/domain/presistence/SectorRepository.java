@@ -24,6 +24,12 @@ class SectorRepository implements SectorDomainReader, SectorDomainWriter {
     }
 
     @Override
+    public void saveAll(final List<SectorDto> dtoList) {
+        final var entities = mapper.toEntityList(dtoList);
+        jpaRepository.saveAll(entities);
+    }
+
+    @Override
     public void delete(final BusinessId businessId, final TagId tagId) {
         jpaRepository.deleteById(SectorEntityId.create(businessId.businessId(), tagId.tagId()));
     }

@@ -10,7 +10,7 @@ import com.founderz.common.vo.business.WritePurpose;
 import com.founderz.common.vo.user.AccountId;
 
 public record BusinessDto(
-        BusinessId id,
+        BusinessId businessId,
         BusinessName businessName,
         OneLineIntroduction oneLineIntroduction,
         BusinessIntroduction businessIntroduction,
@@ -19,4 +19,22 @@ public record BusinessDto(
         InvestmentAmount investmentAmount,
         AccountId writerAccountId
 ) {
+    public BusinessDto {
+        if (investmentAmount == null) {
+            investmentAmount = InvestmentAmount.create();
+        }
+    }
+
+    public BusinessDto setWriterAccountId(AccountId writerAccountId) {
+        return new BusinessDto(
+                businessId,
+                businessName,
+                oneLineIntroduction,
+                businessIntroduction,
+                vision,
+                writePurpose,
+                investmentAmount,
+                writerAccountId
+        );
+    }
 }
