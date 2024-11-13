@@ -1,7 +1,10 @@
 package com.founderz.userinterest.application;
 
 import com.founderz.common.vo.tag.TagId;
+import com.founderz.common.vo.user.UserId;
 import com.founderz.internal.data.userinterest.UserInterestDto;
+
+import java.util.List;
 
 /**
  * <p>바운디드 컨텍스트: UserInterest(사용자 관심사)</p>
@@ -22,6 +25,8 @@ public interface UserInterestWriteService {
      * @param dto 관심사 정보
      */
     void addUserInterest(UserInterestDto dto);
+
+    void addUserInterests(UserId userId, List<TagId> tagIds);
 
     /**
      * 사용자의 관심사를 삭제하는 메서드

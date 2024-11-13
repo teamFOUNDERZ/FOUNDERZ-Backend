@@ -20,5 +20,5 @@ public interface UserDomainWriter {
      *
      * @param dto 유저 도메인 정보
      */
-    void save(UserDto dto);
+    UserDto save(UserDto dto);
 }

@@ -24,3 +24,6 @@ include 'founderz-presentation:auth-presentation'
 include 'founderz-presentation:tag-presentation'
 include 'founderz-presentation:userinterest-presentation'
 include 'founderz-presentation:sector-presentation'
+
+include 'founderz-event'
+include 'founderz-event:userinterest-event'

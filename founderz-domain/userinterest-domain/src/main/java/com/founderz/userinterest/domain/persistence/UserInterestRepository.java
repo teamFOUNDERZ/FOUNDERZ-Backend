@@ -39,6 +39,12 @@ class UserInterestRepository implements UserInterestDomainReader, UserInterestDo
     }
 
     @Override
+    public void saveAll(final List<UserInterestDto> dtoList) {
+        final var entities = mapper.toEntityList(dtoList);
+        jpaRepository.saveAll(entities);
+    }
+
+    @Override
     public void delete(final UserId userId, final TagId tagId) {
         jpaRepository.deleteById(UserInterestEntityId.create(userId.userId(), tagId.tagId()));
     }

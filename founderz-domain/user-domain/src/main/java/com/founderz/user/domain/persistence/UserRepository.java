@@ -17,9 +17,11 @@ class UserRepository implements UserDomainReader, UserDomainWriter {
     private final UserDomainMapper mapper;
 
     @Override
-    public void save(final UserDto dto) {
+    public UserDto save(final UserDto dto) {
         final var entity = mapper.toEntity(dto);
-        jpaRepository.save(entity);
+        final var savedEntity = jpaRepository.save(entity);
+
+        return mapper.toDto(savedEntity);
     }
 
     @Override
