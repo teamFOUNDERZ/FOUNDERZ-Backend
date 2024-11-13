@@ -7,8 +7,10 @@ import com.founderz.auth.presentation.form.RegisterForm;
 import com.founderz.auth.presentation.response.LoginResponse;
 import com.founderz.common.presentation.annotation.WebRestAdapter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 @RequiredArgsConstructor
 @WebRestAdapter("/api/auth")
@@ -18,6 +20,7 @@ class AuthWriteAdapter implements AuthWriteDocumentation {
     private final LoginFormMapper loginFormMapper;
 
     @PostMapping("/register")
+    @ResponseStatus(HttpStatus.CREATED)
     public void register(
             @RequestBody RegisterForm form
     ) {
