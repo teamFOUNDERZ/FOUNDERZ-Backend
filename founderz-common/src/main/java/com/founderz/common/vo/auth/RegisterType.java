@@ -20,6 +20,6 @@ public record RegisterType(
     }
 
     public AccountType toAccountType() {
-        return new AccountType(type);
+        return AccountType.create(type);
     }
 }

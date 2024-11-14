@@ -1,25 +1,25 @@
 package com.founderz.tag.domain.persistence;
 
-import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.io.Serializable;
-
+@Setter
 @Getter
 @Entity
+@NoArgsConstructor
 @Table(name = "tag_founderz_v1")
 class TagEntity {
-    @EmbeddedId
-    private TagEntityId id;
-}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-record TagEntityId(
-        Long id,
-        String name
-) implements Serializable {
-    public static TagEntityId create(Long id, String name) {
-        return new TagEntityId(id, name);
-    }
+    @Column(nullable = false, unique = true, length = 10)
+    private String name;
 }

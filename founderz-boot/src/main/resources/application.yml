@@ -22,5 +22,17 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
 
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
 server:
   port: 8080
+
+security:
+  token:
+    issuer: ${TOKEN_ISSUER}
+
+  cors:
+    allow-hosts: ${ALLOW_HOSTS}
+    allow-headers: ${ALLOW_HEADERS}
+    exposed-headers: ${EXPOSED_HEADERS}

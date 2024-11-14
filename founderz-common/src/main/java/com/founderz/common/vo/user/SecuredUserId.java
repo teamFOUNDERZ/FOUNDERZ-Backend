@@ -19,6 +19,6 @@ public record SecuredUserId(
     }
 
     public UserId toUserId() {
-        return new UserId(CryptoUtils.decrypt(userId));
+        return UserId.create(CryptoUtils.decrypt(userId));
     }
 }

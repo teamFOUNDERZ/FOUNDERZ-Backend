@@ -1,8 +1,11 @@
 package com.founderz.auth.application;
 
 import com.founderz.auth.application.dto.LoginDto;
-import com.founderz.auth.application.dto.RegisterDto;
 import com.founderz.common.vo.auth.PasetoToken;
+import com.founderz.common.vo.tag.SecuredTagId;
+import com.founderz.internal.data.user.UserDto;
+
+import java.util.List;
 
 /**
  * <p>바운디드 컨텍스트: Auth(인증)</p>
@@ -22,8 +25,9 @@ public interface AuthWriteService {
      * 유저에게 정보를 입력 받아 회원가입을 진행하는 메서드
      *
      * @param dto 회원가입를 위한 유저 정보
+     * @param tagIds 태그 아이디 목록
      */
-    void register(RegisterDto dto);
+    void register(UserDto dto, List<SecuredTagId> tagIds);
 
     /**
      * 식별자(계정 ID, 전화번호), 비밀번호를 통해 로그인을 진행하는 메서드
