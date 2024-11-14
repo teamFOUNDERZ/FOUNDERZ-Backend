@@ -1,9 +1,6 @@
 package com.founderz.sector.domain;
 
-import com.founderz.common.vo.business.BusinessId;
-import com.founderz.internal.data.sector.SectorDto;
-
-import java.util.List;
+import com.founderz.internal.function.sector.SectorReader;
 
 /**
  * <p>바운디드 컨텍스트: Sector(사업 아이템 분야)</p>
@@ -16,12 +13,5 @@ import java.util.List;
  *   <li>단일 사업 아이템의 분야 목록 조회</li>
  * </ul>
  */
-public interface SectorDomainReader {
-    /**
-     * 단일 사업 아이템의 분야 목록 조회 메서드
-     *
-     * @param businessId 사업 아이템 아이디
-     * @return 분야 목록
-     */
-    List<SectorDto> getAllByBusinessId(BusinessId businessId);
+public interface SectorDomainReader extends SectorReader {
 }
