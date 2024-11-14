@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @RequiredArgsConstructor
 @WebRestAdapter("/api/business")
-public class BusinessWriteAdapter implements BusinessWriteDocumentation {
+class BusinessWriteAdapter implements BusinessWriteDocumentation {
     private final BusinessWriteService writeService;
     private final WriteBusinessFormMapper writeBusinessFormMapper;
 
