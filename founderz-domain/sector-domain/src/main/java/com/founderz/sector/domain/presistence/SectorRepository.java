@@ -2,7 +2,6 @@ package com.founderz.sector.domain.presistence;
 
 import com.founderz.common.vo.business.BusinessId;
 import com.founderz.common.vo.tag.TagId;
-import com.founderz.common.vo.user.UserId;
 import com.founderz.internal.data.sector.SectorDto;
 import com.founderz.sector.domain.SectorDomainReader;
 import com.founderz.sector.domain.SectorDomainWriter;
@@ -21,6 +20,12 @@ class SectorRepository implements SectorDomainReader, SectorDomainWriter {
     public void save(final SectorDto dto) {
         final var entity = mapper.toEntity(dto);
         jpaRepository.save(entity);
+    }
+
+    @Override
+    public void saveAll(final List<SectorDto> dtoList) {
+        final var entities = mapper.toEntityList(dtoList);
+        jpaRepository.saveAll(entities);
     }
 
     @Override

@@ -5,4 +5,5 @@ dependencies {
     implementation(project(":founderz-application"))
     implementation(project(":founderz-presentation"))
     implementation(project(":founderz-common"))
+    implementation(project(":founderz-event"))
 }

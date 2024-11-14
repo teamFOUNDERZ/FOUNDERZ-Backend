@@ -4,6 +4,7 @@ import com.founderz.internal.data.userinterest.UserInterestDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
@@ -22,5 +23,11 @@ interface UserInterestDomainMapper {
 
     default Optional<UserInterestDto> toOptionalDto(Optional<UserInterestEntity> entity) {
         return entity.map(this::toDto);
+    }
+
+    default List<UserInterestEntity> toEntityList(List<UserInterestDto> dtoList) {
+        return dtoList.stream()
+                .map(this::toEntity)
+                .toList();
     }
 }

@@ -9,6 +9,10 @@ public record UserInterestDto(
         TagId tagId,
         TagName tagName
 ) {
+    public static UserInterestDto create(UserId userId, TagId tagId, TagName tagName) {
+        return new UserInterestDto(userId, tagId, tagName);
+    }
+
     public UserInterestDto setTagNameAndUserId(final UserId userId, final TagName tagName) {
         return new UserInterestDto(userId, tagId, tagName);
     }

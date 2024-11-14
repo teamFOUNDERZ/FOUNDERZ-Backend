@@ -3,6 +3,8 @@ package com.founderz.auth.application.impl;
 import com.founderz.auth.application.AuthWriteService;
 import com.founderz.auth.application.dto.LoginDto;
 import com.founderz.common.exception.DataNotFoundException;
+import com.founderz.common.vo.tag.SecuredTagId;
+import com.founderz.internal.event.UserInterestAddEvent;
 import com.founderz.internal.function.security.PasswordEncoder;
 import com.founderz.common.exception.BadRequestException;
 import com.founderz.common.vo.user.AccountId;
@@ -13,8 +15,11 @@ import com.founderz.security.Tokenizer;
 import com.founderz.user.domain.UserDomainReader;
 import com.founderz.user.domain.UserDomainWriter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @Transactional
@@ -24,11 +29,14 @@ class AuthWriteServiceImpl implements AuthWriteService {
     private final UserDomainWriter writer;
     private final UserDomainReader reader;
     private final Tokenizer tokenizer;
+    private final ApplicationEventPublisher eventPublisher;
 
     @Override
-    public void register(final UserDto dto) {
+    public void register(final UserDto dto, final List<SecuredTagId> tagIds) {
         validateRegisterDto(dto);
-        writer.save(dto);
+        final var savedUser = writer.save(dto);
+
+        eventPublisher.publishEvent(UserInterestAddEvent.create(tagIds, savedUser.userId()));
     }
 
     @Override

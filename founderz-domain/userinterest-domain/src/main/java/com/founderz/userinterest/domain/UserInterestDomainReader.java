@@ -14,9 +14,8 @@ import java.util.List;
  *
  * <h2>제공 기능</h2>
  * <ul>
- *   <li>현재 사용자의 관심사 목록 조회</li>
- *   <li>id를 사용한 관심사 조회</li>
- *   <li>를 사용한 관심사 조회</li>
+ *   <li>사용자의 관심사 목록 조회</li>
+ *   <li>관심사 존재여부 조회</li>
  * </ul>
  */
 public interface UserInterestDomainReader {
@@ -28,5 +27,12 @@ public interface UserInterestDomainReader {
      */
     List<UserInterestDto> findAllByUserId(UserId userId);
 
+    /**
+     * 관심사 존재여부 조회를 위한 메서드
+     *
+     * @param userId 사용자 아이디
+     * @param tagId 태그 아이디
+     * @return 관심사 존재 여부 (존재하면 true)
+     */
     boolean existsByUserIdAndTagId(UserId userId, TagId tagId);
 }

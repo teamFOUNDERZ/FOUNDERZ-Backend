@@ -2,6 +2,7 @@ package com.founderz.userinterest.application.impl;
 
 import com.founderz.common.exception.DataNotFoundException;
 import com.founderz.common.vo.tag.TagId;
+import com.founderz.common.vo.user.UserId;
 import com.founderz.internal.data.userinterest.UserInterestDto;
 import com.founderz.internal.function.security.CurrentUser;
 import com.founderz.internal.function.tag.TagReader;
@@ -11,6 +12,8 @@ import com.founderz.userinterest.domain.UserInterestDomainWriter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @Transactional
@@ -32,6 +35,16 @@ class UserInterestWriteServiceImpl implements UserInterestWriteService {
             final var fixedDto = dto.setTagNameAndUserId(user.userId(), tag.name());
             writer.save(fixedDto);
         }
+    }
+
+    @Override
+    public void addUserInterests(final UserId userId, final List<TagId> tagIds) {
+        final var tags = tagReader.findAllByIds(tagIds.stream().map(TagId::tagId).toList());
+        final var dtoList = tags.stream()
+                .map(tag -> UserInterestDto.create(userId, tag.id(), tag.name()))
+                .toList();
+
+        writer.saveAll(dtoList);
     }
 
     @Override

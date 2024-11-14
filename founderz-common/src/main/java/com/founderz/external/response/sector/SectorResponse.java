@@ -1,4 +1,4 @@
-package com.founderz.sector.presentation.response;
+package com.founderz.external.response.sector;
 
 import com.founderz.common.vo.tag.SecuredTagId;
 import com.founderz.common.vo.tag.TagName;

@@ -46,7 +46,9 @@ class SecurityConfiguration {
                 .authorizeHttpRequests(request -> request
                         .requestMatchers(HttpMethod.OPTIONS).permitAll()
                         .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/tags").permitAll()
                         .requestMatchers(HttpMethod.GET, "/swagger-ui/**", "/v3/api-docs/**", "/test/**").permitAll()
+                        .requestMatchers("/api/business/**").authenticated()
                         .anyRequest().authenticated()
                 )
 

@@ -13,6 +13,8 @@ import com.founderz.sector.domain.SectorDomainWriter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 class SectorWriteServiceImpl implements SectorWriteService {
@@ -32,6 +34,16 @@ class SectorWriteServiceImpl implements SectorWriteService {
     }
 
     @Override
+    public void addSectors(final BusinessId businessId, final List<TagId> tagIds) {
+        final var tags = tagReader.findAllByIds(tagIds.stream().map(TagId::tagId).toList());
+        final var dtoList = tags.stream()
+                .map(tag -> SectorDto.create(businessId, tag.id(), tag.name()))
+                .toList();
+
+        writer.saveAll(dtoList);
+    }
+
+    @Override
     public void removeSector(final BusinessId businessId, final TagId tagId) {
         validateCurrentUser(businessId);
 
@@ -40,7 +52,8 @@ class SectorWriteServiceImpl implements SectorWriteService {
 
     private void validateCurrentUser(final BusinessId businessId) {
         final var user = currentUser.get();
-        final var business = businessReader.getById(businessId);
+        final var business = businessReader.findById(businessId)
+                .orElseThrow(() -> new DataNotFoundException("사업 아이템을 찾지 못했습니다."));
 
         if (!user.accountId().equals(business.writerAccountId())) {
             throw new AccessDeniedException("해당 사업 아이템에 접근할 수 없습니다.");
