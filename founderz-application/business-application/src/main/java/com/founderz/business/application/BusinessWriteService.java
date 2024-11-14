@@ -21,7 +21,7 @@ public interface BusinessWriteService {
     /**
      * 유저에게 정보를 입력 받아 사업 아이템을 작성하는 메서드
      *
-     * @param dto 사업 아이템 작성을 위한 유저 정보
+     * @param dto 사업 아이템 작성을 위한 정보
      */
     void write(BusinessDto dto, List<SecuredTagId> tagIds);
 }
