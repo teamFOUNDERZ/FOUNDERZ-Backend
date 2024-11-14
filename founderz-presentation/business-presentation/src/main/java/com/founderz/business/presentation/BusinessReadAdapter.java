@@ -1,6 +1,7 @@
 package com.founderz.business.presentation;
 
 import com.founderz.business.application.BusinessReadService;
+import com.founderz.business.presentation.document.BusinessReadDocumentation;
 import com.founderz.business.presentation.response.BusinessListResponse;
 import com.founderz.common.presentation.annotation.WebRestAdapter;
 import com.founderz.external.response.ListResponse;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @RequiredArgsConstructor
 @WebRestAdapter("/api/business")
-class BusinessReadAdapter {
+class BusinessReadAdapter implements BusinessReadDocumentation {
     private final BusinessReadService businessReadService;
     private final SectorReader sectorReader;
 
