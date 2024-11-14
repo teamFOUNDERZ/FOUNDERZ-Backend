@@ -2,7 +2,7 @@ package com.founderz.sector.presentation.document;
 
 import com.founderz.common.vo.business.SecuredBusinessId;
 import com.founderz.external.response.ListResponse;
-import com.founderz.sector.presentation.response.SectorResponse;
+import com.founderz.external.response.sector.SectorResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;

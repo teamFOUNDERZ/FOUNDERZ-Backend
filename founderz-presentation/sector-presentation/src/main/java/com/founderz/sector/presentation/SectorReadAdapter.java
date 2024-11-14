@@ -5,7 +5,7 @@ import com.founderz.common.vo.business.SecuredBusinessId;
 import com.founderz.external.response.ListResponse;
 import com.founderz.sector.application.SectorReadService;
 import com.founderz.sector.presentation.document.SectorReadDocumentation;
-import com.founderz.sector.presentation.response.SectorResponse;
+import com.founderz.external.response.sector.SectorResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
