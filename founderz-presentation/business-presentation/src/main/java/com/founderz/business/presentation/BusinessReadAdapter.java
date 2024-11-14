@@ -7,6 +7,7 @@ import com.founderz.business.presentation.response.BusinessListResponse;
 import com.founderz.common.crypto.CryptoUtils;
 import com.founderz.common.presentation.annotation.WebRestAdapter;
 import com.founderz.common.vo.business.BusinessId;
+import com.founderz.common.vo.business.SecuredBusinessId;
 import com.founderz.external.response.ListResponse;
 import com.founderz.internal.function.sector.SectorReader;
 import lombok.RequiredArgsConstructor;
@@ -29,8 +30,8 @@ class BusinessReadAdapter implements BusinessReadDocumentation {
     }
 
     @GetMapping("/{businessId}")
-    public BusinessDetails getById(@PathVariable final String businessId) {
-        final var business = businessReadService.getById(BusinessId.create(CryptoUtils.decrypt(businessId)));
+    public BusinessDetails getById(@PathVariable final SecuredBusinessId businessId) {
+        final var business = businessReadService.getById(businessId.toBusinessId());
         final var tags = sectorReader.getAllByBusinessId(business.businessId());
 
         return BusinessDetails.create(business, tags);
