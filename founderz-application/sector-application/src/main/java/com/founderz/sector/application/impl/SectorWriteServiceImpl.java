@@ -5,7 +5,6 @@ import com.founderz.common.exception.DataNotFoundException;
 import com.founderz.common.vo.business.BusinessId;
 import com.founderz.common.vo.tag.TagId;
 import com.founderz.internal.data.sector.SectorDto;
-import com.founderz.internal.data.userinterest.UserInterestDto;
 import com.founderz.internal.function.business.BusinessReader;
 import com.founderz.internal.function.security.CurrentUser;
 import com.founderz.internal.function.tag.TagReader;
@@ -53,7 +52,8 @@ class SectorWriteServiceImpl implements SectorWriteService {
 
     private void validateCurrentUser(final BusinessId businessId) {
         final var user = currentUser.get();
-        final var business = businessReader.getById(businessId);
+        final var business = businessReader.findById(businessId)
+                .orElseThrow(() -> new DataNotFoundException("사업 아이템을 찾지 못했습니다."));
 
         if (!user.accountId().equals(business.writerAccountId())) {
             throw new AccessDeniedException("해당 사업 아이템에 접근할 수 없습니다.");

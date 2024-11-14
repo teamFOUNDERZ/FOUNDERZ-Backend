@@ -2,7 +2,6 @@ package com.founderz.sector.domain.presistence;
 
 import com.founderz.common.vo.business.BusinessId;
 import com.founderz.common.vo.tag.TagId;
-import com.founderz.common.vo.user.UserId;
 import com.founderz.internal.data.sector.SectorDto;
 import com.founderz.sector.domain.SectorDomainReader;
 import com.founderz.sector.domain.SectorDomainWriter;
