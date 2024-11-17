@@ -30,3 +30,8 @@ include 'founderz-presentation:business-presentation'
 include 'founderz-event'
 include 'founderz-event:sector-event'
 include 'founderz-event:userinterest-event'
+include 'founderz-domain:agreement-domain'
+findProject(':founderz-domain:agreement-domain')?.name = 'agreement-domain'
+include 'founderz-domain:investment-domain'
+findProject(':founderz-domain:investment-domain')?.name = 'investment-domain'
+
