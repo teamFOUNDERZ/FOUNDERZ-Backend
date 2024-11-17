@@ -11,7 +11,7 @@ import static org.mapstruct.ReportingPolicy.ERROR;
 @Mapper(componentModel = SPRING, unmappedTargetPolicy = ERROR)
 interface RequestInvestmentFormMapper {
     @Mapping(target = "investmentId", ignore = true)
-    @Mapping(target = "businessId", source = "businessId")
+    @Mapping(target = "businessId", expression = "java(form.businessId().toBusinessId())")
     @Mapping(target = "investorName", ignore = true)
     @Mapping(target = "investmentAmount", source = "investmentAmount")
     @Mapping(target = "contact", source = "contact")
