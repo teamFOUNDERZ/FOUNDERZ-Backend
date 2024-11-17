@@ -9,4 +9,11 @@ public record NoticeAddEvent(
         UserId targetUserId,
         NoticeContent noticeContent
 ) {
+    public static NoticeAddEvent create(NoticeType noticeType, UserId targetUserId, NoticeContent noticeContent) {
+        return new NoticeAddEvent(
+                noticeType,
+                targetUserId,
+                noticeContent
+        );
+    }
 }
