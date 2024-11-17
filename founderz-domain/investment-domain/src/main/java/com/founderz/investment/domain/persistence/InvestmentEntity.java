@@ -27,8 +27,8 @@ class InvestmentEntity {
     @Column(nullable = false)
     private Long businessId;
 
-    @Column(nullable = false, unique = true, length = 6)
-    private String investorName;
+    @Column(nullable = false, unique = true, length = 20)
+    private String investorAccountId;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)

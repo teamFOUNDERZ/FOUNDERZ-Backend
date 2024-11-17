@@ -17,6 +17,6 @@ public class InvestmentWriteServiceImpl implements InvestmentWriteService {
 
     @Override
     public void request(final InvestmentDto dto) {
-        writer.save(dto.setInvestorName(currentUser.get().name()));
+        writer.save(dto.setInvestorAccountId(currentUser.get().accountId()));
     }
 }

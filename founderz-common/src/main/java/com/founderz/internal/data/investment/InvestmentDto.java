@@ -6,12 +6,12 @@ import com.founderz.common.vo.investment.Contact;
 import com.founderz.common.vo.investment.InvestmentId;
 import com.founderz.common.vo.investment.InvestmentStatus;
 import com.founderz.common.vo.investment.PreferContractPeriod;
-import com.founderz.common.vo.user.AccountName;
+import com.founderz.common.vo.user.AccountId;
 
 public record InvestmentDto(
         InvestmentId investmentId,
         BusinessId businessId,
-        AccountName investorName,
+        AccountId investorAccountId,
         InvestmentStatus investmentStatus,
         InvestmentAmount investmentAmount,
         Contact contact,
@@ -23,11 +23,11 @@ public record InvestmentDto(
         }
     }
 
-    public InvestmentDto setInvestorName(AccountName investorName) {
+    public InvestmentDto setInvestorAccountId(AccountId investorAccountId) {
         return new InvestmentDto(
                 investmentId,
                 businessId,
-                investorName,
+                investorAccountId,
                 investmentStatus,
                 investmentAmount,
                 contact,
