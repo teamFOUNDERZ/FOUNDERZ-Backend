@@ -19,7 +19,7 @@ interface InvestmentDomainMapper {
 
     @Mapping(target = "investmentId", expression = "java(InvestmentId.create(entity.getId()))")
     @Mapping(target = "businessId", expression = "java(BusinessId.create(entity.getBusinessId()))")
-    @Mapping(target = "investorName", expression = "java(InvestorName.create(entity.getInvestorName()))")
+    @Mapping(target = "investorName", expression = "java(AccountName.create(entity.getInvestorName()))")
     @Mapping(target = "investmentAmount", expression = "java(InvestmentAmount.create(entity.getInvestmentAmount()))")
     @Mapping(target = "contact", expression = "java(Contact.create(entity.getContact()))")
     @Mapping(target = "preferContractPeriod", expression = "java(PreferContractPeriod.create(entity.getPreferContractPeriod()))")
