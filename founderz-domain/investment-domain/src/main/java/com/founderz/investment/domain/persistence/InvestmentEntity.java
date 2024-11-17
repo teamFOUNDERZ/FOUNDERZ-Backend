@@ -23,7 +23,7 @@ class InvestmentEntity {
     private Long id;
 
     @Column(nullable = false)
-    private Long businessId;
+    private String businessId;
 
     @Column(nullable = false, unique = true, length = 6)
     private String investorName;
