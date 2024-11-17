@@ -27,8 +27,7 @@ class AgreementEntity {
     private Long id;
 
     @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private Status status;
+    private Long investmentId;
 
     @Column(nullable = false, unique = true, length = 6)
     private String investorName;
@@ -75,10 +74,4 @@ class AgreementEntity {
 
     @Column(nullable = false, length = 50)
     private String signatureImageUrl;
-
-    enum Status {
-        PROGRESSING,
-        COMPLETE,
-        REJECTED
-    }
 }
