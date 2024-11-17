@@ -11,7 +11,10 @@ import static org.mapstruct.ReportingPolicy.ERROR;
 interface InvestmentDomainMapper {
     @Mapping(target = "id", expression = "java(dto.investmentId().investmentId())", ignore = true)
     @Mapping(target = "businessId", expression = "java(dto.businessId().businessId())")
+    @Mapping(target = "businessName", expression = "java(dto.businessName().name())")
     @Mapping(target = "investorAccountId", expression = "java(dto.investorAccountId().accountId())")
+    @Mapping(target = "investorName", expression = "java(dto.investorName().name())")
+    @Mapping(target = "investeeName", expression = "java(dto.investeeName().name())")
     @Mapping(target = "status", expression = "java(InvestmentEntity.Status.valueOf(dto.investmentStatus().status()))")
     @Mapping(target = "investmentAmount", expression = "java(dto.investmentAmount().investmentAmount())")
     @Mapping(target = "contact", expression = "java(dto.contact().contact())")
@@ -20,7 +23,10 @@ interface InvestmentDomainMapper {
 
     @Mapping(target = "investmentId", expression = "java(InvestmentId.create(entity.getId()))")
     @Mapping(target = "businessId", expression = "java(BusinessId.create(entity.getBusinessId()))")
+    @Mapping(target = "businessName", expression = "java(BusinessName.create(entity.getBusinessName()))")
     @Mapping(target = "investorAccountId", expression = "java(AccountId.create(entity.getInvestorAccountId()))")
+    @Mapping(target = "investorName", expression = "java(AccountName.create(entity.getInvestorName()))")
+    @Mapping(target = "investeeName", expression = "java(AccountName.create(entity.getInvesteeName()))")
     @Mapping(target = "investmentStatus", expression = "java(InvestmentStatus.create(entity.getStatus().name()))")
     @Mapping(target = "investmentAmount", expression = "java(InvestmentAmount.create(entity.getInvestmentAmount()))")
     @Mapping(target = "contact", expression = "java(Contact.create(entity.getContact()))")

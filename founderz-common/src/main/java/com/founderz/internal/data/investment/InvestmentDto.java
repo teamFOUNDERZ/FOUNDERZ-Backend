@@ -28,7 +28,7 @@ public record InvestmentDto(
         }
     }
 
-    public InvestmentDto setInvestorAccountId(AccountId investorAccountId) {
+    public InvestmentDto initInvestmentDto(BusinessName businessName, AccountId investorAccountId, AccountName investorName, AccountName investeeName) {
         return new InvestmentDto(
                 investmentId,
                 businessId,
