@@ -16,7 +16,7 @@ class InvestmentWriteAdapter implements InvestmentWriteDocumentation {
     private final InvestmentWriteService writeService;
     private final RequestInvestmentFormMapper requestInvestmentFormMapper;
 
-    @PostMapping("/write")
+    @PostMapping("/request")
     @ResponseStatus(HttpStatus.CREATED)
     public void request(@RequestBody RequestInvestmentForm form) {
         final var internalDto = requestInvestmentFormMapper.toDto(form);
