@@ -2,6 +2,8 @@ package com.founderz.investment.domain.persistence;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
@@ -29,6 +31,10 @@ class InvestmentEntity {
     private String investorName;
 
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
+    @Column(nullable = false)
     private Long investmentAmount;
 
     @Column(nullable = false, length = 30)
@@ -36,4 +42,11 @@ class InvestmentEntity {
 
     @Column(nullable = false)
     private LocalDate preferContractPeriod;
+
+    enum Status {
+        WRITING,
+        COMPLETE,
+        REJECTED,
+        CONCLUDED
+    }
 }

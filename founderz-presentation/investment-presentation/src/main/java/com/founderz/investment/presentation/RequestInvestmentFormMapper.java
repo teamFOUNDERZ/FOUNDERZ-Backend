@@ -13,6 +13,7 @@ interface RequestInvestmentFormMapper {
     @Mapping(target = "investmentId", ignore = true)
     @Mapping(target = "businessId", expression = "java(form.businessId().toBusinessId())")
     @Mapping(target = "investorName", ignore = true)
+    @Mapping(target = "investmentStatus", ignore = true)
     @Mapping(target = "investmentAmount", source = "investmentAmount")
     @Mapping(target = "contact", source = "contact")
     @Mapping(target = "preferContractPeriod", source = "preferContractPeriod")
