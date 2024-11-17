@@ -6,7 +6,7 @@ import com.founderz.common.vo.notice.SecuredNoticeId;
 
 public record NoticeResponse(
         SecuredNoticeId noticeId,
-        NoticeType type,
+        NoticeResponseType type,
         NoticeContent content
 ) {
     public record NoticeResponseType(
