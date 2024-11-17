@@ -1,5 +1,6 @@
 package com.founderz.notice.application.impl;
 
+import com.founderz.common.exception.AccessDeniedException;
 import com.founderz.common.exception.DataNotFoundException;
 import com.founderz.common.exception.ServerException;
 import com.founderz.common.vo.notice.NoticeId;
@@ -31,8 +32,15 @@ class NoticeReadServiceImpl implements NoticeReadService {
 
     @Override
     public NoticeDto getById(final NoticeId noticeId) {
-        return reader.findById(noticeId)
+        final var notice = reader.findById(noticeId)
                 .orElseThrow(() -> new DataNotFoundException("알림을 찾지 못했습니다."));
+        final var user = currentUser.get();
+
+        if (notice.userId() != user.userId()) {
+            throw new AccessDeniedException("알림에 접근할 수 없는 유저입니다.....");
+        }
+
+        return notice;
     }
 
     @Override
