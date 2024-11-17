@@ -1,8 +1,10 @@
 package com.founderz.internal.function.business;
 
 import com.founderz.common.vo.business.BusinessId;
+import com.founderz.common.vo.user.AccountId;
 import com.founderz.internal.data.business.BusinessDto;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -23,4 +25,12 @@ public interface BusinessReader {
      * @return 사업 아이템 정보
      */
     Optional<BusinessDto> findById(BusinessId businessId);
+
+    /**
+     * writerAccountId로 사업 아이템 전체 조회 메서드
+     *
+     * @param writerAccountId 작성자의 accountId
+     * @return 사업 아이템 목록
+     */
+    List<BusinessDto> findAllByWriterAccountId(AccountId writerAccountId);
 }

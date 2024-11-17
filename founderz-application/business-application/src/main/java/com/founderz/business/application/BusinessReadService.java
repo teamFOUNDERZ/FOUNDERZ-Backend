@@ -1,6 +1,7 @@
 package com.founderz.business.application;
 
 import com.founderz.common.vo.business.BusinessId;
+import com.founderz.common.vo.user.AccountId;
 import com.founderz.internal.data.business.BusinessDto;
 
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
  * <ul>
  *   <li>사업 아이템 전체 조회</li>
  *   <li>사업 아이템 상세 조회</li>
+ *   <li>작성자를 통한 사업 아이템 전체 조회</li>
  * </ul>
  */
 public interface BusinessReadService {
@@ -31,5 +33,12 @@ public interface BusinessReadService {
      * @return 사업 아이템 상세 정보
      */
     BusinessDto getById(BusinessId businessId);
+
+    /**
+     * 작성자를 통한 사업 아이템 전체 조회를 위한 메서드
+     *
+     * @return 사업 아이템 전체 목록
+     */
+    List<BusinessDto> getAllByWriterAccountId(AccountId writerAccountId);
 }
 
