@@ -5,6 +5,8 @@ dependencies {
     api (project(":founderz-presentation:sector-presentation"))
     api (project(":founderz-presentation:userinterest-presentation"))
     api (project(":founderz-presentation:business-presentation"))
+    api (project(":founderz-presentation:investment-presentation"))
+    api (project(":founderz-presentation:notice-presentation"))
 }
 
 allprojects {

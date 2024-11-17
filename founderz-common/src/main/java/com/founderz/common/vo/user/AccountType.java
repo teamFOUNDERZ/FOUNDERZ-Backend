@@ -16,7 +16,7 @@ public record AccountType(
 
     public AccountType {
         assertArgumentNotEmpty(type, "계정의 유형이 입력되지 않았습니다.");
-        assertRegularExpression(type, USER_ROLE_REGEX, "계정의 유형은 'PERSONAL','COMPANY', 'ADMIN' 이어야 합니다.");
+        assertRegularExpression(type, USER_ROLE_REGEX, "계정의 유형은 'PERSONAL','COMPANY','ADMIN' 이어야 합니다.");
     }
 
     public static AccountType create(final String type) {
