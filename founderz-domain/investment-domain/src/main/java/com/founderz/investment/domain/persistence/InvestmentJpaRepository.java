@@ -1,4 +1,6 @@
 package com.founderz.investment.domain.persistence;
 
-public interface InvestmentJpaRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface InvestmentJpaRepository extends JpaRepository<InvestmentEntity, Long> {
 }
