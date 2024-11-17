@@ -9,4 +9,16 @@ public record NoticeResponse(
         NoticeType type,
         NoticeContent content
 ) {
+    public record NoticeResponseType(
+            NoticeType type,
+            String content
+    ) {
+        public NoticeResponseType(NoticeType type) {
+            this(type, type.getContent());
+        }
+
+        public static NoticeResponseType create(NoticeType type) {
+            return new NoticeResponseType(type);
+        }
+    }
 }

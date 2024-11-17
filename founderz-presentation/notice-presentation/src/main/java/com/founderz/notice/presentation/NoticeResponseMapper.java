@@ -14,7 +14,7 @@ import static org.mapstruct.ReportingPolicy.ERROR;
 interface NoticeResponseMapper {
     @Mapping(target = "noticeId", expression = "java(dto.noticeId().toSecureNoticeId())")
     @Mapping(target = "content", source = "content")
-    @Mapping(target = "type", source = "type")
+    @Mapping(target = "type", expression = "java(NoticeResponse.NoticeResponseType.create(dto.type()))")
     NoticeResponse toResponse(NoticeDto dto);
 
     default List<NoticeResponse> toListResponse(List<NoticeDto> dtoList) {
