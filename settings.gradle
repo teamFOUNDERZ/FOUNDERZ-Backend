@@ -34,4 +34,6 @@ include 'founderz-domain:agreement-domain'
 findProject(':founderz-domain:agreement-domain')?.name = 'agreement-domain'
 include 'founderz-domain:investment-domain'
 findProject(':founderz-domain:investment-domain')?.name = 'investment-domain'
+include 'founderz-application:investment-application'
+findProject(':founderz-application:investment-application')?.name = 'investment-application'
 
