@@ -31,7 +31,6 @@ public interface AuthReadDocumentation {
                     description = "인증번호가 발송에 성공했습니다."
             ),
     })
-
     @Operation(summary = "인증번호 발송 API")
     ResponseEntity<Void> sendSMS(PhoneNumber phoneNumber);
 
@@ -41,7 +40,6 @@ public interface AuthReadDocumentation {
                     description = "유효한 인증번호입니다."
             ),
     })
-
     @Operation(summary = "인증번호 검증 API")
     ResponseEntity<Void> isVerify(PhoneNumber phoneNumber, String randomNum) ;
 }
