@@ -38,6 +38,9 @@ public class InvestmentWriteServiceImpl implements InvestmentWriteService {
 
         writer.save(dto.initInvestmentDto(business.businessName(), investor.accountId(), investor.name(), investee.name()));
 
+<<<<<<< Updated upstream
+        eventPublisher.publishEvent(NoticeAddEvent.cre);
+=======
         eventPublisher.publishEvent(NoticeAddEvent.create(
                 NoticeType.INVESTMENT_REQUEST,
                 investee.userId(),
@@ -60,6 +63,7 @@ public class InvestmentWriteServiceImpl implements InvestmentWriteService {
             default -> throw new BadRequestException("입력된 투자의 상태가 유효하지 않습니다.");
         };
 
-        //writer.save(investment.changeInvestmentStatus(investmentStatus));
+        writer.save(investment.changeInvestmentStatus(investmentStatus));
+>>>>>>> Stashed changes
     }
 }
