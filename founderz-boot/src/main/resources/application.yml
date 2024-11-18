@@ -36,3 +36,8 @@ security:
     allow-hosts: ${ALLOW_HOSTS}
     allow-headers: ${ALLOW_HEADERS}
     exposed-headers: ${EXPOSED_HEADERS}
+
+coolsms:
+  apikey: ${API_KEY}
+  apisecret: ${API_SECRET}
+  fromnumber: ${PHONE_NUMBER}

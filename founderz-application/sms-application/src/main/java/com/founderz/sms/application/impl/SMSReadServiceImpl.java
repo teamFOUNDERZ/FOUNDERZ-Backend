@@ -1,5 +1,6 @@
 package com.founderz.sms.application.impl;
 
+import com.founderz.common.exception.ServerException;
 import com.founderz.common.vo.user.PhoneNumber;
 import com.founderz.sms.application.SMSReadService;
 import com.founderz.sms.domain.presistence.SmsCertification;
@@ -15,7 +16,7 @@ import java.util.Random;
 
 @Service
 @RequiredArgsConstructor
-public class SMSReadServiceImpl implements SMSReadService {
+class SMSReadServiceImpl implements SMSReadService {
     private final SmsCertification smsCertification;
 
     @Value("${coolsms.apikey}")
@@ -49,6 +50,7 @@ public class SMSReadServiceImpl implements SMSReadService {
     }
 
     // 인증번호 전송하기
+    @Override
     public boolean send(PhoneNumber tel) {
         Message coolsms = new Message(apiKey, apiSecret);
 
@@ -60,14 +62,28 @@ public class SMSReadServiceImpl implements SMSReadService {
 
         try {
             JSONObject obj = (JSONObject) coolsms.send(params);
-            //System.out.println(obj.toString() );
         } catch (CoolsmsException e) {
-            System.out.println(e.getMessage());
-            System.out.println(e.getCode());
+            throw new ServerException(e.getMessage());
         }
 
         smsCertification.createSmsCertification(tel.phoneNumber(), randomNum);
 
         return true;
+    }
+
+    @Override
+    public boolean verifySms(PhoneNumber tel, String randomNum) {
+        if (isVerify(tel, randomNum)) {
+            return false;
+        }
+        smsCertification.deleteSmsCertification(tel.phoneNumber());
+
+        return true;
+    }
+
+    private boolean isVerify(PhoneNumber tel, String randomNum) {
+        return !(smsCertification.hasKey(tel.phoneNumber())) &&
+                smsCertification.getSmsCertification(tel.phoneNumber())
+                        .equals(randomNum);
     }
 }

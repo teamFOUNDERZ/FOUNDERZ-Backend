@@ -40,5 +40,7 @@ public interface AuthReadService {
      * @return 회원가입 여부 (가입된 경우 true)
      */
     boolean isRegisteredPhoneNumber(PhoneNumber tel);
+
+    boolean isVerify(PhoneNumber tel, String randomNum);
 }
 
