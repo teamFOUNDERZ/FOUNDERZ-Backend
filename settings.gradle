@@ -34,3 +34,13 @@ include 'founderz-event'
 include 'founderz-event:sector-event'
 include 'founderz-event:userinterest-event'
 include 'founderz-event:notice-event'
+
+include 'founderz-domain:agreement-domain'
+findProject(':founderz-domain:agreement-domain')?.name = 'agreement-domain'
+include 'founderz-domain:investment-domain'
+findProject(':founderz-domain:investment-domain')?.name = 'investment-domain'
+include 'founderz-application:investment-application'
+findProject(':founderz-application:investment-application')?.name = 'investment-application'
+include 'founderz-presentation:investment-presentation'
+findProject(':founderz-presentation:investment-presentation')?.name = 'investment-presentation'
+

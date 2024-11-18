@@ -1,15 +1,12 @@
 package com.founderz.business.presentation;
 
 import com.founderz.business.presentation.form.WriteBusinessForm;
-import com.founderz.common.vo.business.InvestmentAmount;
-import com.founderz.common.vo.user.AccountId;
 import com.founderz.internal.data.business.BusinessDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
 import static org.mapstruct.ReportingPolicy.ERROR;
-import static org.mapstruct.ReportingPolicy.IGNORE;
 
 @Mapper(componentModel = SPRING, unmappedTargetPolicy = ERROR)
 interface WriteBusinessFormMapper {

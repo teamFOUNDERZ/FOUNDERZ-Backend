@@ -3,6 +3,7 @@ package com.founderz.business.domain.persistence;
 import com.founderz.business.domain.BusinessDomainReader;
 import com.founderz.business.domain.BusinessDomainWriter;
 import com.founderz.common.vo.business.BusinessId;
+import com.founderz.common.vo.user.AccountId;
 import com.founderz.internal.data.business.BusinessDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -35,5 +36,12 @@ class BusinessRepository implements BusinessDomainReader, BusinessDomainWriter {
     public Optional<BusinessDto> findById(final BusinessId businessId) {
         final var entity = jpaRepository.findById(businessId.businessId());
         return mapper.toOptionalDto(entity);
+    }
+
+    @Override
+    public List<BusinessDto> findAllByWriterAccountId(final AccountId accountId) {
+        return jpaRepository.findAllByWriterAccountId(accountId.accountId()).stream()
+                .map(mapper::toDto)
+                .toList();
     }
 }

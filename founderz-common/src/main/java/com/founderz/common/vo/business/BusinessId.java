@@ -8,8 +8,8 @@ public record BusinessId(
         @JsonValue
         Long businessId
 ) implements ValueObject.LongValueObject {
-    public static BusinessId create(final Long userId) {
-        return new BusinessId(userId);
+    public static BusinessId create(final Long businessId) {
+        return new BusinessId(businessId);
     }
 
     public SecuredBusinessId toSecureBusinessId() {

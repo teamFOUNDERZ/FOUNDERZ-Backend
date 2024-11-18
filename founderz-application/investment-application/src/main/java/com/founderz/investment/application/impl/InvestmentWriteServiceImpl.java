@@ -1,0 +1,45 @@
+package com.founderz.investment.application.impl;
+
+import com.founderz.business.application.BusinessReadService;
+import com.founderz.common.vo.notice.NoticeContent;
+import com.founderz.common.vo.notice.NoticeType;
+import com.founderz.internal.data.investment.InvestmentDto;
+import com.founderz.internal.event.NoticeAddEvent;
+import com.founderz.internal.function.security.CurrentUser;
+import com.founderz.investment.application.InvestmentWriteService;
+import com.founderz.investment.domain.InvestmentDomainWriter;
+import com.founderz.user.application.UserReadService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+@Transactional
+@RequiredArgsConstructor
+public class InvestmentWriteServiceImpl implements InvestmentWriteService {
+    private final InvestmentDomainWriter writer;
+    private final CurrentUser currentUser;
+    private final BusinessReadService businessReadService;
+    private final UserReadService userReadService;
+    private final ApplicationEventPublisher eventPublisher;
+
+    @Override
+    public void request(final InvestmentDto dto) {
+        final var business = businessReadService.getById(dto.businessId());
+        final var investor = currentUser.get();
+        final var investee = userReadService.getByAccountId(business.writerAccountId());
+
+        writer.save(dto.initInvestmentDto(business.businessName(), investor.accountId(), investor.name(), investee.name()));
+
+        eventPublisher.publishEvent(NoticeAddEvent.create(
+                NoticeType.INVESTMENT_REQUEST,
+                investee.userId(),
+                NoticeContent.create(String.format(
+                        "%s님이 \"%s\"에 %l원 투자를 원하고 있어요.",
+                        investor.name(),
+                        business.businessName(),
+                        dto.investmentAmount())
+        )));
+    }
+}
