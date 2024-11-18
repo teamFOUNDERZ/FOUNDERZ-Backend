@@ -21,4 +21,14 @@ class AuthReadServiceImpl implements AuthReadService {
     public boolean isRegisteredPhoneNumber(final PhoneNumber tel) {
         return reader.existsByTel(tel);
     }
+
+    @Override
+    public boolean sendSMS(final PhoneNumber tel) {
+        return smsService.send(tel);
+    }
+
+    @Override
+    public boolean isVerify(final PhoneNumber tel, final String randomNum) {
+        return smsService.verifySms(tel, randomNum);
+    }
 }
