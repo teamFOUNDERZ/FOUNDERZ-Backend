@@ -1,7 +1,10 @@
 package com.founderz.investment.application.impl;
 
 import com.founderz.business.application.BusinessReadService;
+import com.founderz.common.vo.notice.NoticeContent;
+import com.founderz.common.vo.notice.NoticeType;
 import com.founderz.internal.data.investment.InvestmentDto;
+import com.founderz.internal.event.NoticeAddEvent;
 import com.founderz.internal.function.security.CurrentUser;
 import com.founderz.investment.application.InvestmentWriteService;
 import com.founderz.investment.domain.InvestmentDomainWriter;
@@ -24,10 +27,19 @@ public class InvestmentWriteServiceImpl implements InvestmentWriteService {
     @Override
     public void request(final InvestmentDto dto) {
         final var business = businessReadService.getById(dto.businessId());
+        final var investor = currentUser.get();
         final var investee = userReadService.getByAccountId(business.writerAccountId());
 
-        writer.save(dto.initInvestmentDto(business.businessName(), currentUser.get().accountId(), currentUser.get().name(), investee.name()));
+        writer.save(dto.initInvestmentDto(business.businessName(), investor.accountId(), investor.name(), investee.name()));
 
-        eventPublisher.publishEvent(NoticeAddEvent.cre);
+        eventPublisher.publishEvent(NoticeAddEvent.create(
+                NoticeType.INVESTMENT_REQUEST,
+                investee.userId(),
+                NoticeContent.create(String.format(
+                        "%s님이 \"%s\"에 %l원 투자를 원하고 있어요.",
+                        investor.name(),
+                        business.businessName(),
+                        dto.investmentAmount())
+        )));
     }
 }

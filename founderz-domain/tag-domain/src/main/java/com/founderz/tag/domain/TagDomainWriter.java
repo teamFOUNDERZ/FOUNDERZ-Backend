@@ -1,6 +1,7 @@
 package com.founderz.tag.domain;
 
-import com.founderz.tag.domain.dto.TagDomainDto;
+import com.founderz.common.vo.tag.TagId;
+import com.founderz.internal.data.tag.TagDto;
 
 /**
  * <p>바운디드 컨텍스트: Tag(태그)</p>
@@ -11,6 +12,7 @@ import com.founderz.tag.domain.dto.TagDomainDto;
  * <h2>제공 기능</h2>
  * <ul>
  *   <li>태그 저장</li>
+ *   <li>태그 삭제</li>
  * </ul>
  */
 public interface TagDomainWriter {
@@ -19,5 +21,12 @@ public interface TagDomainWriter {
      *
      * @param dto 태그 도메인 정보
      */
-    TagDomainDto save(TagDomainDto dto);
+    void save(TagDto dto);
+
+    /**
+     * 태그 삭제를 위한 메서드
+     *
+     * @param tagId 태그 아이디
+     */
+    void delete(TagId tagId);
 }

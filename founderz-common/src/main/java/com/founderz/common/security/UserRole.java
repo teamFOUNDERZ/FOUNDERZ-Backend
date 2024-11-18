@@ -13,11 +13,6 @@ public enum UserRole {
         return roleName;
     }
 
-    public static boolean contains(final String aType) {
-        return Arrays.stream(UserRole.values())
-                .anyMatch(t -> t.name().equals(aType));
-    }
-
     UserRole(final String roleName) {
         this.roleName = roleName;
     }

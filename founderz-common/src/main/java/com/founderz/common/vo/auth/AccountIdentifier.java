@@ -16,10 +16,10 @@ public record AccountIdentifier(
     }
 
     public AccountId toAccountId() {
-        return new AccountId(identifier);
+        return AccountId.create(identifier);
     }
 
     public PhoneNumber toTelNumber() {
-        return new PhoneNumber(identifier);
+        return PhoneNumber.create(identifier);
     }
 }
