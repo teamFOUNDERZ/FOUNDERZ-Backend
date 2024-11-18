@@ -1,5 +1,6 @@
 package com.founderz.sms.application.impl;
 
+import com.founderz.common.exception.ServerException;
 import com.founderz.common.vo.user.PhoneNumber;
 import com.founderz.sms.application.SMSReadService;
 import com.founderz.sms.domain.presistence.SmsCertification;
@@ -61,10 +62,8 @@ class SMSReadServiceImpl implements SMSReadService {
 
         try {
             JSONObject obj = (JSONObject) coolsms.send(params);
-            //System.out.println(obj.toString() );
         } catch (CoolsmsException e) {
-            System.out.println(e.getMessage());
-            System.out.println(e.getCode());
+            throw new ServerException(e.getMessage());
         }
 
         smsCertification.createSmsCertification(tel.phoneNumber(), randomNum);
