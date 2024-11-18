@@ -38,9 +38,6 @@ public class InvestmentWriteServiceImpl implements InvestmentWriteService {
 
         writer.save(dto.initInvestmentDto(business.businessName(), investor.accountId(), investor.name(), investee.name()));
 
-<<<<<<< Updated upstream
-        eventPublisher.publishEvent(NoticeAddEvent.cre);
-=======
         eventPublisher.publishEvent(NoticeAddEvent.create(
                 NoticeType.INVESTMENT_REQUEST,
                 investee.userId(),
@@ -64,6 +61,5 @@ public class InvestmentWriteServiceImpl implements InvestmentWriteService {
         };
 
         writer.save(investment.changeInvestmentStatus(investmentStatus));
->>>>>>> Stashed changes
     }
 }
