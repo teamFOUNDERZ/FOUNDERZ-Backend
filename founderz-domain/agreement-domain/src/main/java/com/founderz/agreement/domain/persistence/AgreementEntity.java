@@ -55,7 +55,7 @@ class AgreementEntity {
     private Integer delinquentQuarter;
 
     @Column(nullable = false)
-    private Integer delinquentDamages;
+    private float delinquentDamages;
 
     @ElementCollection
     @Column(nullable = false)
@@ -65,7 +65,7 @@ class AgreementEntity {
     private String address;
 
     @Column(nullable = false, length = 6)
-    private String exponentName;
+    private String representativeName;
 
     @Column(nullable = false, length = 30)
     private String contact;
