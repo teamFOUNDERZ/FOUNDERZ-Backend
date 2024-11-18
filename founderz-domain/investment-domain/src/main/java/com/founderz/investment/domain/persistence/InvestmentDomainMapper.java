@@ -4,6 +4,8 @@ import com.founderz.internal.data.investment.InvestmentDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
+import java.util.Optional;
+
 import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
 import static org.mapstruct.ReportingPolicy.ERROR;
 
@@ -32,4 +34,8 @@ interface InvestmentDomainMapper {
     @Mapping(target = "contact", expression = "java(Contact.create(entity.getContact()))")
     @Mapping(target = "preferContractPeriod", expression = "java(PreferContractPeriod.create(entity.getPreferContractPeriod()))")
     InvestmentDto toDto(InvestmentEntity entity);
+
+    default Optional<InvestmentDto> toOptionalDto(Optional<InvestmentEntity> entity) {
+        return entity.map(this::toDto);
+    }
 }

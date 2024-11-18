@@ -42,4 +42,19 @@ public record InvestmentDto(
                 preferContractPeriod
         );
     }
+
+//    public InvestmentDto changeInvestmentStatus(InvestmentStatus investmentStatus) {
+//        return new InvestmentDto(
+//                investmentId,
+//                businessId,
+//                businessName,
+//                investorAccountId,
+//                investorName,
+//                investeeName,
+//                investmentStatus,
+//                investmentAmount,
+//                contact,
+//                preferContractPeriod
+//        );
+//    }
 }
