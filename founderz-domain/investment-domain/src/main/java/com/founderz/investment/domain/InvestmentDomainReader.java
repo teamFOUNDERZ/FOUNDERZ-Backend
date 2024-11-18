@@ -1,10 +1,12 @@
 package com.founderz.investment.domain;
 
 import com.founderz.common.vo.business.BusinessId;
+import com.founderz.common.vo.investment.InvestmentId;
 import com.founderz.common.vo.user.AccountId;
 import com.founderz.internal.data.investment.InvestmentDto;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * <p>바운디드 컨텍스트: Investment(투자)</p>
@@ -31,4 +33,11 @@ public interface InvestmentDomainReader {
      * @return 투자 목록
      */
     List<InvestmentDto> findAllBusinessIdIn(List<BusinessId> businessIds);
+
+    /**
+     * 투자 아이디로 투자 요청을 조회할 때 사용하는 메서드
+     *
+     * @return 투자 정보
+     */
+    Optional<InvestmentDto> findById(InvestmentId investmentId);
 }

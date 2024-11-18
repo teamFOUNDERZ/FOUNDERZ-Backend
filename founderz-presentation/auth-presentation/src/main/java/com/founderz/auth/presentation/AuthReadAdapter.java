@@ -43,4 +43,9 @@ class AuthReadAdapter implements AuthReadDocumentation {
                 ? ResponseEntity.status(HttpStatus.CONFLICT).build()
                 : ResponseEntity.ok().build();
     }
+
+    @GetMapping("/send")
+    public boolean sendSMS(@RequestParam PhoneNumber phoneNumber) {
+        return readService.sendSMS(phoneNumber);
+    }
 }

@@ -26,6 +26,14 @@ public interface AuthReadService {
     boolean isRegisteredAccount(AccountId accountId);
 
     /**
+     * 입력된 전화번호로 인증번호를 발송하는 메서드
+     *
+     * @param tel 발송할 전화번호
+     * @return 발송 성공 여부 (발송된 경우 true)
+     */
+    boolean sendSMS(PhoneNumber tel);
+
+    /**
      * 입력된 전화번호의 회원가입 여부 확인 메서드
      *
      * @param tel 확인할 전화번호

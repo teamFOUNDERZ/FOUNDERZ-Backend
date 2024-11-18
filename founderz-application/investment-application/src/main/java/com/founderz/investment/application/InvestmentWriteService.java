@@ -1,5 +1,6 @@
 package com.founderz.investment.application;
 
+import com.founderz.common.vo.investment.InvestmentId;
 import com.founderz.internal.data.investment.InvestmentDto;
 
 /**
@@ -21,5 +22,10 @@ public interface InvestmentWriteService {
      * @param dto 투자 요청을 위한 정보
      */
     void request(InvestmentDto dto);
+
+    /**
+     * 투자 아이디를 받아 투자의 상태를 변경하는 메서드
+     */
+    void changeStatus(InvestmentId investmentId);
 }
 
