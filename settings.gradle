@@ -43,4 +43,8 @@ include 'founderz-application:investment-application'
 findProject(':founderz-application:investment-application')?.name = 'investment-application'
 include 'founderz-presentation:investment-presentation'
 findProject(':founderz-presentation:investment-presentation')?.name = 'investment-presentation'
+include 'founderz-application:agreement-application'
+findProject(':founderz-application:agreement-application')?.name = 'agreement-application'
+include 'founderz-presentation:agreement-presentation'
+findProject(':founderz-presentation:agreement-presentation')?.name = 'agreement-presentation'
 
