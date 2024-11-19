@@ -1,6 +1,7 @@
 package com.founderz.investment.domain.persistence;
 
 import com.founderz.common.vo.business.BusinessId;
+import com.founderz.common.vo.investment.InvestmentId;
 import com.founderz.common.vo.user.AccountId;
 import com.founderz.internal.data.investment.InvestmentDto;
 import com.founderz.investment.domain.InvestmentDomainReader;
@@ -9,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -37,5 +39,11 @@ class InvestmentRepository implements InvestmentDomainReader, InvestmentDomainWr
                 .stream()
                 .map(mapper::toDto)
                 .toList();
+    }
+
+    @Override
+    public Optional<InvestmentDto> findById(final InvestmentId investmentId) {
+        final var entity = jpaRepository.findById(investmentId.investmentId());
+        return mapper.toOptionalDto(entity);
     }
 }

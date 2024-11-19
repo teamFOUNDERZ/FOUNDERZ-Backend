@@ -1,6 +1,8 @@
 package com.founderz.investment.application.impl;
 
 import com.founderz.business.application.BusinessReadService;
+import com.founderz.common.exception.DataNotFoundException;
+import com.founderz.common.vo.investment.InvestmentId;
 import com.founderz.internal.data.business.BusinessDto;
 import com.founderz.internal.data.investment.InvestmentDto;
 import com.founderz.internal.function.security.CurrentUser;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
@@ -30,5 +33,11 @@ public class InvestmentReadServiceImpl implements InvestmentReadService {
     @Override
     public List<InvestmentDto> getMyInvestment() {
         return reader.findAllByInvestorAccountId(currentUser.get().accountId());
+    }
+
+    @Override
+    public InvestmentDto getById(InvestmentId investmentId) {
+        return reader.findById(investmentId)
+                .orElseThrow(() -> new DataNotFoundException("투자 요청을 찾지 못했습니다."));
     }
 }

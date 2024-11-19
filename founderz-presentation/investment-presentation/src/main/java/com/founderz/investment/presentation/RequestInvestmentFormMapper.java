@@ -6,9 +6,9 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
-import static org.mapstruct.ReportingPolicy.ERROR;
+import static org.mapstruct.ReportingPolicy.IGNORE;
 
-@Mapper(componentModel = SPRING, unmappedTargetPolicy = ERROR)
+@Mapper(componentModel = SPRING, unmappedTargetPolicy = IGNORE)
 interface RequestInvestmentFormMapper {
     @Mapping(target = "investmentId", ignore = true)
     @Mapping(target = "businessId", expression = "java(form.businessId().toBusinessId())")

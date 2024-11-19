@@ -18,7 +18,7 @@ public record SecuredInvestmentId(
         return new SecuredInvestmentId(investmentId);
     }
 
-    public InvestmentId toinvestmentId() {
+    public InvestmentId toInvestmentId() {
         return InvestmentId.create(CryptoUtils.decrypt(investmentId));
     }
 }

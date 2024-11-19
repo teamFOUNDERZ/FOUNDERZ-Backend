@@ -1,12 +1,17 @@
 package com.founderz.investment.application.impl;
 
 import com.founderz.business.application.BusinessReadService;
+import com.founderz.common.exception.BadRequestException;
+import com.founderz.common.exception.DataNotFoundException;
+import com.founderz.common.vo.investment.InvestmentId;
+import com.founderz.common.vo.investment.InvestmentStatus;
 import com.founderz.common.vo.notice.NoticeContent;
 import com.founderz.common.vo.notice.NoticeType;
 import com.founderz.internal.data.investment.InvestmentDto;
 import com.founderz.internal.event.NoticeAddEvent;
 import com.founderz.internal.function.security.CurrentUser;
 import com.founderz.investment.application.InvestmentWriteService;
+import com.founderz.investment.domain.InvestmentDomainReader;
 import com.founderz.investment.domain.InvestmentDomainWriter;
 import com.founderz.user.application.UserReadService;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class InvestmentWriteServiceImpl implements InvestmentWriteService {
     private final InvestmentDomainWriter writer;
+    private final InvestmentDomainReader reader;
     private final CurrentUser currentUser;
     private final BusinessReadService businessReadService;
     private final UserReadService userReadService;
@@ -41,5 +47,19 @@ public class InvestmentWriteServiceImpl implements InvestmentWriteService {
                         business.businessName(),
                         dto.investmentAmount())
         )));
+    }
+
+    @Override
+    public void changeStatus(InvestmentId investmentId) {
+        final var investment = reader.findById(investmentId)
+                .orElseThrow(() -> new DataNotFoundException("투자을 찾지 못했습니다."));
+
+        final InvestmentStatus investmentStatus = switch (investment.investmentStatus().status()) {
+            case "WRITING", "REJECTED" -> InvestmentStatus.create("COMPLETE");
+            case "COMPLETE" -> InvestmentStatus.create("REJECTED");
+            default -> throw new BadRequestException("입력된 투자의 상태가 유효하지 않습니다.");
+        };
+
+        writer.save(investment.changeInvestmentStatus(investmentStatus));
     }
 }

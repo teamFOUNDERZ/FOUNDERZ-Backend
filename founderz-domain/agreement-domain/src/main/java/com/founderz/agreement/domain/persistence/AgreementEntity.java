@@ -3,8 +3,6 @@ package com.founderz.agreement.domain.persistence;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -27,10 +25,9 @@ class AgreementEntity {
     private Long id;
 
     @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private Status status;
+    private Long investmentId;
 
-    @Column(nullable = false, unique = true, length = 6)
+    @Column(nullable = false, length = 6)
     private String investorName;
 
     @Column(nullable = false, length = 6)
@@ -58,7 +55,7 @@ class AgreementEntity {
     private Integer delinquentQuarter;
 
     @Column(nullable = false)
-    private Integer delinquentDamages;
+    private float delinquentDamages;
 
     @ElementCollection
     @Column(nullable = false)
@@ -68,17 +65,11 @@ class AgreementEntity {
     private String address;
 
     @Column(nullable = false, length = 6)
-    private String exponentName;
+    private String representativeName;
 
     @Column(nullable = false, length = 30)
     private String contact;
 
     @Column(nullable = false, length = 50)
     private String signatureImageUrl;
-
-    enum Status {
-        PROGRESSING,
-        COMPLETE,
-        REJECTED
-    }
 }

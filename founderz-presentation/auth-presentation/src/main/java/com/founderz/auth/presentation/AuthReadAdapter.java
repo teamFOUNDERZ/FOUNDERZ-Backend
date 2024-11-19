@@ -16,19 +16,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 class AuthReadAdapter implements AuthReadDocumentation {
     private final AuthReadService readService;
 
-    @GetMapping("/phone-number/validation")
-    public ResponseEntity<Void> validateTelNumber(
-            @RequestParam("phone-number") PhoneNumber phoneNumber
-    ) {
-        final var result = readService.isRegisteredPhoneNumber(phoneNumber);
-        return getResponse(result);
-    }
-
     @GetMapping("/account-id/validation")
     public ResponseEntity<Void> validateAccountId(
             @RequestParam("account-id") AccountId accountId
     ) {
         final var result = readService.isRegisteredAccount(accountId);
+        return getResponse(result);
+    }
+
+    @GetMapping("/send")
+    public ResponseEntity<Void> sendSMS(@RequestParam PhoneNumber phoneNumber) {
+        final var result = readService.sendSMS(phoneNumber);
+
+        return getResponse(result);
+    }
+
+    @GetMapping("/verify")
+    public ResponseEntity<Void> isVerify(@RequestParam PhoneNumber phoneNumber, @RequestParam String randomNum) {
+        final var result =  readService.isVerify(phoneNumber, randomNum);
+
         return getResponse(result);
     }
 
