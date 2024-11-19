@@ -3,6 +3,7 @@ package com.founderz.userinterest.domain;
 import com.founderz.common.vo.tag.TagId;
 import com.founderz.common.vo.user.UserId;
 import com.founderz.internal.data.userinterest.UserInterestDto;
+import com.founderz.internal.function.Interest.InterestReader;
 
 import java.util.List;
 
@@ -18,15 +19,7 @@ import java.util.List;
  *   <li>관심사 존재여부 조회</li>
  * </ul>
  */
-public interface UserInterestDomainReader {
-    /**
-     * 현재 사용자의 관심사 목록 조회를 위한 메서드
-     *
-     * @param userId 사용자 아이디
-     * @return 현재 사용자의 관심사 목록
-     */
-    List<UserInterestDto> findAllByUserId(UserId userId);
-
+public interface UserInterestDomainReader extends InterestReader {
     /**
      * 관심사 존재여부 조회를 위한 메서드
      *
