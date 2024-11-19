@@ -5,6 +5,8 @@ import com.founderz.internal.event.NoticeAddEvent;
 import com.founderz.notice.application.NoticeWriteService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.event.TransactionPhase;
 import org.springframework.transaction.event.TransactionalEventListener;
 
@@ -13,6 +15,7 @@ import org.springframework.transaction.event.TransactionalEventListener;
 class NoticeAddEventHandler {
     private final NoticeWriteService noticeWriteService;
 
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
     public void handle(NoticeAddEvent noticeAddEvent) {
         noticeWriteService.save(NoticeDto.create(
