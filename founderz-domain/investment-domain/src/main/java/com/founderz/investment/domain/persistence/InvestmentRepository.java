@@ -2,6 +2,7 @@ package com.founderz.investment.domain.persistence;
 
 import com.founderz.common.vo.business.BusinessId;
 import com.founderz.common.vo.investment.InvestmentId;
+import com.founderz.common.vo.investment.InvestmentStatus;
 import com.founderz.common.vo.user.AccountId;
 import com.founderz.internal.data.investment.InvestmentDto;
 import com.founderz.investment.domain.InvestmentDomainReader;
@@ -35,7 +36,7 @@ class InvestmentRepository implements InvestmentDomainReader, InvestmentDomainWr
 
     @Override
     public List<InvestmentDto> findAllBusinessIdIn(List<BusinessId> businessIds) {
-        return jpaRepository.findAllByBusinessIdIn(businessIds.stream().map(BusinessId::businessId).toList())
+        return jpaRepository.findAllByStatusAndBusinessIdIn(InvestmentEntity.Status.WRITING, businessIds.stream().map(BusinessId::businessId).toList())
                 .stream()
                 .map(mapper::toDto)
                 .toList();
