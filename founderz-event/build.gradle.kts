@@ -1,6 +1,7 @@
 dependencies {
     api(project(":founderz-event:userinterest-event"))
     api(project(":founderz-event:sector-event"))
+    api(project(":founderz-event:notice-event"))
 }
 
 val txVersion = "5.3.30";
