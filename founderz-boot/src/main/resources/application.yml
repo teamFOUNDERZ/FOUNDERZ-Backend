@@ -13,7 +13,6 @@ spring:
     url: ${MYSQL_URL}
     username: ${MYSQL_USER}
     password: ${MYSQL_PASSWORD}
-
   jpa:
     open-in-view: false
     hibernate:
@@ -24,6 +23,10 @@ spring:
 
   jackson:
     property-naming-strategy: SNAKE_CASE
+  data:
+    redis:
+      host: redis.xquare.app
+      port: 6379
 
 server:
   port: 8080

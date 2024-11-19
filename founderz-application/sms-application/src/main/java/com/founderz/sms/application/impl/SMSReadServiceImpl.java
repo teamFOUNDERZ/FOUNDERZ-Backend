@@ -31,7 +31,7 @@ class SMSReadServiceImpl implements SMSReadService {
     private String createRandomNumber() {
         Random rand = new Random();
         String randomNum = "";
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 6; i++) {
             String random = Integer.toString(rand.nextInt(10));
             randomNum += random;
         }
@@ -45,7 +45,7 @@ class SMSReadServiceImpl implements SMSReadService {
         params.put("type", "SMS");
         params.put("app_version", "test app 1.2");
         params.put("to", to);
-        params.put("text", randomNum + "수정 쌉 가능이네");
+        params.put("파운더즈 본인확인 인증번호\n[", randomNum + "]");
         return params;
     }
 

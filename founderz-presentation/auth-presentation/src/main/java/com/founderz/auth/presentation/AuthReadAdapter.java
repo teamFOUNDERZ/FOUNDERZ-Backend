@@ -25,14 +25,14 @@ class AuthReadAdapter implements AuthReadDocumentation {
     }
 
     @GetMapping("/send")
-    public ResponseEntity<Void> sendSMS(@RequestParam PhoneNumber phoneNumber) {
+    public ResponseEntity<Void> sendSMS(@RequestParam("phone-number") PhoneNumber phoneNumber) {
         final var result = readService.sendSMS(phoneNumber);
 
         return getResponse(result);
     }
 
     @GetMapping("/verify")
-    public ResponseEntity<Void> isVerify(@RequestParam PhoneNumber phoneNumber, @RequestParam String randomNum) {
+    public ResponseEntity<Void> isVerify(@RequestParam("phone-number") PhoneNumber phoneNumber, @RequestParam("random-number") String randomNum) {
         final var result =  readService.isVerify(phoneNumber, randomNum);
 
         return getResponse(result);
