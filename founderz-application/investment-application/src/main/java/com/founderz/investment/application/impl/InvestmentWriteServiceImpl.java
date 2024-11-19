@@ -42,14 +42,14 @@ public class InvestmentWriteServiceImpl implements InvestmentWriteService {
                 NoticeType.INVESTMENT_REQUEST,
                 investee.userId(),
                 NoticeContent.create(String.format(
-                        "%s님이 \"%s\"에 %l원 투자를 원하고 있어요.",
+                        "%s님이 \"%s\"에 %,d원 투자를 원하고 있어요.",
                         investor.name(),
                         business.businessName(),
-                        dto.investmentAmount())
-        )));
+                        dto.investmentAmount().investmentAmount()
+        ))));
     }
 
-    @Override
+    @Override   
     public void changeStatus(InvestmentId investmentId) {
         final var investment = reader.findById(investmentId)
                 .orElseThrow(() -> new DataNotFoundException("투자을 찾지 못했습니다."));
