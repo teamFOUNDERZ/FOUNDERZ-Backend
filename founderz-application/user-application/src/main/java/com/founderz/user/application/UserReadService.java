@@ -2,6 +2,7 @@ package com.founderz.user.application;
 
 import com.founderz.common.vo.user.AccountId;
 import com.founderz.internal.data.user.UserDto;
+import com.founderz.internal.data.user.UserWithInterestsDto;
 
 import java.util.List;
 
@@ -23,4 +24,6 @@ public interface UserReadService {
      * @return 유저 정보
      */
     UserDto getByAccountId(AccountId accountId);
+
+    UserWithInterestsDto getCurrentUserInfo();
 }

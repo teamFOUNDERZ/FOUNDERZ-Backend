@@ -30,6 +30,7 @@ abstract class RegisterFormMapper {
     @Mapping(target = "userId", ignore = true)
     @Mapping(target = "accountId", source = "accountId")
     @Mapping(target = "name", source = "name")
+    @Mapping(target = "myMoney", ignore = true)
     @Mapping(target = "type", source = "type")
     @Mapping(target = "phoneNumber", source = "phoneNumber")
     @Mapping(target = "securedPassword", expression = "java(SecuredPassword.create(passwordEncoder.encode(form.password())))")

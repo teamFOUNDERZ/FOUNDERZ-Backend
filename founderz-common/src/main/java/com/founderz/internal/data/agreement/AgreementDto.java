@@ -15,6 +15,7 @@ import com.founderz.common.vo.investment.Contact;
 import com.founderz.common.vo.investment.InvestmentId;
 import com.founderz.common.vo.investment.PreferContractPeriod;
 import com.founderz.common.vo.user.AccountName;
+import com.founderz.internal.data.repayment.RepaymentDto;
 
 import java.util.List;
 

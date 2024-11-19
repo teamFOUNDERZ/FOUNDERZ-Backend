@@ -38,18 +38,15 @@ public class InvestmentWriteServiceImpl implements InvestmentWriteService {
 
         writer.save(dto.initInvestmentDto(business.businessName(), investor.accountId(), investor.name(), investee.name()));
 
-<<<<<<< Updated upstream
-        eventPublisher.publishEvent(NoticeAddEvent.cre);
-=======
         eventPublisher.publishEvent(NoticeAddEvent.create(
                 NoticeType.INVESTMENT_REQUEST,
                 investee.userId(),
                 NoticeContent.create(String.format(
-                        "%s님이 \"%s\"에 %l원 투자를 원하고 있어요.",
+                        "%s님이 \"%s\"에 %,d원 투자를 원하고 있어요.",
                         investor.name(),
                         business.businessName(),
-                        dto.investmentAmount())
-        )));
+                        dto.investmentAmount().investmentAmount()
+        ))));
     }
 
     @Override
@@ -64,6 +61,5 @@ public class InvestmentWriteServiceImpl implements InvestmentWriteService {
         };
 
         writer.save(investment.changeInvestmentStatus(investmentStatus));
->>>>>>> Stashed changes
     }
 }
