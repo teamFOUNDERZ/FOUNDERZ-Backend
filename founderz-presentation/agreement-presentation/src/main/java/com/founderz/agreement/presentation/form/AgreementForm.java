@@ -7,6 +7,7 @@ import com.founderz.common.vo.areement.DepositDay;
 import com.founderz.common.vo.areement.FinallyContractPeriod;
 import com.founderz.common.vo.areement.Profit;
 import com.founderz.common.vo.areement.RepaymentDelayDay;
+import com.founderz.common.vo.areement.SecuredAgreementId;
 import com.founderz.common.vo.areement.SignatureImageUrl;
 import com.founderz.common.vo.areement.SpecialContractMatters;
 import com.founderz.common.vo.business.InvestmentAmount;
@@ -14,10 +15,12 @@ import com.founderz.common.vo.investment.Contact;
 import com.founderz.common.vo.investment.PreferContractPeriod;
 import com.founderz.common.vo.investment.SecuredInvestmentId;
 import com.founderz.common.vo.user.AccountName;
+import jakarta.annotation.Nullable;
 
 import java.util.List;
 
 public record AgreementForm(
+        @Nullable SecuredAgreementId agreementId,
         SecuredInvestmentId investmentId,
         AccountName investorName,
         AccountName investeeName,

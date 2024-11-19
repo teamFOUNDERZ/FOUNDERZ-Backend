@@ -25,7 +25,10 @@ class SectorEntity {
 }
 
 record SectorEntityId(
+        @Column(name = "business_id", nullable = false)
         Long businessId,
+
+        @Column(name = "tag_id", nullable = false)
         Long tagId
 ) implements Serializable {
     public static SectorEntityId create(Long businessId, Long tagId) {
