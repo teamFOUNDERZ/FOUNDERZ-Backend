@@ -49,7 +49,7 @@ public class InvestmentWriteServiceImpl implements InvestmentWriteService {
         ))));
     }
 
-    @Override   
+    @Override
     public void changeStatus(InvestmentId investmentId) {
         final var investment = reader.findById(investmentId)
                 .orElseThrow(() -> new DataNotFoundException("투자을 찾지 못했습니다."));
