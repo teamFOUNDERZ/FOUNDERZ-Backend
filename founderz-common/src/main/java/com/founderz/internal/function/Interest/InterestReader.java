@@ -13,5 +13,4 @@ public interface InterestReader {
      * @return 현재 사용자의 관심사 목록
      */
     List<UserInterestDto> findAllByUserId(UserId userId);
-
 }
