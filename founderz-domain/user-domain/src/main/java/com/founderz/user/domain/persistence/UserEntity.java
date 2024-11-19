@@ -29,6 +29,9 @@ class UserEntity {
     private String name;
 
     @Column(nullable = false)
+    private Long myMoney;
+
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Type type;
 
