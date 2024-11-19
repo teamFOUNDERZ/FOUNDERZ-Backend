@@ -3,4 +3,5 @@ dependencies {
     implementation(project(":founderz-application:investment-application"))
     implementation(project(":founderz-application:user-application"))
     implementation(project(":founderz-application:business-application"))
+    implementation(project(":founderz-application:repayment-application"))
 }
