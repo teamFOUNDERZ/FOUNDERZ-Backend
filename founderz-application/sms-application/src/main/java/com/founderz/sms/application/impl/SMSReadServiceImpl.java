@@ -68,7 +68,7 @@ class SMSReadServiceImpl implements SMSReadService {
 
         smsCertification.createSmsCertification(tel.phoneNumber(), randomNum);
 
-        return true;
+        return false;
     }
 
     @Override
