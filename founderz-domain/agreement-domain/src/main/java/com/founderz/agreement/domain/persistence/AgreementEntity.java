@@ -24,7 +24,7 @@ class AgreementEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private Long investmentId;
 
     @Column(nullable = false, length = 6)

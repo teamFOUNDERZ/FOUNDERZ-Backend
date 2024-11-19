@@ -4,8 +4,6 @@ import com.founderz.common.vo.user.AccountId;
 import com.founderz.internal.data.user.UserDto;
 import com.founderz.internal.data.user.UserWithInterestsDto;
 
-import java.util.List;
-
 /**
  * <p>바운디드 컨텍스트: User(사용자)</p>
  * <p>책임: 사용자 읽기 작업</p>
