@@ -6,28 +6,36 @@ import com.founderz.business.application.BusinessReadService;
 import com.founderz.common.vo.notice.NoticeContent;
 import com.founderz.common.vo.notice.NoticeType;
 import com.founderz.internal.data.agreement.AgreementDto;
+import com.founderz.internal.data.repayment.RepaymentDto;
 import com.founderz.internal.event.NoticeAddEvent;
 import com.founderz.investment.application.InvestmentReadService;
 import com.founderz.investment.application.InvestmentWriteService;
+import com.founderz.repayment.application.RepaymentWriteService;
 import com.founderz.user.application.UserReadService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 @RequiredArgsConstructor
 public class AgreementWriteServiceImpl implements AgreementWriteService {
     private final AgreementDomainWriter writer;
+    private final RepaymentWriteService repaymentWriteService;
     private final InvestmentWriteService investmentWriteService;
     private final InvestmentReadService investmentReadService;
     private final UserReadService userReadService;
     private final ApplicationEventPublisher eventPublisher;
     private final BusinessReadService businessReadService;
 
-    public void write(AgreementDto dto) {
+    @Override
+    public void write(final AgreementDto dto, final List<RepaymentDto> repayments) {
         writer.save(dto);
+        repaymentWriteService.saveAll(repayments);
+
         final var investment = investmentReadService.getById(dto.investmentId());
         final var business = businessReadService.getById(investment.businessId());
         final var investor = userReadService.getByAccountId(investment.investorAccountId());

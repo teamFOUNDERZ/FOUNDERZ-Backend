@@ -1,9 +1,27 @@
 package com.founderz.agreement.presentation;
 
+import com.founderz.agreement.presentation.form.AgreementForm;
 import com.founderz.agreement.presentation.form.WriteAgreementForm;
+import com.founderz.common.vo.areement.Address;
+import com.founderz.common.vo.areement.AgreementId;
+import com.founderz.common.vo.areement.DelinquentDamages;
+import com.founderz.common.vo.areement.DelinquentQuarter;
+import com.founderz.common.vo.areement.DepositDay;
+import com.founderz.common.vo.areement.FinallyContractPeriod;
+import com.founderz.common.vo.areement.Profit;
+import com.founderz.common.vo.areement.RepaymentDelayDay;
+import com.founderz.common.vo.areement.SignatureImageUrl;
+import com.founderz.common.vo.areement.SpecialContractMatters;
+import com.founderz.common.vo.business.InvestmentAmount;
+import com.founderz.common.vo.investment.Contact;
+import com.founderz.common.vo.investment.InvestmentId;
+import com.founderz.common.vo.investment.PreferContractPeriod;
+import com.founderz.common.vo.user.AccountName;
 import com.founderz.internal.data.agreement.AgreementDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+
+import java.util.List;
 
 import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
 import static org.mapstruct.ReportingPolicy.ERROR;
@@ -27,5 +45,5 @@ interface WriteAgreementFormMapper {
     @Mapping(target = "representativeName", source = "representativeName")
     @Mapping(target = "contact", source = "contact")
     @Mapping(target = "signatureImageUrl", source = "signatureImageUrl")
-    AgreementDto toDto(WriteAgreementForm form);
+    AgreementDto toDto(AgreementForm form);
 }

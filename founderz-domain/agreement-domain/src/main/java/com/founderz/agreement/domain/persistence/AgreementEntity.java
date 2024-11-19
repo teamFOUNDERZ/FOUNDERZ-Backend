@@ -27,7 +27,7 @@ class AgreementEntity {
     @Column(nullable = false)
     private Long investmentId;
 
-    @Column(nullable = false, unique = true, length = 6)
+    @Column(nullable = false, length = 6)
     private String investorName;
 
     @Column(nullable = false, length = 6)

@@ -1,6 +1,9 @@
 package com.founderz.agreement.application;
 
 import com.founderz.internal.data.agreement.AgreementDto;
+import com.founderz.internal.data.repayment.RepaymentDto;
+
+import java.util.List;
 
 /**
  * <p>바운디드 컨텍스트: Agreement(자금 투자 계약서)</p>
@@ -20,5 +23,5 @@ public interface AgreementWriteService {
      *
      * @param dto 자금 투자 계약서 작성을 위한 정보
      */
-    void write(AgreementDto dto);
+    void write(final AgreementDto dto, final List<RepaymentDto> repayments);
 }
