@@ -1,1 +1,1 @@
-extra["useMySQL"] = true
+extra["useRedis"] = true
