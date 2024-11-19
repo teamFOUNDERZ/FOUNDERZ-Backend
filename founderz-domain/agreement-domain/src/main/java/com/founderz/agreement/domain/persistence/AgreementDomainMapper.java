@@ -1,8 +1,11 @@
 package com.founderz.agreement.domain.persistence;
 
 import com.founderz.internal.data.agreement.AgreementDto;
+import com.founderz.internal.data.business.BusinessDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+
+import java.util.Optional;
 
 import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
 import static org.mapstruct.ReportingPolicy.ERROR;
@@ -46,4 +49,8 @@ interface AgreementDomainMapper {
     @Mapping(target = "contact", expression = "java(Contact.create(entity.getContact()))")
     @Mapping(target = "signatureImageUrl", expression = "java(SignatureImageUrl.create(entity.getSignatureImageUrl()))")
     AgreementDto toDto(AgreementEntity entity);
+
+    default Optional<AgreementDto> toOptionalDto(Optional<AgreementEntity> entity) {
+        return entity.map(this::toDto);
+    }
 }
