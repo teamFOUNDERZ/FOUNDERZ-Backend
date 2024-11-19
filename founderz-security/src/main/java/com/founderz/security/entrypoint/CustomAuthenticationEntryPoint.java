@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
-import static org.springframework.http.HttpStatus.FORBIDDEN;
+import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @Primary
 @Component
@@ -21,20 +21,20 @@ import static org.springframework.http.HttpStatus.FORBIDDEN;
 class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint {
     private final ObjectMapper objectMapper;
 
-    private static final int FORBIDDEN_VALUE = FORBIDDEN.value();
-    private static final String ERROR_MESSAGE = "Access Denied: 접근할 수 없습니다.";
+    private static final int NOT_FOUND_VALUE = NOT_FOUND.value();
+    private static final String ERROR_MESSAGE = "잘못된 요청입니다.";
 
     @Override
     public void commence(final HttpServletRequest request, final HttpServletResponse response, final AuthenticationException authException) throws IOException {
-        response.setStatus(FORBIDDEN_VALUE);
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         
         final var errorBody = ErrorResponse.create(
-                FORBIDDEN_VALUE,
+                NOT_FOUND_VALUE,
                 ERROR_MESSAGE,
                 request.getRequestURI()
         );
-        
-        objectMapper.writeValue(response.getWriter(), errorBody);
+
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write(objectMapper.writeValueAsString(errorBody));
     }
 }
