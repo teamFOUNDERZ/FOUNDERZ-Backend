@@ -45,7 +45,7 @@ class SMSReadServiceImpl implements SMSReadService {
         params.put("type", "SMS");
         params.put("app_version", "test app 1.2");
         params.put("to", to);
-        params.put("파운더즈 본인확인 인증번호\n[", randomNum + "]");
+        params.put("text", "파운더즈 본인확인 인증번호\n[" + randomNum + "]");
         return params;
     }
 
@@ -61,7 +61,7 @@ class SMSReadServiceImpl implements SMSReadService {
         HashMap<String, String> params = makeParams(tel.phoneNumber(), randomNum);
 
         try {
-            JSONObject obj = (JSONObject) coolsms.send(params);
+            coolsms.send(params);
         } catch (CoolsmsException e) {
             throw new ServerException(e.getMessage());
         }
