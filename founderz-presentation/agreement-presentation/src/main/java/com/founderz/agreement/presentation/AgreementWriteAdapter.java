@@ -15,12 +15,16 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 class AgreementWriteAdapter implements AgreementWriteDocumentation {
     private final AgreementWriteService writeService;
     private final WriteAgreementFormMapper writeAgreementFormMapper;
+    private final RepaymentFormMapper repaymentFormMapper;
 
     @PostMapping("/write")
     @ResponseStatus(HttpStatus.CREATED)
     public void write(@RequestBody WriteAgreementForm form) {
-        final var internalDto = writeAgreementFormMapper.toDto(form);
+        final var internalDto = writeAgreementFormMapper.toDto(form.agreementForm());
+        final var internalRepayment = form.repaymentForms().stream()
+                        .map(repaymentFormMapper::toDto)
+                        .toList();
 
-        writeService.write(internalDto);
+        writeService.write(internalDto, internalRepayment);
     }
 }

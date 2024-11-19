@@ -1,7 +1,6 @@
-package com.founderz.internal.data.agreement;
+package com.founderz.agreement.presentation.form;
 
 import com.founderz.common.vo.areement.Address;
-import com.founderz.common.vo.areement.AgreementId;
 import com.founderz.common.vo.areement.DelinquentDamages;
 import com.founderz.common.vo.areement.DelinquentQuarter;
 import com.founderz.common.vo.areement.DepositDay;
@@ -12,16 +11,14 @@ import com.founderz.common.vo.areement.SignatureImageUrl;
 import com.founderz.common.vo.areement.SpecialContractMatters;
 import com.founderz.common.vo.business.InvestmentAmount;
 import com.founderz.common.vo.investment.Contact;
-import com.founderz.common.vo.investment.InvestmentId;
 import com.founderz.common.vo.investment.PreferContractPeriod;
+import com.founderz.common.vo.investment.SecuredInvestmentId;
 import com.founderz.common.vo.user.AccountName;
-import com.founderz.internal.data.repayment.RepaymentDto;
 
 import java.util.List;
 
-public record AgreementDto(
-        AgreementId agreementId,
-        InvestmentId investmentId,
+public record AgreementForm(
+        SecuredInvestmentId investmentId,
         AccountName investorName,
         AccountName investeeName,
         InvestmentAmount investmentAmount,

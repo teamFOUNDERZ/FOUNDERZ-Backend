@@ -1,5 +1,6 @@
 package com.founderz.investment.application;
 
+import com.founderz.common.vo.investment.InvestmentId;
 import com.founderz.internal.data.investment.InvestmentDto;
 
 import java.util.List;
@@ -30,4 +31,11 @@ public interface InvestmentReadService {
      * @return 내 투자 목록
      */
     List<InvestmentDto> getMyInvestment();
+
+    /**
+     * 아이디를 통한 투자 조회를 위한 메서드
+     *
+     * @return 내 투자 정
+     */
+    InvestmentDto getById(InvestmentId investmentId);
 }
