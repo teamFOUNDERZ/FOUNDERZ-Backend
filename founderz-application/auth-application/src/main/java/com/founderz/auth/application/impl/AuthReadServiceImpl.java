@@ -1,6 +1,7 @@
 package com.founderz.auth.application.impl;
 
 import com.founderz.auth.application.AuthReadService;
+import com.founderz.common.exception.DuplicateException;
 import com.founderz.common.vo.user.AccountId;
 import com.founderz.common.vo.user.PhoneNumber;
 import com.founderz.sms.application.SMSReadService;
@@ -22,12 +23,11 @@ class AuthReadServiceImpl implements AuthReadService {
     }
 
     @Override
-    public boolean isRegisteredPhoneNumber(final PhoneNumber tel) {
-        return reader.existsByTel(tel);
-    }
-
-    @Override
     public boolean sendSMS(final PhoneNumber tel) {
+        if(reader.existsByTel(tel)) {
+            throw new DuplicateException("이미 가입된 전화번호입니다.");
+        }
+
         return smsService.send(tel);
     }
 

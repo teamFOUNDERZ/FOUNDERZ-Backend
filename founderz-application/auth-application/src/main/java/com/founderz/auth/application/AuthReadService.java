@@ -34,13 +34,11 @@ public interface AuthReadService {
     boolean sendSMS(PhoneNumber tel);
 
     /**
-     * 입력된 전화번호의 회원가입 여부 확인 메서드
+     * 입력된 인증번호를 검증하는 메서드
      *
-     * @param tel 확인할 전화번호
-     * @return 회원가입 여부 (가입된 경우 true)
+     * @param tel 겅증할 인증번호
+     * @return 유효 여부 (유효한 경우 true)
      */
-    boolean isRegisteredPhoneNumber(PhoneNumber tel);
-
     boolean isVerify(PhoneNumber tel, String randomNum);
 }
 
