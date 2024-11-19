@@ -1,5 +1,8 @@
 package com.founderz.repayment.domain.persistence;
 
+import com.founderz.common.vo.investment.InvestmentId;
+import com.founderz.common.vo.user.AccountId;
+import com.founderz.internal.data.business.BusinessDto;
 import com.founderz.internal.data.repayment.RepaymentDto;
 import com.founderz.repayment.domain.RepaymentDomainReader;
 import com.founderz.repayment.domain.RepaymentDomainWriter;
@@ -21,5 +24,12 @@ class RepaymentRepository implements RepaymentDomainReader, RepaymentDomainWrite
                 .toList();
 
         jpaRepository.saveAll(entity);
+    }
+
+    @Override
+    public List<RepaymentDto> findAllByInvestmentId(final InvestmentId investmentId) {
+        return jpaRepository.findAllByInvestmentId(investmentId.investmentId()).stream()
+                .map(mapper::toDto)
+                .toList();
     }
 }
