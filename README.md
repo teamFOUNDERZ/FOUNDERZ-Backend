@@ -1,5 +1,7 @@
-![image](https://github.com/user-attachments/assets/2800382f-d37a-49ba-8b83-2ca095dfc231)
+![image](https://github.com/user-attachments/assets/b78a8872-1209-46ec-9868-6067057b04d0)
 #### Software Future & Dream Challenge 2024, 2024 빛가람 에너지밸리 소프트웨어 작품 경진대회 출품작.- 파운더즈FOUNDERZ
+
+![image](https://github.com/user-attachments/assets/2800382f-d37a-49ba-8b83-2ca095dfc231)
 
 ## 개요
 청년 창업가들이 직면하는 여러 문제를 해결하고, 성공적인 창업을 위한 자원과 지원을 제공하는 종합 플랫폼
